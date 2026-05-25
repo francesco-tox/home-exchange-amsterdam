@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Amsterdam canal-side attic apartment available for home exchange. Characterful, bright, warm interiors with terrace and elevator access.">
-  <meta name="theme-color" content="#faf9f7">
-  <title>Amsterdam Home Exchange</title>
+  <meta name="theme-color" content="#f5f3f0">
+  <title>Amsterdam Home Exchange | Canal-Side Attic Apartment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,7 +22,7 @@
       <div class="logo">
         <a href="index.html">Amsterdam Home</a>
       </div>
-      <button class="nav-toggle" id="navToggle">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
         <span></span>
         <span></span>
         <span></span>
@@ -38,9 +41,13 @@
        HERO SECTION
        ============================================ -->
   <section class="hero">
+    <div class="hero-image">
+      <img src="photos/hero.jpg" alt="Amsterdam attic apartment with white beams and natural light">
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Amsterdam Canal-Side Attic Apartment</h1>
-      <p class="hero-subtitle">A bright, characterful home in central Amsterdam, with warm interiors, elevator access, terrace and canal-side atmosphere.</p>
+      <p class="hero-subtitle">A bright, characterful home in central Amsterdam for meaningful home exchanges</p>
     </div>
   </section>
 
@@ -50,19 +57,27 @@
   <main id="main">
 
     <!-- ============================================
-         WELCOME / OVERVIEW SECTION
+         WELCOME / INTRO SECTION
          ============================================ -->
-    <section class="welcome">
+    <section class="welcome-section">
       <div class="container">
-        <h2>Welcome</h2>
-        <div class="welcome-text">
-          <!-- EDIT: Replace with your own welcome text -->
-          <p>
-            This characterful attic apartment in central Amsterdam is a warm, curated home perfect for a meaningful home exchange experience. Located near the Jordaan, with views over the canals, it combines modern comfort with authentic Amsterdam charm. The apartment features elegant, gallery-style interiors with natural light, dark parquet floors, and carefully curated details. Ideal for one person or a couple seeking an authentic Amsterdam base with all the modern conveniences.
-          </p>
-          <p>
-            The building offers elevator access, making it easily accessible. The separate bedroom, open living/dining/kitchen area, and private terrace create a perfect balance of intimacy and social space. Whether you're exploring Amsterdam's museums, cycling through the neighbourhoods, or simply enjoying the canal-side atmosphere from your terrace, this is your home away from home.
-          </p>
+        <div class="welcome-grid">
+          <div class="welcome-text">
+            <h2>Welcome</h2>
+            <!-- EDIT: Replace with your own welcome text -->
+            <p>
+              This characterful attic apartment in central Amsterdam is a warm, curated home perfect for a meaningful home exchange experience. Located near the Jordaan, with views over the canals, it combines modern comfort with authentic Amsterdam charm.
+            </p>
+            <p>
+              The apartment features elegant, gallery-style interiors with natural light, dark parquet floors, and carefully curated details. Ideal for one person or a couple seeking an authentic Amsterdam base.
+            </p>
+          </div>
+          <div class="welcome-photos">
+            <div class="photo-strip">
+              <img src="photos/living-01.jpg" alt="Bright living room with natural light" class="photo-1">
+              <img src="photos/terrace-01.jpg" alt="Private terrace with city views" class="photo-2">
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -72,49 +87,58 @@
          ============================================ -->
     <section class="highlights-section">
       <div class="container">
-        <h2>Apartment Highlights</h2>
+        <h2>At a Glance</h2>
         <div class="highlights">
           
           <div class="highlight-item">
-            <h3>Central Amsterdam Location</h3>
-            <p>Near the Jordaan, walking distance to canals, cafés, markets, and independent shops. Perfect for exploring the authentic heart of Amsterdam.</p>
+            <div class="highlight-icon">📍</div>
+            <h3>Central Amsterdam</h3>
+            <p>Near the Jordaan, walking distance to canals, cafés, markets, and independent shops.</p>
           </div>
 
           <div class="highlight-item">
+            <div class="highlight-icon">🛗</div>
             <h3>Elevator Access</h3>
-            <p>The building features an elevator, making it easy and convenient to access the apartment from street level.</p>
+            <p>Easy access to the apartment from street level with the building's elevator.</p>
           </div>
 
           <div class="highlight-item">
-            <h3>Bright Attic Apartment</h3>
-            <p>Flooded with natural light through multiple windows. White beams, sloped ceilings, and warm parquet create authentic Amsterdam character.</p>
+            <div class="highlight-icon">☀️</div>
+            <h3>Bright Attic Space</h3>
+            <p>Flooded with natural light through multiple windows, white beams, sloped ceilings.</p>
           </div>
 
           <div class="highlight-item">
+            <div class="highlight-icon">🛏️</div>
             <h3>Separate Bedroom</h3>
-            <p>A dedicated, comfortable bedroom provides privacy and a peaceful retreat from the open living spaces.</p>
+            <p>Private, comfortable bedroom with peaceful retreat from the open living areas.</p>
           </div>
 
           <div class="highlight-item">
+            <div class="highlight-icon">🌿</div>
             <h3>Private Terrace</h3>
-            <p>An outdoor space to enjoy the Amsterdam air, morning coffee, or evening drinks with a view over the neighborhood.</p>
+            <p>Outdoor space to enjoy Amsterdam air, morning coffee, or evening drinks with a view.</p>
           </div>
 
           <div class="highlight-item">
-            <h3>Warm, Curated Interiors</h3>
-            <p>Modern-chic, gallery-style design with carefully selected furniture and artworks. A home that feels both refined and lived-in.</p>
+            <div class="highlight-icon">👥</div>
+            <h3>One or Two Guests</h3>
+            <p>Ideal for a solo traveler or couple. Comfortable layout without feeling oversized.</p>
           </div>
 
-          <div class="highlight-item">
-            <h3>Perfect for One or Two</h3>
-            <p>Ideal for a solo traveler or couple. The layout offers comfort without feeling oversized or difficult to manage.</p>
-          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="highlight-item">
-            <h3>Excellent Base for Exploring</h3>
-            <p>Close to public transport, cycling routes, museums, galleries, restaurants, and everything Amsterdam has to offer.</p>
-          </div>
-
+    <!-- ============================================
+         CALL-TO-ACTION SECTION
+         ============================================ -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Explore the Apartment</h2>
+          <p>View the full photo gallery to discover every detail of this characterful home.</p>
+          <a href="gallery.html" class="cta-button">View Gallery</a>
         </div>
       </div>
     </section>
@@ -125,7 +149,9 @@
        FOOTER
        ============================================ -->
   <footer>
-    <p>&copy; 2025 Amsterdam Home Exchange. Privacy-conscious. No rental platform.</p>
+    <div class="footer-content">
+      <p>&copy; 2025 Amsterdam Home Exchange. Privacy-conscious. No rental platform.</p>
+    </div>
   </footer>
 
   <!-- ============================================

@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let galleryItems = [];
   let currentImageIndex = 0;
+  let allLoadedImages = [];
 
   /* ============================================
      LOAD PHOTOS FROM /photos FOLDER
@@ -21,35 +22,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
   async function loadGalleryPhotos() {
     try {
-      // Try to fetch the photos directory listing
+      // Try to fetch the photos directory
       const response = await fetch('photos/');
       
-      if (!response.ok) {
-        // If directory listing fails, manually load common photo names
-        loadCommonPhotoNames();
-        return;
-      }
+      if (response.ok) {
+        const text = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const links = doc.querySelectorAll('a');
 
-      const text = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(text, 'text/html');
-      const links = doc.querySelectorAll('a');
+        const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+        const photoFiles = [];
 
-      const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
-      const photoFiles = [];
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href && imageExtensions.some(ext => href.toLowerCase().endsWith(ext))) {
+            photoFiles.push(href);
+          }
+        });
 
-      links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && imageExtensions.some(ext => href.toLowerCase().endsWith(ext))) {
-          photoFiles.push(href);
+        if (photoFiles.length > 0) {
+          displayPhotos(photoFiles);
+          return;
         }
-      });
-
-      displayPhotos(photoFiles);
+      }
     } catch (error) {
-      // Fallback: load common photo names
-      loadCommonPhotoNames();
+      console.log('Directory listing not available, using fallback method');
     }
+
+    // Fallback: Load common photo names
+    loadCommonPhotoNames();
   }
 
   function loadCommonPhotoNames() {
@@ -58,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
       'hero', 'living-01', 'living-02', 'living-03', 'kitchen-01', 'kitchen-02', 'kitchen-03',
       'dining-01', 'dining-02', 'bedroom-01', 'bedroom-02', 'bathroom-01', 'bathroom-02',
       'toilet-01', 'terrace-01', 'terrace-02', 'terrace-03', 'entrance-01', 'entrance-02',
-      'berging-01', 'panorama-01', 'panorama-02', 'panorama-03'
+      'berging-01', 'panorama-01', 'panorama-02', 'panorama-03', 'detail-01', 'detail-02',
+      'hallway-01', 'staircase-01', 'view-01', 'view-02', 'decor-01', 'decor-02'
     ];
 
     const extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
@@ -76,20 +79,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function displayPhotos(photoFiles) {
     gallery.innerHTML = '';
-    let validPhotos = 0;
+    let totalAttempted = 0;
+    let totalLoaded = 0;
 
     photoFiles.forEach((photo, index) => {
+      totalAttempted++;
       const galleryItem = document.createElement('div');
       galleryItem.className = 'gallery-item';
       
       const img = document.createElement('img');
       img.src = `photos/${photo}`;
-      img.alt = `Apartment photo ${index + 1}`;
+      img.alt = `Apartment photo`;
       img.loading = 'lazy';
       
-      // Only add item if image loads successfully
+      // Track successful loads
       img.addEventListener('load', function () {
-        validPhotos++;
+        totalLoaded++;
+        console.log(`Photo loaded: ${photo}`);
       });
 
       img.addEventListener('error', function () {
@@ -98,16 +104,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
       galleryItem.appendChild(img);
       gallery.appendChild(galleryItem);
-      galleryItems.push(img);
     });
 
-    // Initialize lightbox after a short delay
+    // Initialize lightbox after photos have time to start loading
     setTimeout(initLightbox, 500);
   }
 
   function initLightbox() {
     const allImages = gallery.querySelectorAll('img');
-    galleryItems = Array.from(allImages);
+    allLoadedImages = Array.from(allImages);
+    galleryItems = allLoadedImages;
+
+    console.log(`Gallery initialized with ${galleryItems.length} photos`);
 
     allImages.forEach((img, index) => {
       img.parentElement.addEventListener('click', function () {
