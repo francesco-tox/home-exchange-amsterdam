@@ -1,108 +1,40 @@
 /* ============================================
-   AMSTERDAM HOME EXCHANGE - LIGHTBOX SCRIPT
-   Vanilla JavaScript photo viewer
+   NAVIGATION TOGGLE
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxClose = document.querySelector('.lightbox-close');
-  const lightboxPrev = document.querySelector('.lightbox-prev');
-  const lightboxNext = document.querySelector('.lightbox-next');
-  const lightboxCounter = document.querySelector('.lightbox-counter');
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
 
-  let currentImageIndex = 0;
-  const allImages = Array.from(galleryItems);
+  if (navToggle) {
+    navToggle.addEventListener('click', function () {
+      navMenu.classList.toggle('active');
+    });
+  }
 
-  /* ============================================
-     OPEN LIGHTBOX
-     ============================================ */
-
-  galleryItems.forEach((item, index) => {
-    item.addEventListener('click', function () {
-      currentImageIndex = index;
-      openLightbox();
+  // Close menu when a link is clicked
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      navMenu.classList.remove('active');
     });
   });
+});
 
-  function openLightbox() {
-    const img = allImages[currentImageIndex].querySelector('img');
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('active');
-    updateCounter();
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
-  }
+/* ============================================
+   ACTIVE NAVIGATION LINK
+   ============================================ */
 
-  /* ============================================
-     CLOSE LIGHTBOX
-     ============================================ */
+document.addEventListener('DOMContentLoaded', function () {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-menu a');
 
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Re-enable scrolling
-  }
-
-  lightboxClose.addEventListener('click', closeLightbox);
-
-  // Close on background click
-  lightbox.addEventListener('click', function (event) {
-    if (event.target === lightbox) {
-      closeLightbox();
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
   });
-
-  // Close on Escape key
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-      closeLightbox();
-    }
-  });
-
-  /* ============================================
-     NAVIGATION
-     ============================================ */
-
-  function showNextImage() {
-    currentImageIndex = (currentImageIndex + 1) % allImages.length;
-    openLightbox();
-  }
-
-  function showPrevImage() {
-    currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
-    openLightbox();
-  }
-
-  lightboxNext.addEventListener('click', showNextImage);
-  lightboxPrev.addEventListener('click', showPrevImage);
-
-  // Arrow key navigation
-  document.addEventListener('keydown', function (event) {
-    if (!lightbox.classList.contains('active')) return;
-
-    if (event.key === 'ArrowRight') {
-      showNextImage();
-    } else if (event.key === 'ArrowLeft') {
-      showPrevImage();
-    }
-  });
-
-  /* ============================================
-     COUNTER
-     ============================================ */
-
-  function updateCounter() {
-    const total = allImages.length;
-    const current = currentImageIndex + 1;
-    lightboxCounter.textContent = `${current} / ${total}`;
-  }
-
-  /* ============================================
-     SMOOTH SCROLL (Optional Enhancement)
-     ============================================ */
-
-  // Already handled by CSS: scroll-behavior: smooth
-
-  console.log('Home Exchange Lightbox initialized ✓');
 });
