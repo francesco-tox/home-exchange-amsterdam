@@ -220,6 +220,24 @@
       min-height: 430px;
     }
 
+    .gallery-item.compact {
+      grid-column: span 6;
+      height: 320px;
+      min-height: 0;
+    }
+
+    .gallery-item.service {
+      grid-column: span 4;
+      height: 270px;
+      min-height: 0;
+    }
+
+    .gallery-item.service-single {
+      grid-column: span 5;
+      height: 310px;
+      min-height: 0;
+    }
+
     .comfort {
       margin-top: 86px;
       background: var(--pine);
@@ -376,9 +394,13 @@
       .gallery-item.medium,
       .gallery-item.small,
       .gallery-item.wide,
-      .gallery-item.single {
+      .gallery-item.single,
+      .gallery-item.compact,
+      .gallery-item.service,
+      .gallery-item.service-single {
         grid-column: span 12;
-        min-height: 330px;
+        min-height: 0;
+        height: 330px;
       }
       .comfort-grid { grid-template-columns: 1fr 1fr; }
       .cta { flex-direction: column; align-items: flex-start; }
@@ -393,8 +415,12 @@
       .gallery-item.medium,
       .gallery-item.small,
       .gallery-item.wide,
-      .gallery-item.single {
-        min-height: 260px;
+      .gallery-item.single,
+      .gallery-item.compact,
+      .gallery-item.service,
+      .gallery-item.service-single {
+        min-height: 0;
+        height: 260px;
       }
       .nav-links { gap: 12px; font-size: 0.9rem; }
     }
@@ -449,10 +475,10 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item large" data-lightbox="photos/apartment/bedroom/bedroom-1.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-1.jpg" alt="Bedroom overview"></button>
-        <button class="gallery-item medium" data-lightbox="photos/apartment/bedroom/bedroom-2.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-2.jpg" alt="Bedroom bed and wall detail"></button>
-        <button class="gallery-item small" data-lightbox="photos/apartment/bedroom/bedroom-3.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-3.jpg" alt="Bedroom window and light"></button>
-        <button class="gallery-item wide" data-lightbox="photos/apartment/bedroom/bedroom-4.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-4.jpg" alt="Bedroom atmosphere"></button>
+        <button class="gallery-item compact" data-lightbox="photos/apartment/bedroom/bedroom-1.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-1.jpg" alt="Bedroom overview"></button>
+        <button class="gallery-item compact" data-lightbox="photos/apartment/bedroom/bedroom-2.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-2.jpg" alt="Bedroom bed and wall detail"></button>
+        <button class="gallery-item compact" data-lightbox="photos/apartment/bedroom/bedroom-3.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-3.jpg" alt="Bedroom window and light"></button>
+        <button class="gallery-item compact" data-lightbox="photos/apartment/bedroom/bedroom-4.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-4.jpg" alt="Bedroom atmosphere"></button>
       </div>
     </section>
 
@@ -465,9 +491,9 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item large" data-lightbox="photos/apartment/bathroom/bathroom-1.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview"></button>
-        <button class="gallery-item medium" data-lightbox="photos/apartment/bathroom/bathroom-2.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bathtub and shower"></button>
-        <button class="gallery-item wide" data-lightbox="photos/apartment/bathroom/bathroom-3.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-3.jpg" alt="Bathroom detail"></button>
+        <button class="gallery-item service" data-lightbox="photos/apartment/bathroom/bathroom-1.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview"></button>
+        <button class="gallery-item service" data-lightbox="photos/apartment/bathroom/bathroom-2.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bathtub and shower"></button>
+        <button class="gallery-item service" data-lightbox="photos/apartment/bathroom/bathroom-3.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-3.jpg" alt="Bathroom detail"></button>
       </div>
     </section>
 
@@ -480,7 +506,7 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item single" data-lightbox="photos/apartment/separate-wc/separate-wc-1.jpg"><img loading="lazy" src="photos/apartment/separate-wc/separate-wc-1.jpg" alt="Separate WC"></button>
+        <button class="gallery-item service-single" data-lightbox="photos/apartment/separate-wc/separate-wc-1.jpg"><img loading="lazy" src="photos/apartment/separate-wc/separate-wc-1.jpg" alt="Separate WC"></button>
       </div>
     </section>
 
@@ -508,9 +534,9 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item large" data-lightbox="photos/apartment/hallway/hallway-1.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-1.jpg" alt="Hallway and entrance"></button>
-        <button class="gallery-item medium" data-lightbox="photos/apartment/hallway/hallway-2.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-2.jpg" alt="Hallway detail"></button>
-        <button class="gallery-item wide" data-lightbox="photos/apartment/hallway/hallway-3.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-3.jpg" alt="Hallway towards terrace"></button>
+        <button class="gallery-item service" data-lightbox="photos/apartment/hallway/hallway-1.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-1.jpg" alt="Hallway and entrance"></button>
+        <button class="gallery-item service" data-lightbox="photos/apartment/hallway/hallway-2.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-2.jpg" alt="Hallway detail"></button>
+        <button class="gallery-item service" data-lightbox="photos/apartment/hallway/hallway-3.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-3.jpg" alt="Hallway towards terrace"></button>
       </div>
     </section>
 
