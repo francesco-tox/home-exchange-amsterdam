@@ -174,14 +174,17 @@
   </div>
 
   <script>
-    /* ===== PHOTO FOLDERS — AUTO-LOADED FROM YOUR REPO =====
-       Each SUBFOLDER inside the folder below becomes its own titled block
-       (e.g. photos/Panorama/ -> "Panorama"). Loose photos sitting directly
-       in the folder appear in an untitled block at the top.
-       - Order blocks by numbering folders: 01-living-room, 02-bedroom...
-       - Order photos by numbering files: 01-..., 02-...
-       - The folder name is tried in a few capitalizations automatically.
-       - If nothing shows, the page prints exactly what went wrong below. */
+    /* ===== PHOTO FOLDERS — AUTO-LOADED FROM YOUR GITHUB REPO =====
+       Every SUBFOLDER inside photos/ becomes its own titled gallery section.
+       Examples:
+       photos/01-living-room/         -> "Living Room"
+       photos/02-kitchen-and-dining/  -> "Kitchen And Dining"
+       photos/06-panoramas-and-views/ -> "Panoramas And Views"
+
+       Loose images directly inside photos/ appear first in an untitled block.
+       To control order, number folders and files: 01-..., 02-...
+       This is a static GitHub Pages site, so folders/images must be uploaded
+       to GitHub before the live site can display them. */
     const OWNER = "francesco-tox", REPO = "home-exchange-amsterdam", FOLDER = "photos";
     /* ====================================================== */
 
@@ -191,9 +194,13 @@
     const isImg = n => /\.(jpe?g|png|webp|gif|avif)$/i.test(n);
     const byName = (a,b) => a.name.localeCompare(b.name, undefined, {numeric:true});
     function pretty(name){
-      return name.replace(/\.[^.]+$/,'').replace(/^\d+[-_\s]*/,'')
-                 .replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim()
-                 .replace(/^\w/, c => c.toUpperCase());
+      return name
+        .replace(/\.[^.]+$/,'')
+        .replace(/^\d+[-_\s]*/,'')
+        .replace(/[-_]+/g,' ')
+        .replace(/\s+/g,' ')
+        .trim()
+        .replace(/\b\w/g, c => c.toUpperCase());
     }
     async function findFolder(){
       const tries = [...new Set([FOLDER, FOLDER.toLowerCase(), FOLDER.charAt(0).toUpperCase() + FOLDER.slice(1)])];

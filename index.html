@@ -198,9 +198,7 @@
     <section class="hosts">
       <div class="wrap hosts__grid">
         <div class="host-photo reveal">
-          <!-- TODO: replace with a real host photo -->
-          <!-- <img src="photos/host.jpg" alt="Your hosts in Amsterdam" /> -->
-          Add photos/host.jpg
+          <img src="photos/host.jpg" alt="Host of the Amsterdam apartment" />
         </div>
         <div class="reveal">
           <h2>The people behind the home</h2>
@@ -265,7 +263,8 @@
 
     async function buildHero(){
       const g = await gatherImages();
-      if(g.folder){ const hp = new Image(); hp.onload = () => { const box = document.querySelector('.host-photo'); if(box) box.innerHTML = `<img src="${g.folder}/host.jpg" alt="Your hosts in Amsterdam">`; }; hp.src = `${g.folder}/host.jpg`; }
+      // Host photo is loaded directly in the HTML as photos/host.jpg.
+      // Keep this static so it works reliably on GitHub Pages.
       const landscape = (await Promise.all(g.urls.map(probe))).filter(Boolean);
       if(!landscape.length) return; // keep the gradient fallback
       heroBg.innerHTML = landscape.map((s,i) => `<div class="hero__slide${i===0?' active':''}"><img src="${s}" alt="Apartment photo"></div>`).join('');
