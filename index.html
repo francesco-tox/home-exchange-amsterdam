@@ -199,8 +199,8 @@
       <div class="wrap hosts__grid">
         <div class="host-photo reveal">
           <!-- TODO: replace with a real host photo -->
-          <!-- <img src="photos/host.jpg" alt="Your hosts in Amsterdam" /> -->
-          Add photos/host.jpg
+          <!-- <img src="images/host.jpg" alt="Your hosts in Amsterdam" /> -->
+          Add images/host.jpg
         </div>
         <div class="reveal">
           <h2>The people behind the home</h2>
@@ -231,33 +231,52 @@
   </footer>
 
   <script>
-    /* ===== EDIT YOUR PHOTO FILENAMES HERE =====
-       Portrait images are skipped automatically — only landscape
-       (wider than tall) photos rotate in the hero. */
-    const PHOTOS = [
-      { src: "photos/living-room.jpg", alt: "Living room with white beams" },
-      { src: "photos/terrace.jpg",     alt: "Private terrace with city view" },
-      { src: "photos/bedroom.jpg",      alt: "Separate bedroom" },
-      { src: "photos/kitchen.jpg",      alt: "Open-plan kitchen" },
-      { src: "photos/view.jpg",         alt: "View over Marnixplantsoen and the Lijnbansgracht" }
-    ];
-    /* ========================================== */
-    const heroBg=document.getElementById('heroBg'), heroDots=document.getElementById('heroDots');
-    let slides=[], cur=0, timer=null;
-    const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function probe(p){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r(i.naturalWidth>i.naturalHeight?p:null); i.onerror=()=>r(null); i.src=p.src; }); }
-    async function buildHero(){
-      const f=(await Promise.all(PHOTOS.map(probe))).filter(Boolean);
-      if(!f.length) return;
-      heroBg.innerHTML=f.map((s,i)=>`<div class="hero__slide${i===0?' active':''}"><img src="${s.src}" alt="${s.alt}"></div>`).join('');
-      slides=[...heroBg.querySelectorAll('.hero__slide')];
-      heroDots.innerHTML=f.map((_,i)=>`<button class="hero__dot${i===0?' active':''}" aria-label="Photo ${i+1}" data-i="${i}"></button>`).join('');
-      heroDots.querySelectorAll('.hero__dot').forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.i);restart();}));
-      if(f.length>1 && !reduce) start();
+    /* ===== HERO — auto-loaded from your photo folder =====
+       Pulls images from the folder below (and any room subfolders) and
+       rotates only the LANDSCAPE ones. Also loads the host photo if a file
+       named host.jpg exists in that folder. The folder name is tried in a
+       few capitalizations, so "photos" / "Photos" both work. */
+    const OWNER = "francesco-tox", REPO = "home-exchange-amsterdam", FOLDER = "photos";
+    /* ===================================================== */
+    const heroBg = document.getElementById('heroBg'), heroDots = document.getElementById('heroDots');
+    let slides = [], cur = 0, timer = null;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ghApi = p => `https://api.github.com/repos/${OWNER}/${REPO}/contents/${p}`;
+    const isImg = n => /\.(jpe?g|png|webp|gif|avif)$/i.test(n);
+
+    async function findFolder(){
+      const tries = [...new Set([FOLDER, FOLDER.toLowerCase(), FOLDER.charAt(0).toUpperCase() + FOLDER.slice(1)])];
+      for(const f of tries){ try{ const r = await fetch(ghApi(f)); if(r.ok) return { name:f, data: await r.json() }; }catch(e){} }
+      return null;
     }
-    function go(n){ if(!slides.length) return; slides[cur].classList.remove('active'); heroDots.children[cur]?.classList.remove('active'); cur=(n+slides.length)%slides.length; slides[cur].classList.add('active'); heroDots.children[cur]?.classList.add('active'); }
-    function start(){ timer=setInterval(()=>go(cur+1),5200); }
-    function restart(){ clearInterval(timer); if(slides.length>1 && !reduce) start(); }
+    async function gatherImages(){
+      const root = await findFolder();
+      if(!root) return { folder:null, urls:[] };
+      const urls = [];
+      root.data.filter(e => e.type==='file' && isImg(e.name)).forEach(f => urls.push(`${root.name}/${f.name}`));
+      for(const d of root.data.filter(e => e.type==='dir')){
+        try{ (await (await fetch(ghApi(`${root.name}/${d.name}`))).json())
+              .filter(e => e.type==='file' && isImg(e.name))
+              .forEach(f => urls.push(`${root.name}/${d.name}/${f.name}`)); }catch(e){}
+      }
+      return { folder: root.name, urls };
+    }
+    const probe = src => new Promise(r => { const i = new Image(); i.onload = () => r(i.naturalWidth > i.naturalHeight ? src : null); i.onerror = () => r(null); i.src = src; });
+
+    async function buildHero(){
+      const g = await gatherImages();
+      if(g.folder){ const hp = new Image(); hp.onload = () => { const box = document.querySelector('.host-photo'); if(box) box.innerHTML = `<img src="${g.folder}/host.jpg" alt="Your hosts in Amsterdam">`; }; hp.src = `${g.folder}/host.jpg`; }
+      const landscape = (await Promise.all(g.urls.map(probe))).filter(Boolean);
+      if(!landscape.length) return; // keep the gradient fallback
+      heroBg.innerHTML = landscape.map((s,i) => `<div class="hero__slide${i===0?' active':''}"><img src="${s}" alt="Apartment photo"></div>`).join('');
+      slides = [...heroBg.querySelectorAll('.hero__slide')];
+      heroDots.innerHTML = landscape.map((_,i) => `<button class="hero__dot${i===0?' active':''}" aria-label="Photo ${i+1}" data-i="${i}"></button>`).join('');
+      heroDots.querySelectorAll('.hero__dot').forEach(d => d.addEventListener('click', () => { go(+d.dataset.i); restart(); }));
+      if(landscape.length > 1 && !reduce) start();
+    }
+    function go(n){ if(!slides.length) return; slides[cur].classList.remove('active'); heroDots.children[cur]?.classList.remove('active'); cur = (n+slides.length)%slides.length; slides[cur].classList.add('active'); heroDots.children[cur]?.classList.add('active'); }
+    function start(){ timer = setInterval(() => go(cur+1), 5200); }
+    function restart(){ clearInterval(timer); if(slides.length > 1 && !reduce) start(); }
     buildHero();
     const nav=document.getElementById('nav');
     const onScroll=()=>nav.classList.toggle('scrolled', window.scrollY>60);
