@@ -238,6 +238,12 @@
       min-height: 0;
     }
 
+    .gallery-item.bathroom-combined {
+      grid-column: span 3;
+      height: 270px;
+      min-height: 0;
+    }
+
     .gallery-item.terrace-balanced {
       grid-column: span 4;
       height: 300px;
@@ -296,6 +302,61 @@
       margin: 0;
       font-size: 0.98rem;
     }
+
+
+    .practical {
+      margin-top: 40px;
+      background: var(--bone);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(28px, 5vw, 54px);
+      box-shadow: 0 18px 50px rgba(37, 27, 22, 0.06);
+    }
+
+    .practical .eyebrow {
+      color: var(--clay);
+    }
+
+    .practical h2 {
+      font-size: clamp(2rem, 4.5vw, 4.2rem);
+      max-width: 720px;
+    }
+
+    .practical-intro {
+      color: var(--taupe);
+      max-width: 650px;
+      margin: 16px 0 30px;
+      font-size: 1.06rem;
+    }
+
+    .practical-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .practical-card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      background: rgba(247, 241, 231, 0.7);
+      min-height: 168px;
+    }
+
+    .practical-card strong {
+      display: block;
+      font-family: "Bricolage Grotesque", sans-serif;
+      letter-spacing: -0.025em;
+      font-size: 1.15rem;
+      margin-bottom: 9px;
+    }
+
+    .practical-card p {
+      color: var(--taupe);
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
 
     .cta {
       margin-top: 40px;
@@ -404,12 +465,14 @@
       .gallery-item.compact,
       .gallery-item.service,
       .gallery-item.service-single,
+      .gallery-item.bathroom-combined,
       .gallery-item.terrace-balanced {
         grid-column: span 12;
         min-height: 0;
         height: 330px;
       }
       .comfort-grid { grid-template-columns: 1fr 1fr; }
+      .practical-grid { grid-template-columns: 1fr 1fr; }
       .cta { flex-direction: column; align-items: flex-start; }
     }
 
@@ -417,6 +480,7 @@
       main { padding-top: 30px; }
       .hero-image { min-height: 300px; height: 52vh; }
       .comfort-grid { grid-template-columns: 1fr; }
+      .practical-grid { grid-template-columns: 1fr; }
       .gallery-grid { gap: 12px; }
       .gallery-item.large,
       .gallery-item.medium,
@@ -426,6 +490,7 @@
       .gallery-item.compact,
       .gallery-item.service,
       .gallery-item.service-single,
+      .gallery-item.bathroom-combined,
       .gallery-item.terrace-balanced {
         min-height: 0;
         height: 260px;
@@ -492,35 +557,23 @@
 
     <section class="section">
       <div class="section-head">
-        <div class="section-number">03 Bathroom</div>
+        <div class="section-number">03 Bathroom & Separate WC</div>
         <div>
-          <h2>Bath and shower.</h2>
-          <p>A practical full bathroom with both a bathtub and a shower, kept simple and functional for everyday use.</p>
+          <h2>Bath, shower and separate WC.</h2>
+          <p>A practical full bathroom with both a bathtub and a shower, plus a separate WC that adds useful privacy when hosting.</p>
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item service" data-lightbox="photos/apartment/bathroom/bathroom-1.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview"></button>
-        <button class="gallery-item service" data-lightbox="photos/apartment/bathroom/bathroom-2.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bathtub and shower"></button>
-        <button class="gallery-item service" data-lightbox="photos/apartment/bathroom/bathroom-3.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-3.jpg" alt="Bathroom detail"></button>
+        <button class="gallery-item bathroom-combined" data-lightbox="photos/apartment/bathroom/bathroom-1.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview"></button>
+        <button class="gallery-item bathroom-combined" data-lightbox="photos/apartment/bathroom/bathroom-2.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bathtub and shower"></button>
+        <button class="gallery-item bathroom-combined" data-lightbox="photos/apartment/bathroom/bathroom-3.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-3.jpg" alt="Bathroom detail"></button>
+        <button class="gallery-item bathroom-combined" data-lightbox="photos/apartment/separate-wc/separate-wc-1.jpg"><img loading="lazy" src="photos/apartment/separate-wc/separate-wc-1.jpg" alt="Separate WC"></button>
       </div>
     </section>
 
     <section class="section">
       <div class="section-head">
-        <div class="section-number">04 Separate WC</div>
-        <div>
-          <h2>Small but useful.</h2>
-          <p>A separate WC adds a practical layer to the apartment, especially when hosting or exchanging homes.</p>
-        </div>
-      </div>
-      <div class="gallery-grid">
-        <button class="gallery-item service-single" data-lightbox="photos/apartment/separate-wc/separate-wc-1.jpg"><img loading="lazy" src="photos/apartment/separate-wc/separate-wc-1.jpg" alt="Separate WC"></button>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">05 Terrace</div>
+        <div class="section-number">04 Terrace</div>
         <div>
           <h2>A private outside corner.</h2>
           <p>A small terrace for coffee, plants and evening drinks: an extra breathing space above the city.</p>
@@ -535,7 +588,7 @@
 
     <section class="section">
       <div class="section-head">
-        <div class="section-number">06 Hallway</div>
+        <div class="section-number">05 Hallway</div>
         <div>
           <h2>The connecting line.</h2>
           <p>The hallway connects the rooms and the terrace, giving the apartment a clearer sense of separation than a single open studio.</p>
@@ -550,7 +603,7 @@
 
     <section class="section">
       <div class="section-head">
-        <div class="section-number">07 Views</div>
+        <div class="section-number">06 Views</div>
         <div>
           <h2>Canals, rooftops and green.</h2>
           <p>The surrounding views are part of the atmosphere: water, rooflines, trees and the changing light around the Jordaan edge.</p>
@@ -598,6 +651,40 @@
         </article>
       </div>
     </section>
+
+    <section class="practical">
+      <div class="eyebrow">Practical details</div>
+      <h2>Everything needed for a comfortable stay.</h2>
+      <p class="practical-intro">A few useful details for daily living, kept separate from the gallery so the page stays calm and editorial.</p>
+
+      <div class="practical-grid">
+        <article class="practical-card">
+          <strong>Storage</strong>
+          <p>Storage is available inside the apartment, with additional private storage in the basement.</p>
+        </article>
+
+        <article class="practical-card">
+          <strong>Laundry</strong>
+          <p>A washing machine is available in the apartment.</p>
+        </article>
+
+        <article class="practical-card">
+          <strong>TV</strong>
+          <p>A TV is available and can be used during the stay.</p>
+        </article>
+
+        <article class="practical-card">
+          <strong>Parking</strong>
+          <p>Public paid parking is available on the surrounding streets.</p>
+        </article>
+
+        <article class="practical-card">
+          <strong>New kitchen</strong>
+          <p>A new kitchen is scheduled for installation in September, with a stone worktop and all-new appliances including a dishwasher, fridge-freezer, and combi oven/microwave.</p>
+        </article>
+      </div>
+    </section>
+
 
     <section class="cta">
       <div>
