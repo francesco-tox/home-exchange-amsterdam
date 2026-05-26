@@ -172,26 +172,57 @@
   </div>
 
   <script>
-    /* ===== EDIT YOUR PHOTO FILENAMES HERE =====
-       The gallery shows ALL of these (any orientation). */
-    const PHOTOS = [
-      { src: "images/living-room.jpg", alt: "Living room with white beams" },
-      { src: "images/terrace.jpg",     alt: "Private terrace with city view" },
-      { src: "images/bedroom.jpg",      alt: "Separate bedroom" },
-      { src: "images/kitchen.jpg",      alt: "Open-plan kitchen" },
-      { src: "images/bathroom.jpg",     alt: "Bathroom with bathtub and shower" },
-      { src: "images/view.jpg",         alt: "View over Marnixplantsoen and the Lijnbansgracht" }
-    ];
-    /* ========================================== */
-    const grid=document.getElementById('masonry');
-    let loaded=[];
-    function check(p){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r(p); i.onerror=()=>r(null); i.src=p.src; }); }
-    (async()=>{
-      loaded=(await Promise.all(PHOTOS.map(check))).filter(Boolean);
-      if(!loaded.length){ grid.outerHTML='<div class="gallery__empty">No photos yet — add files to the <strong>/images/</strong> folder and list them in the PHOTOS array at the bottom of this file.</div>'; return; }
-      grid.innerHTML=loaded.map((p,i)=>`<button data-i="${i}" aria-label="Open ${p.alt}"><img loading="lazy" src="${p.src}" alt="${p.alt}"></button>`).join('');
-      grid.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>open(+b.dataset.i)));
-    })();
+    /* ===== PHOTO FOLDER — AUTO-LOADED FROM YOUR REPO =====
+       You don't list filenames anymore. Just drop images into the
+       folder below (in your GitHub repo) and they appear here.
+       - Photos show in ALPHABETICAL order — prefix 01-, 02-, ... to control order.
+       - The caption is taken from the filename, so name files descriptively
+         (e.g. "living-room.jpg" becomes "Living room").
+       - Works because your repo is public. Set branch + folder to match yours. */
+    const GH = {
+      owner:  "francesco-tox",
+      repo:   "home-exchange-amsterdam",
+      branch: "main",      // change to "master" if that's your default branch
+      folder: "images"     // your photo folder name (case-sensitive!)
+    };
+    /* ====================================================== */
+
+    const grid = document.getElementById('masonry');
+    let loaded = [];
+
+    function prettyAlt(name){
+      return name.replace(/\.[^.]+$/,'')        // remove extension
+                 .replace(/^\d+[-_\s]*/,'')      // remove leading "01-" ordering
+                 .replace(/[-_]+/g,' ')           // dashes/underscores -> spaces
+                 .replace(/\s+/g,' ').trim()
+                 .replace(/^\w/, c => c.toUpperCase());
+    }
+
+    async function loadGallery(){
+      const api = `https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${GH.folder}?ref=${GH.branch}`;
+      try {
+        const res = await fetch(api);
+        if(!res.ok) throw new Error(res.status);
+        const files = await res.json();
+        loaded = files
+          .filter(f => f.type === 'file' && /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name))
+          .sort((a,b) => a.name.localeCompare(b.name, undefined, {numeric:true}))
+          .map(f => ({ src: `${GH.folder}/${f.name}`, alt: prettyAlt(f.name) }));
+      } catch(e){ loaded = []; }
+      render();
+    }
+
+    function render(){
+      if(!loaded.length){
+        grid.outerHTML = '<div class="gallery__empty">No photos found yet &mdash; add image files to the <strong>' + GH.folder + '/</strong> folder in your repo and commit. They\'ll appear here automatically.</div>';
+        return;
+      }
+      grid.innerHTML = loaded.map((p,i) =>
+        `<button data-i="${i}" aria-label="Open ${p.alt}"><img loading="lazy" src="${p.src}" alt="${p.alt}"></button>`).join('');
+      grid.querySelectorAll('button').forEach(b => b.addEventListener('click', () => open(+b.dataset.i)));
+    }
+
+    loadGallery();
     const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
     let idx=0;
     function open(i){ idx=i; show(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
