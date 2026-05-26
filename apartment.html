@@ -60,6 +60,8 @@
     .masonry button { display:block; width:100%; border:0; padding:0; margin:0 0 16px; background:var(--line); border-radius:14px; overflow:hidden; cursor:pointer; break-inside:avoid; }
     .masonry img { width:100%; height:auto; transition:transform .5s var(--ease), filter .4s var(--ease); }
     .masonry button:hover img { transform:scale(1.04); }
+    .room { margin-bottom:clamp(40px,5vw,68px); }
+    .room-title { font-size:clamp(1.5rem,3.6vw,2.4rem); margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line); }
     .gallery__empty { border:1px dashed var(--line); border-radius:16px; padding:48px 28px; text-align:center; color:var(--muted); }
 
     /* COMFORT (condensed editorial list) */
@@ -128,7 +130,7 @@
 
     <section class="gallery">
       <div class="wrap">
-        <div class="masonry" id="masonry"></div>
+        <div id="gallery"></div>
       </div>
     </section>
 
@@ -172,57 +174,77 @@
   </div>
 
   <script>
-    /* ===== PHOTO FOLDER — AUTO-LOADED FROM YOUR REPO =====
-       You don't list filenames anymore. Just drop images into the
-       folder below (in your GitHub repo) and they appear here.
-       - Photos show in ALPHABETICAL order — prefix 01-, 02-, ... to control order.
-       - The caption is taken from the filename, so name files descriptively
-         (e.g. "living-room.jpg" becomes "Living room").
+    /* ===== PHOTO FOLDERS — AUTO-LOADED FROM YOUR REPO =====
+       Each SUBFOLDER inside the folder below becomes its own titled
+       block (e.g. images/living-room/ -> "Living room").
+       - Order the blocks by numbering the folders: 01-living-room, 02-bedroom...
+       - Order photos within a block by numbering the files: 01-..., 02-...
+       - Block title and photo captions come from folder/file names.
+       - Loose photos placed directly in the folder (not in a subfolder)
+         appear in an untitled block at the top.
        - Works because your repo is public. Set branch + folder to match yours. */
     const GH = {
       owner:  "francesco-tox",
       repo:   "home-exchange-amsterdam",
       branch: "main",      // change to "master" if that's your default branch
-      folder: "photos"     // your photo folder name (case-sensitive!)
+      folder: "images"     // top-level photo folder (case-sensitive!)
     };
-    /* ====================================================== */
+    /* ======================================================== */
 
-    const grid = document.getElementById('masonry');
-    let loaded = [];
+    const gallery = document.getElementById('gallery');
+    let loaded = [];   // flat list across all blocks, for the lightbox
 
-    function prettyAlt(name){
-      return name.replace(/\.[^.]+$/,'')        // remove extension
-                 .replace(/^\d+[-_\s]*/,'')      // remove leading "01-" ordering
-                 .replace(/[-_]+/g,' ')           // dashes/underscores -> spaces
-                 .replace(/\s+/g,' ').trim()
+    const isImg = n => /\.(jpe?g|png|webp|gif|avif)$/i.test(n);
+    function pretty(name){
+      return name.replace(/\.[^.]+$/,'').replace(/^\d+[-_\s]*/,'')
+                 .replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim()
                  .replace(/^\w/, c => c.toUpperCase());
     }
-
-    async function loadGallery(){
-      const api = `https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${GH.folder}?ref=${GH.branch}`;
-      try {
-        const res = await fetch(api);
-        if(!res.ok) throw new Error(res.status);
-        const files = await res.json();
-        loaded = files
-          .filter(f => f.type === 'file' && /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name))
-          .sort((a,b) => a.name.localeCompare(b.name, undefined, {numeric:true}))
-          .map(f => ({ src: `${GH.folder}/${f.name}`, alt: prettyAlt(f.name) }));
-      } catch(e){ loaded = []; }
-      render();
+    async function listFolder(path){
+      const res = await fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${path}?ref=${GH.branch}`);
+      if(!res.ok) throw new Error(res.status);
+      return res.json();
     }
+    const byName = (a,b) => a.name.localeCompare(b.name, undefined, {numeric:true});
+    const emptyMsg = '<div class="gallery__empty">No photos found yet &mdash; add image files (or room subfolders) to the <strong>' +
+      GH.folder + '/</strong> folder in your repo and commit. They\'ll appear here automatically.</div>';
 
-    function render(){
-      if(!loaded.length){
-        grid.outerHTML = '<div class="gallery__empty">No photos found yet &mdash; add image files to the <strong>' + GH.folder + '/</strong> folder in your repo and commit. They\'ll appear here automatically.</div>';
-        return;
+    async function build(){
+      let entries;
+      try { entries = await listFolder(GH.folder); }
+      catch(e){ gallery.innerHTML = emptyMsg; return; }
+
+      const dirs  = entries.filter(e => e.type === 'dir').sort(byName);
+      const loose = entries.filter(e => e.type === 'file' && isImg(e.name)).sort(byName);
+
+      const blocks = [];
+      if(loose.length) blocks.push({ title:null, items: loose.map(f => ({src:`${GH.folder}/${f.name}`, alt:pretty(f.name)})) });
+      for(const d of dirs){
+        try {
+          const sub = (await listFolder(`${GH.folder}/${d.name}`)).filter(e => e.type==='file' && isImg(e.name)).sort(byName);
+          if(sub.length) blocks.push({ title: pretty(d.name), items: sub.map(f => ({src:`${GH.folder}/${d.name}/${f.name}`, alt:pretty(f.name)})) });
+        } catch(e){ /* skip unreadable folder */ }
       }
-      grid.innerHTML = loaded.map((p,i) =>
-        `<button data-i="${i}" aria-label="Open ${p.alt}"><img loading="lazy" src="${p.src}" alt="${p.alt}"></button>`).join('');
-      grid.querySelectorAll('button').forEach(b => b.addEventListener('click', () => open(+b.dataset.i)));
+
+      if(!blocks.length){ gallery.innerHTML = emptyMsg; return; }
+
+      loaded = [];
+      let html = '';
+      for(const b of blocks){
+        html += '<section class="room">';
+        if(b.title) html += `<h2 class="room-title">${b.title}</h2>`;
+        html += '<div class="masonry">';
+        for(const it of b.items){
+          const i = loaded.length; loaded.push(it);
+          html += `<button data-i="${i}" aria-label="Open ${it.alt}"><img loading="lazy" src="${it.src}" alt="${it.alt}"></button>`;
+        }
+        html += '</div></section>';
+      }
+      gallery.innerHTML = html;
+      gallery.querySelectorAll('button').forEach(b => b.addEventListener('click', () => open(+b.dataset.i)));
     }
 
-    loadGallery();
+    build();
     const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
     let idx=0;
     function open(i){ idx=i; show(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
