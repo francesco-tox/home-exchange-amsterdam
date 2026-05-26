@@ -173,9 +173,9 @@
 
     .gallery-item {
       appearance: none;
-      border: 0;
+      border: 1px solid rgba(37, 27, 22, 0.08);
       padding: 0;
-      background: transparent;
+      background: var(--bone);
       cursor: zoom-in;
       border-radius: 22px;
       overflow: hidden;
@@ -184,11 +184,15 @@
     }
 
     .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--bone);
       transition: transform 0.5s ease;
     }
 
     .gallery-item:hover img {
-      transform: scale(1.035);
+      transform: scale(1.018);
     }
 
     .gallery-item.large {
@@ -429,10 +433,10 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item large" data-lightbox="photos/apartment/living-kitchen/living-kitchen-1.jpg"><img src="photos/apartment/living-kitchen/living-kitchen-1.jpg" alt="Living and kitchen overview"></button>
-        <button class="gallery-item medium" data-lightbox="photos/apartment/living-kitchen/living-kitchen-2.jpg"><img src="photos/apartment/living-kitchen/living-kitchen-2.jpg" alt="Living and kitchen detail"></button>
-        <button class="gallery-item small" data-lightbox="photos/apartment/living-kitchen/living-kitchen-3.jpg"><img src="photos/apartment/living-kitchen/living-kitchen-3.jpg" alt="Dining area and sloped ceiling"></button>
-        <button class="gallery-item wide" data-lightbox="photos/apartment/living-kitchen/living-kitchen-4.jpg"><img src="photos/apartment/living-kitchen/living-kitchen-4.jpg" alt="Open living space with natural light"></button>
+        <button class="gallery-item large" data-lightbox="photos/apartment/living-kitchen/living-kitchen-1.jpg"><img loading="lazy" src="photos/apartment/living-kitchen/living-kitchen-1.jpg" alt="Living and kitchen overview"></button>
+        <button class="gallery-item medium" data-lightbox="photos/apartment/living-kitchen/living-kitchen-2.jpg"><img loading="lazy" src="photos/apartment/living-kitchen/living-kitchen-2.jpg" alt="Living and kitchen detail"></button>
+        <button class="gallery-item small" data-lightbox="photos/apartment/living-kitchen/living-kitchen-3.jpg"><img loading="lazy" src="photos/apartment/living-kitchen/living-kitchen-3.jpg" alt="Dining area and sloped ceiling"></button>
+        <button class="gallery-item wide" data-lightbox="photos/apartment/living-kitchen/living-kitchen-4.jpg"><img loading="lazy" src="photos/apartment/living-kitchen/living-kitchen-4.jpg" alt="Open living space with natural light"></button>
       </div>
     </section>
 
@@ -445,10 +449,10 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item large" data-lightbox="photos/apartment/bedroom/bedroom-1.jpg"><img src="photos/apartment/bedroom/bedroom-1.jpg" alt="Bedroom overview"></button>
-        <button class="gallery-item medium" data-lightbox="photos/apartment/bedroom/bedroom-2.jpg"><img src="photos/apartment/bedroom/bedroom-2.jpg" alt="Bedroom bed and wall detail"></button>
-        <button class="gallery-item small" data-lightbox="photos/apartment/bedroom/bedroom-3.jpg"><img src="photos/apartment/bedroom/bedroom-3.jpg" alt="Bedroom window and light"></button>
-        <button class="gallery-item wide" data-lightbox="photos/apartment/bedroom/bedroom-4.jpg"><img src="photos/apartment/bedroom/bedroom-4.jpg" alt="Bedroom atmosphere"></button>
+        <button class="gallery-item large" data-lightbox="photos/apartment/bedroom/bedroom-1.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-1.jpg" alt="Bedroom overview"></button>
+        <button class="gallery-item medium" data-lightbox="photos/apartment/bedroom/bedroom-2.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-2.jpg" alt="Bedroom bed and wall detail"></button>
+        <button class="gallery-item small" data-lightbox="photos/apartment/bedroom/bedroom-3.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-3.jpg" alt="Bedroom window and light"></button>
+        <button class="gallery-item wide" data-lightbox="photos/apartment/bedroom/bedroom-4.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-4.jpg" alt="Bedroom atmosphere"></button>
       </div>
     </section>
 
@@ -461,9 +465,9 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item large" data-lightbox="photos/apartment/bathroom/bathroom-1.jpg"><img src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview"></button>
-        <button class="gallery-item medium" data-lightbox="photos/apartment/bathroom/bathroom-2.jpg"><img src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bathtub and shower"></button>
-        <button class="gallery-item wide" data-lightbox="photos/apartment/bathroom/bathroom-3.jpg"><img src="photos/apartment/bathroom/bathroom-3.jpg" alt="Bathroom detail"></button>
+        <button class="gallery-item large" data-lightbox="photos/apartment/bathroom/bathroom-1.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview"></button>
+        <button class="gallery-item medium" data-lightbox="photos/apartment/bathroom/bathroom-2.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bathtub and shower"></button>
+        <button class="gallery-item wide" data-lightbox="photos/apartment/bathroom/bathroom-3.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-3.jpg" alt="Bathroom detail"></button>
       </div>
     </section>
 
@@ -476,7 +480,7 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item single" data-lightbox="photos/apartment/separate-wc/separate-wc-1.jpg"><img src="photos/apartment/separate-wc/separate-wc-1.jpg" alt="Separate WC"></button>
+        <button class="gallery-item single" data-lightbox="photos/apartment/separate-wc/separate-wc-1.jpg"><img loading="lazy" src="photos/apartment/separate-wc/separate-wc-1.jpg" alt="Separate WC"></button>
       </div>
     </section>
 
@@ -489,9 +493,9 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item large" data-lightbox="photos/apartment/terrace/terrace-1.jpg"><img src="photos/apartment/terrace/terrace-1.jpg" alt="Private terrace overview"></button>
-        <button class="gallery-item medium" data-lightbox="photos/apartment/terrace/terrace-2.jpg"><img src="photos/apartment/terrace/terrace-2.jpg" alt="Terrace plants and seating"></button>
-        <button class="gallery-item wide" data-lightbox="photos/apartment/terrace/terrace-3.jpg"><img src="photos/apartment/terrace/terrace-3.jpg" alt="Terrace detail"></button>
+        <button class="gallery-item large" data-lightbox="photos/apartment/terrace/terrace-1.jpg"><img loading="lazy" src="photos/apartment/terrace/terrace-1.jpg" alt="Private terrace overview"></button>
+        <button class="gallery-item medium" data-lightbox="photos/apartment/terrace/terrace-2.jpg"><img loading="lazy" src="photos/apartment/terrace/terrace-2.jpg" alt="Terrace plants and seating"></button>
+        <button class="gallery-item wide" data-lightbox="photos/apartment/terrace/terrace-3.jpg"><img loading="lazy" src="photos/apartment/terrace/terrace-3.jpg" alt="Terrace detail"></button>
       </div>
     </section>
 
@@ -504,9 +508,9 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item large" data-lightbox="photos/apartment/hallway/hallway-1.jpg"><img src="photos/apartment/hallway/hallway-1.jpg" alt="Hallway and entrance"></button>
-        <button class="gallery-item medium" data-lightbox="photos/apartment/hallway/hallway-2.jpg"><img src="photos/apartment/hallway/hallway-2.jpg" alt="Hallway detail"></button>
-        <button class="gallery-item wide" data-lightbox="photos/apartment/hallway/hallway-3.jpg"><img src="photos/apartment/hallway/hallway-3.jpg" alt="Hallway towards terrace"></button>
+        <button class="gallery-item large" data-lightbox="photos/apartment/hallway/hallway-1.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-1.jpg" alt="Hallway and entrance"></button>
+        <button class="gallery-item medium" data-lightbox="photos/apartment/hallway/hallway-2.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-2.jpg" alt="Hallway detail"></button>
+        <button class="gallery-item wide" data-lightbox="photos/apartment/hallway/hallway-3.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-3.jpg" alt="Hallway towards terrace"></button>
       </div>
     </section>
 
@@ -519,11 +523,11 @@
         </div>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item large" data-lightbox="photos/apartment/views/view-1.jpg"><img src="photos/apartment/views/view-1.jpg" alt="Amsterdam view from the apartment"></button>
-        <button class="gallery-item medium" data-lightbox="photos/apartment/views/view-2.jpg"><img src="photos/apartment/views/view-2.jpg" alt="Canal and rooftop view"></button>
-        <button class="gallery-item small" data-lightbox="photos/apartment/views/view-3.jpg"><img src="photos/apartment/views/view-3.jpg" alt="Green square view"></button>
-        <button class="gallery-item small" data-lightbox="photos/apartment/views/view-4.jpg"><img src="photos/apartment/views/view-4.jpg" alt="Amsterdam roofline view"></button>
-        <button class="gallery-item small" data-lightbox="photos/apartment/views/view-5.jpg"><img src="photos/apartment/views/view-5.jpg" alt="View from the apartment"></button>
+        <button class="gallery-item large" data-lightbox="photos/apartment/views/view-1.jpg"><img loading="lazy" src="photos/apartment/views/view-1.jpg" alt="Amsterdam view from the apartment"></button>
+        <button class="gallery-item medium" data-lightbox="photos/apartment/views/view-2.jpg"><img loading="lazy" src="photos/apartment/views/view-2.jpg" alt="Canal and rooftop view"></button>
+        <button class="gallery-item small" data-lightbox="photos/apartment/views/view-3.jpg"><img loading="lazy" src="photos/apartment/views/view-3.jpg" alt="Green square view"></button>
+        <button class="gallery-item small" data-lightbox="photos/apartment/views/view-4.jpg"><img loading="lazy" src="photos/apartment/views/view-4.jpg" alt="Amsterdam roofline view"></button>
+        <button class="gallery-item small" data-lightbox="photos/apartment/views/view-5.jpg"><img loading="lazy" src="photos/apartment/views/view-5.jpg" alt="View from the apartment"></button>
       </div>
     </section>
 
