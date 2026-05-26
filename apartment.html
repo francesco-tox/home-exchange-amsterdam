@@ -5,99 +5,410 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#15534A" />
   <title>The Apartment | Amsterdam Home Exchange</title>
-  <meta name="description" content="Photo gallery and key comforts of a 61 m² canal-side attic apartment on the edge of Amsterdam's Jordaan." />
+  <meta name="description" content="Photo gallery and key comforts of a canal-side attic apartment on the edge of Amsterdam's Jordaan." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bone:#F6F1E8; --ink:#211C18; --clay:#BC512F; --pine:#15534A;
-      --ochre:#D99A38; --muted:#6A625A; --line:#E7DECE; --max:1200px;
-      --ease:cubic-bezier(.16,1,.3,1);
-    }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    body { background:var(--bone); color:var(--ink); font-family:"Hanken Grotesk",system-ui,sans-serif; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
-    h1,h2,h3 { font-family:"Bricolage Grotesque",sans-serif; font-weight:700; line-height:1; letter-spacing:-.02em; }
-    img { display:block; max-width:100%; }
-    a { color:inherit; }
-    .wrap { width:100%; max-width:var(--max); margin-inline:auto; padding-inline:26px; }
-    .skip { position:absolute; left:-9999px; top:0; background:var(--ink); color:var(--bone); padding:10px 16px; z-index:300; }
-    .skip:focus { left:0; }
-
-    /* NAV (solid, dark text on bone) */
-    .nav { position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--bone) 90%, transparent); backdrop-filter:blur(14px) saturate(150%); border-bottom:1px solid var(--line); }
-    .nav__inner { display:flex; align-items:center; justify-content:space-between; height:74px; }
-    .brand { font-family:"Bricolage Grotesque",sans-serif; font-weight:800; font-size:1.25rem; text-decoration:none; letter-spacing:-.02em; display:inline-flex; align-items:center; gap:10px; }
-    .brand .dot { width:11px; height:11px; border-radius:50%; background:var(--clay); }
-    .nav__links { display:flex; gap:30px; list-style:none; align-items:center; }
-    .nav__links a { text-decoration:none; font-weight:600; font-size:.96rem; color:var(--muted); transition:color .25s var(--ease); }
-    .nav__links a:hover { color:var(--ink); }
-    .nav__links a[aria-current="page"] { color:var(--ink); text-decoration:underline; text-decoration-color:var(--clay); text-underline-offset:6px; text-decoration-thickness:2px; }
-    .nav__toggle { display:none; background:none; border:0; cursor:pointer; padding:8px; }
-    .nav__toggle span { display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; }
-    @media (max-width:820px){
-      .nav__toggle{ display:block; }
-      .nav__links{ position:absolute; top:74px; left:0; right:0; flex-direction:column; gap:0; background:var(--ink); max-height:0; overflow:hidden; transition:max-height .4s var(--ease); }
-      .nav__links.open{ max-height:360px; }
-      .nav__links li{ width:100%; border-top:1px solid rgba(255,255,255,.12); }
-      .nav__links a{ display:block; padding:18px 26px; color:var(--bone); }
+      --bone: #F6F1E8;
+      --surface: #EFE5D6;
+      --ink: #211C18;
+      --muted: #6A625A;
+      --line: #E1D6C4;
+      --clay: #BC512F;
+      --pine: #15534A;
+      --ochre: #D99A38;
+      --max: 1200px;
+      --radius: 18px;
+      --ease: cubic-bezier(.16,1,.3,1);
     }
 
-    /* HEADER */
-    .head { padding-block:clamp(54px,8vw,100px) clamp(30px,4vw,50px); }
-    .head .eyebrow { font-weight:600; font-size:.82rem; letter-spacing:.18em; text-transform:uppercase; color:var(--clay); }
-    .head h1 { font-size:clamp(2.8rem,8vw,5.5rem); margin-top:14px; }
-    .head p { color:var(--muted); font-size:1.18rem; max-width:54ch; margin-top:20px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bone);
+      color: var(--ink);
+      font-family: "Hanken Grotesk", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    /* GALLERY (masonry) */
-    .gallery { padding-bottom:clamp(50px,7vw,90px); }
-    .masonry { columns:3; column-gap:16px; }
-    @media (max-width:900px){ .masonry{ columns:2; } }
-    @media (max-width:560px){ .masonry{ columns:1; } }
-    .masonry button { display:block; width:100%; border:0; padding:0; margin:0 0 16px; background:var(--line); border-radius:14px; overflow:hidden; cursor:pointer; break-inside:avoid; }
-    .masonry img { width:100%; height:auto; transition:transform .5s var(--ease), filter .4s var(--ease); }
-    .masonry button:hover img { transform:scale(1.04); }
-    .room { margin-bottom:clamp(40px,5vw,68px); }
-    .room-title { font-size:clamp(1.5rem,3.6vw,2.4rem); margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line); }
-    .gallery__empty { border:1px dashed var(--line); border-radius:16px; padding:48px 28px; text-align:center; color:var(--muted); }
+    h1, h2, h3 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.03em;
+    }
 
-    /* COMFORT (condensed editorial list) */
-    .comfort { background:var(--ink); color:var(--bone); padding-block:clamp(64px,8vw,110px); }
-    .comfort h2 { font-size:clamp(2rem,5vw,3.4rem); margin-bottom:8px; }
-    .comfort .sub { opacity:.7; margin-bottom:30px; }
-    .feat { display:grid; grid-template-columns:64px 1fr; gap:22px; align-items:baseline; padding:22px 0; border-top:1px solid rgba(255,255,255,.16); }
-    .feat:last-child { border-bottom:1px solid rgba(255,255,255,.16); }
-    .feat__n { font-family:"Bricolage Grotesque",sans-serif; font-weight:800; font-size:1.3rem; color:var(--ochre); }
-    .feat__t { font-family:"Bricolage Grotesque",sans-serif; font-weight:700; font-size:clamp(1.15rem,2.4vw,1.5rem); }
-    .feat__t span { color:var(--bone); opacity:.6; font-family:"Hanken Grotesk",sans-serif; font-weight:400; font-size:1rem; display:block; margin-top:4px; }
-    @media (max-width:560px){ .feat{ grid-template-columns:1fr; gap:6px; } }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
 
-    /* CTA */
-    .cta { padding-block:clamp(64px,8vw,110px); }
-    .cta__band { background:var(--clay); border-radius:28px; padding:clamp(44px,6vw,80px); text-align:center; color:#fff; }
-    .cta__band h2 { font-size:clamp(2rem,5vw,3.4rem); }
-    .cta__band p { margin-top:12px; opacity:.95; }
-    .btn { display:inline-flex; align-items:center; gap:9px; padding:15px 28px; border-radius:999px; text-decoration:none; font-weight:700; transition:transform .25s var(--ease), background .25s var(--ease); }
-    .cta__band .btn { margin-top:26px; background:var(--ink); color:var(--bone); }
-    .cta__band .btn:hover { transform:translateY(-3px); background:#000; }
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin-inline: auto;
+      padding-inline: 26px;
+    }
 
-    footer { background:var(--ink); color:var(--bone); padding-block:42px; }
-    footer .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; opacity:.8; font-size:.92rem; }
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--ink);
+      color: var(--bone);
+      padding: 10px 16px;
+      z-index: 300;
+    }
+    .skip:focus { left: 0; }
 
-    /* LIGHTBOX */
-    .lb { position:fixed; inset:0; background:rgba(15,12,10,.92); display:none; align-items:center; justify-content:center; z-index:500; padding:24px; }
-    .lb.open { display:flex; }
-    .lb img { max-width:92vw; max-height:88vh; border-radius:10px; }
-    .lb__close { position:absolute; top:20px; right:24px; background:none; border:0; color:#fff; font-size:2rem; cursor:pointer; line-height:1; }
-    .lb__nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.12); border:0; color:#fff; width:48px; height:48px; border-radius:50%; font-size:1.4rem; cursor:pointer; }
-    .lb__nav.prev{ left:20px; } .lb__nav.next{ right:20px; }
+    /* Navigation */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in srgb, var(--bone) 92%, transparent);
+      backdrop-filter: blur(14px) saturate(150%);
+      border-bottom: 1px solid var(--line);
+    }
 
-    .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
-    .reveal.in { opacity:1; transform:none; }
-    @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; } }
+    .nav__inner {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      text-decoration: none;
+      letter-spacing: -.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--clay);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .96rem;
+      color: var(--muted);
+      transition: color .25s var(--ease);
+    }
+
+    .nav__links a:hover,
+    .nav__links a[aria-current="page"] {
+      color: var(--ink);
+    }
+
+    .nav__links a[aria-current="page"] {
+      text-decoration: underline;
+      text-decoration-color: var(--clay);
+      text-underline-offset: 6px;
+      text-decoration-thickness: 2px;
+    }
+
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin: 5px 0;
+      background: var(--ink);
+    }
+
+    @media (max-width: 820px) {
+      .nav__toggle { display: block; }
+      .nav__links {
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--ink);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .35s var(--ease);
+      }
+      .nav__links.open { max-height: 360px; }
+      .nav__links li { border-top: 1px solid rgba(255,255,255,.12); }
+      .nav__links a {
+        display: block;
+        padding: 18px 26px;
+        color: var(--bone);
+      }
+    }
+
+    /* Page header */
+    .head {
+      padding-block: clamp(54px, 8vw, 100px) clamp(30px, 4vw, 50px);
+    }
+
+    .eyebrow {
+      font-weight: 800;
+      font-size: .8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 14px;
+    }
+
+    .head h1 {
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      max-width: 12ch;
+    }
+
+    .head p {
+      max-width: 58ch;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 1.18rem;
+    }
+
+    /* Gallery */
+    .gallery {
+      padding-bottom: clamp(50px, 7vw, 90px);
+    }
+
+    .room {
+      margin-bottom: clamp(48px, 6vw, 82px);
+    }
+
+    .room-title {
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      font-size: clamp(1.5rem, 3.6vw, 2.4rem);
+    }
+
+    .masonry {
+      columns: 3;
+      column-gap: 16px;
+    }
+
+    .masonry button {
+      display: block;
+      width: 100%;
+      margin: 0 0 16px;
+      padding: 0;
+      border: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface);
+      cursor: pointer;
+      break-inside: avoid;
+    }
+
+    .masonry img {
+      width: 100%;
+      height: auto;
+      transition: transform .5s var(--ease), filter .4s var(--ease);
+    }
+
+    .masonry button:hover img {
+      transform: scale(1.04);
+      filter: saturate(1.04);
+    }
+
+    @media (max-width: 900px) {
+      .masonry { columns: 2; }
+    }
+
+    @media (max-width: 560px) {
+      .masonry { columns: 1; }
+    }
+
+    /* Comfort */
+    .comfort {
+      background: var(--ink);
+      color: var(--bone);
+      padding-block: clamp(64px, 8vw, 110px);
+    }
+
+    .comfort h2 {
+      margin-bottom: 8px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+    }
+
+    .comfort .sub {
+      margin-bottom: 30px;
+      opacity: .7;
+    }
+
+    .feat {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 22px;
+      align-items: baseline;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+
+    .feat:last-child { border-bottom: 1px solid rgba(255,255,255,.16); }
+
+    .feat__n {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--ochre);
+    }
+
+    .feat__t {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    }
+
+    .feat__t span {
+      display: block;
+      margin-top: 4px;
+      color: var(--bone);
+      opacity: .62;
+      font-family: "Hanken Grotesk", system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 560px) {
+      .feat { grid-template-columns: 1fr; gap: 6px; }
+    }
+
+    /* CTA + footer */
+    .cta { padding-block: clamp(64px, 8vw, 110px); }
+
+    .cta__band {
+      border-radius: 28px;
+      padding: clamp(44px, 6vw, 80px);
+      background: var(--clay);
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta__band h2 { font-size: clamp(2rem, 5vw, 3.4rem); }
+    .cta__band p { margin-top: 12px; opacity: .95; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 26px;
+      padding: 15px 28px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--bone);
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform .25s var(--ease), background .25s var(--ease);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #000;
+    }
+
+    footer {
+      background: var(--ink);
+      color: var(--bone);
+      padding-block: 42px;
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: .8;
+      font-size: .92rem;
+    }
+
+    /* Lightbox */
+    .lb {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(15,12,10,.92);
+    }
+
+    .lb.open { display: flex; }
+
+    .lb img {
+      max-width: 92vw;
+      max-height: 88vh;
+      border-radius: 10px;
+    }
+
+    .lb__close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      border: 0;
+      background: none;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .lb__nav {
+      position: absolute;
+      top: 50%;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      font-size: 1.4rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .lb__nav.prev { left: 20px; }
+    .lb__nav.next { right: 20px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 
@@ -119,12 +430,11 @@
   </header>
 
   <main id="main">
-
     <section class="head">
       <div class="wrap">
         <p class="eyebrow">The Apartment</p>
-        <h1>A bright 61&nbsp;m²<br>attic, lived in.</h1>
-        <p>White beams, sloped ceilings, and natural light, with a separate bedroom and a private terrace overlooking the green. Here's every corner.</p>
+        <h1>A bright attic, lived in.</h1>
+        <p>Beams, sloped ceilings and natural light, with a separate bedroom and a private terrace. The gallery below is organized by room and atmosphere.</p>
       </div>
     </section>
 
@@ -139,7 +449,7 @@
         <h2 class="reveal">What makes it comfortable</h2>
         <p class="sub reveal">Small, considered, easy to live in.</p>
         <div class="feat reveal"><div class="feat__n">01</div><div class="feat__t">Central location<span>Edge of the Jordaan — canals, cafés and markets on foot.</span></div></div>
-        <div class="feat reveal"><div class="feat__n">02</div><div class="feat__t">Light-filled rooms<span>Multiple windows under white beams and sloped ceilings.</span></div></div>
+        <div class="feat reveal"><div class="feat__n">02</div><div class="feat__t">Light-filled rooms<span>Multiple windows under beams and sloped ceilings.</span></div></div>
         <div class="feat reveal"><div class="feat__n">03</div><div class="feat__t">Separate bedroom<span>A private retreat away from the open living space.</span></div></div>
         <div class="feat reveal"><div class="feat__n">04</div><div class="feat__t">Private terrace<span>Coffee and evening drinks, looking over the green.</span></div></div>
         <div class="feat reveal"><div class="feat__n">05</div><div class="feat__t">Bath &amp; shower<span>A full bathroom with both a bathtub and a shower.</span></div></div>
@@ -155,7 +465,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
@@ -165,7 +474,6 @@
     </div>
   </footer>
 
-  <!-- LIGHTBOX -->
   <div class="lb" id="lb" aria-hidden="true">
     <button class="lb__close" id="lbClose" aria-label="Close">×</button>
     <button class="lb__nav prev" id="lbPrev" aria-label="Previous">‹</button>
@@ -174,87 +482,177 @@
   </div>
 
   <script>
-    /* ===== PHOTO FOLDERS — AUTO-LOADED FROM YOUR GITHUB REPO =====
-       Every SUBFOLDER inside photos/ becomes its own titled gallery section.
-       Examples:
-       photos/01-living-room/         -> "Living Room"
-       photos/02-kitchen-and-dining/  -> "Kitchen And Dining"
-       photos/06-panoramas-and-views/ -> "Panoramas And Views"
+    /*
+      Clean gallery: no GitHub API, no rate limits.
+      Add/remove images here when you change the folder structure.
 
-       Loose images directly inside photos/ appear first in an untitled block.
-       To control order, number folders and files: 01-..., 02-...
-       This is a static GitHub Pages site, so folders/images must be uploaded
-       to GitHub before the live site can display them. */
-    const OWNER = "francesco-tox", REPO = "home-exchange-amsterdam", FOLDER = "photos";
-    /* ====================================================== */
+      Expected folder structure:
+      photos/
+        01-living-room/
+        02-kitchen-and-dining/
+        03-bedroom/
+        04-bathroom/
+        05-terrace/
+        06-panoramas-and-views/
+    */
+    const gallerySections = [
+      {
+        title: "Living Room",
+        images: [
+          "photos/01-living-room/01-to-publish-hero-living-dining-wide.jpg",
+          "photos/01-living-room/02-to-publish-living-dining-overview.jpg",
+          "photos/01-living-room/06-to-publish-living-sofa-dining-bright.jpg",
+          "photos/01-living-room/07-to-publish-interior-panorama-living-dining.jpg"
+        ]
+      },
+      {
+        title: "Kitchen & Dining",
+        images: [
+          "photos/02-kitchen-and-dining/03-to-publish-living-kitchen-overview.jpg",
+          "photos/02-kitchen-and-dining/04-to-publish-dining-kitchen-sloped-ceiling.jpg",
+          "photos/02-kitchen-and-dining/05-to-publish-living-table-flower-detail.jpg"
+        ]
+      },
+      {
+        title: "Bedroom",
+        images: [
+          "photos/03-bedroom/08-to-publish-bedroom-overview.jpg",
+          "photos/03-bedroom/09-to-publish-bedroom-bed-dark-wall.jpg",
+          "photos/03-bedroom/10-to-publish-bedroom-window-terrace-view.jpg"
+        ]
+      },
+      {
+        title: "Bathroom",
+        images: [
+          "photos/04-bathroom/11-to-publish-bathroom-overview.jpg",
+          "photos/04-bathroom/12-to-publish-bathroom-shower-vertical.jpg"
+        ]
+      },
+      {
+        title: "Terrace",
+        images: [
+          "photos/05-terrace/14-to-publish-terrace-main.jpg",
+          "photos/05-terrace/15-to-publish-terrace-flowers-wide.jpg"
+        ]
+      },
+      {
+        title: "Panoramas & Views",
+        images: [
+          "photos/06-panoramas-and-views/16-to-publish-canal-rooftop-view.jpg",
+          "photos/06-panoramas-and-views/17-to-publish-green-square-view.jpg",
+          "photos/06-panoramas-and-views/18-to-publish-building-facade-street.jpg"
+        ]
+      }
+    ];
 
-    const gallery = document.getElementById('gallery');
-    let loaded = [];
-    const ghApi = p => `https://api.github.com/repos/${OWNER}/${REPO}/contents/${p}`;
-    const isImg = n => /\.(jpe?g|png|webp|gif|avif)$/i.test(n);
-    const byName = (a,b) => a.name.localeCompare(b.name, undefined, {numeric:true});
-    function pretty(name){
-      return name
-        .replace(/\.[^.]+$/,'')
-        .replace(/^\d+[-_\s]*/,'')
-        .replace(/[-_]+/g,' ')
-        .replace(/\s+/g,' ')
-        .trim()
+    const gallery = document.getElementById("gallery");
+    let loadedImages = [];
+
+    function makeAltText(src) {
+      return src
+        .split("/")
+        .pop()
+        .replace(/\.[^.]+$/, "")
+        .replace(/^\d+[-_\s]*/, "")
+        .replace(/to-publish-/g, "")
+        .replace(/[-_]+/g, " ")
         .replace(/\b\w/g, c => c.toUpperCase());
     }
-    async function findFolder(){
-      const tries = [...new Set([FOLDER, FOLDER.toLowerCase(), FOLDER.charAt(0).toUpperCase() + FOLDER.slice(1)])];
-      const tried = [];
-      for(const f of tries){ const u = ghApi(f); tried.push(u);
-        try{ const r = await fetch(u); if(r.ok) return { name:f, data: await r.json() }; if(r.status===403) return { error:'rate' }; }catch(e){} }
-      return { error:'notfound', tried };
-    }
-    function showError(info){
-      let msg;
-      if(info.error === 'rate'){ msg = "GitHub's API is briefly rate-limited (too many requests from your network). Wait a minute and reload."; }
-      else { const u = (info.tried && info.tried[0]) || ghApi(FOLDER);
-        msg = "Couldn't read the photo folder — most likely the name/capitalization is wrong (it's case-sensitive) or the folder is empty.<br>It looked for: <a href=\"" + u + "\" target=\"_blank\" rel=\"noopener\">" + u + "</a> — open that to see what GitHub returns."; }
-      gallery.innerHTML = '<div class="gallery__empty">' + msg + '</div>';
-    }
-    async function build(){
-      const root = await findFolder();
-      if(root.error){ showError(root); return; }
-      const dirs  = root.data.filter(e => e.type==='dir').sort(byName);
-      const loose = root.data.filter(e => e.type==='file' && isImg(e.name)).sort(byName);
-      const blocks = [];
-      if(loose.length) blocks.push({ title:null, items: loose.map(f => ({ src:`${root.name}/${f.name}`, alt:pretty(f.name) })) });
-      for(const d of dirs){
-        try{ const sub = (await (await fetch(ghApi(`${root.name}/${d.name}`))).json()).filter(e => e.type==='file' && isImg(e.name)).sort(byName);
-          if(sub.length) blocks.push({ title: pretty(d.name), items: sub.map(f => ({ src:`${root.name}/${d.name}/${f.name}`, alt:pretty(f.name) })) }); }catch(e){}
-      }
-      if(!blocks.length){ gallery.innerHTML = '<div class="gallery__empty">The <strong>' + root.name + '/</strong> folder is reachable but has no images yet. Add photos (loose, or inside room subfolders) and commit.</div>'; return; }
-      loaded = []; let html = '';
-      for(const b of blocks){
-        html += '<section class="room">';
-        if(b.title) html += `<h2 class="room-title">${b.title}</h2>`;
-        html += '<div class="masonry">';
-        for(const it of b.items){ const i = loaded.length; loaded.push(it); html += `<button data-i="${i}" aria-label="Open ${it.alt}"><img loading="lazy" src="${it.src}" alt="${it.alt}"></button>`; }
-        html += '</div></section>';
-      }
+
+    function buildGallery() {
+      if (!gallery) return;
+
+      loadedImages = [];
+      let html = "";
+
+      gallerySections.forEach(section => {
+        html += `<section class="room">`;
+        html += `<h2 class="room-title">${section.title}</h2>`;
+        html += `<div class="masonry">`;
+
+        section.images.forEach(src => {
+          const index = loadedImages.length;
+          const alt = makeAltText(src);
+          loadedImages.push({ src, alt });
+
+          html += `
+            <button data-index="${index}" aria-label="Open ${alt}">
+              <img loading="lazy" src="${src}" alt="${alt}">
+            </button>
+          `;
+        });
+
+        html += `</div></section>`;
+      });
+
       gallery.innerHTML = html;
-      gallery.querySelectorAll('button').forEach(b => b.addEventListener('click', () => open(+b.dataset.i)));
+
+      gallery.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => openLightbox(Number(button.dataset.index)));
+      });
     }
-    build();
-    const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
-    let idx=0;
-    function open(i){ idx=i; show(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
-    function show(){ lbImg.src=loaded[idx].src; lbImg.alt=loaded[idx].alt; }
-    function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
-    function step(d){ idx=(idx+d+loaded.length)%loaded.length; show(); }
-    document.getElementById('lbClose').onclick=close;
-    document.getElementById('lbPrev').onclick=()=>step(-1);
-    document.getElementById('lbNext').onclick=()=>step(1);
-    lb.addEventListener('click',e=>{ if(e.target===lb) close(); });
-    document.addEventListener('keydown',e=>{ if(!lb.classList.contains('open'))return; if(e.key==='Escape')close(); if(e.key==='ArrowLeft')step(-1); if(e.key==='ArrowRight')step(1); });
-    const tg=document.getElementById('navToggle'), nk=document.getElementById('navLinks');
-    tg.addEventListener('click',()=>{const o=nk.classList.toggle('open'); tg.setAttribute('aria-expanded',o);});
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    buildGallery();
+
+    const lightbox = document.getElementById("lb");
+    const lightboxImage = document.getElementById("lbImg");
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      showLightboxImage();
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+    }
+
+    function showLightboxImage() {
+      lightboxImage.src = loadedImages[currentIndex].src;
+      lightboxImage.alt = loadedImages[currentIndex].alt;
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+    }
+
+    function stepLightbox(direction) {
+      currentIndex = (currentIndex + direction + loadedImages.length) % loadedImages.length;
+      showLightboxImage();
+    }
+
+    document.getElementById("lbClose").addEventListener("click", closeLightbox);
+    document.getElementById("lbPrev").addEventListener("click", () => stepLightbox(-1));
+    document.getElementById("lbNext").addEventListener("click", () => stepLightbox(1));
+
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (!lightbox.classList.contains("open")) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") stepLightbox(-1);
+      if (event.key === "ArrowRight") stepLightbox(1);
+    });
+
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open);
+    });
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>
