@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Photo gallery of Amsterdam apartment">
+  <meta name="description" content="Photo gallery of the 61 m² attic apartment in Amsterdam's Jordaan.">
   <meta name="theme-color" content="#f5f3f0">
   <title>Gallery | Amsterdam Home Exchange</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,11 +14,10 @@
 <body>
   <a href="#main" class="skip-to-content">Skip to main content</a>
 
-  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
-        <a href="index.html">🏠 Amsterdam</a>
+        <a href="index.html">Amsterdam Home</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
         <span></span>
@@ -27,7 +26,7 @@
       </button>
       <ul class="nav-menu" id="navMenu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
         <li><a href="neighborhood.html">Neighborhood</a></li>
         <li><a href="exchange.html">Exchange</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -35,27 +34,22 @@
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
   <section class="page-header">
     <div class="container">
       <h1>Photo Gallery</h1>
-      <p>Explore every detail of the apartment</p>
+      <p>All 24 rooms and details</p>
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
   <main id="main">
-
-    <!-- GALLERY SECTION -->
     <section class="gallery-section">
       <div class="container">
         <div class="gallery" id="gallery">
-          <p style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #8b8378;">Loading photos...</p>
+          <p style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #6b6258;">Loading photos...</p>
         </div>
       </div>
     </section>
 
-    <!-- LIGHTBOX MODAL -->
     <div id="lightbox" class="lightbox">
       <div class="lightbox-content">
         <button class="lightbox-close" aria-label="Close gallery">&times;</button>
@@ -65,10 +59,8 @@
         <div class="lightbox-counter"></div>
       </div>
     </div>
-
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <p>&copy; 2025 Amsterdam Home Exchange. A privacy-conscious home exchange platform.</p>

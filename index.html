@@ -3,26 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Amsterdam canal-side attic apartment available for home exchange. Modern, bright spaces with terrace and elevator access.">
+  <meta name="description" content="61 m² attic apartment in Amsterdam's Jordaan. Bedroom + open-plan living, terrace, elevator access. Ideal for one or two.">
   <meta name="theme-color" content="#f5f3f0">
-  <title>Amsterdam Home Exchange | Canal-Side Attic Apartment</title>
-  
-  <!-- Fonts -->
+  <title>Amsterdam Attic Apartment | Home Exchange</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a href="#main" class="skip-to-content">Skip to main content</a>
 
-  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
-        <a href="index.html">🏠 Amsterdam</a>
+        <a href="index.html" aria-current="page">Amsterdam Home</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
         <span></span>
@@ -30,7 +25,7 @@
         <span></span>
       </button>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="neighborhood.html">Neighborhood</a></li>
         <li><a href="exchange.html">Exchange</a></li>
@@ -39,100 +34,130 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Canal-Side Attic Apartment</h1>
-      <p class="hero-subtitle">A bright, characterful home in the heart of Amsterdam</p>
-      <a href="gallery.html" class="cta-button cta-button-primary">Explore Gallery</a>
-    </div>
-    <div class="hero-background"></div>
-  </section>
-
-  <!-- MAIN CONTENT -->
   <main id="main">
+    <!-- PHOTO CAROUSEL -->
+    <section class="carousel-section">
+      <div class="carousel-container">
+        <div class="carousel" id="carousel">
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carouselTrack">
+              <!-- Landscape photos only -->
+              <div class="carousel-slide">
+                <img src="photos/20260505_103014.jpg" alt="Bright attic living space with skylights and white beams" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="photos/20260505_103948.jpg" alt="Open-plan kitchen and living area with natural light" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="photos/20260518_194457.jpg" alt="Private terrace overlooking Marnixplantsoen" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="photos/22692.jpeg" alt="Bedroom with parquet flooring" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="photos/22709.jpeg" alt="Bathroom with bathtub and shower" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control carousel-prev" aria-label="Previous photo">❮</button>
+          <button class="carousel-control carousel-next" aria-label="Next photo">❯</button>
+          <div class="carousel-indicators" id="carouselIndicators"></div>
+        </div>
+      </div>
+    </section>
 
-    <!-- WELCOME SECTION -->
-    <section class="welcome-section">
+    <!-- INTRO SECTION -->
+    <section class="intro-section">
       <div class="container">
-        <div class="welcome-grid">
-          <div class="welcome-content">
-            <h2>Welcome to Our Amsterdam Home</h2>
-            <p>
-              This characterful attic apartment in central Amsterdam is a warm, thoughtfully curated home perfect for a meaningful home exchange experience. Located near the Jordaan neighborhood, you'll wake up to views over the canals with the charm of authentic Amsterdam all around you.
-            </p>
-            <p>
-              The apartment features elegant, gallery-style interiors with abundant natural light, dark parquet floors, and carefully curated details. Ideal for one person or a couple seeking an authentic Amsterdam living experience.
-            </p>
-            <ul class="feature-list">
-              <li>✓ Bright attic space with white beams</li>
-              <li>✓ Private terrace with city views</li>
-              <li>✓ Elevator access to apartment</li>
-              <li>✓ Separate bedroom for comfort</li>
-            </ul>
+        <h1>61 m² attic apartment in Amsterdam</h1>
+        <div class="intro-grid">
+          <div class="intro-text">
+            <p><strong>Located on the 4th floor</strong> (elevator access) in Amsterdam's Jordaan neighborhood, on the edge of the canal ring. Overlooks Marnixplantsoen green square and Lijnbansgracht canal.</p>
+            <p><strong>Layout:</strong> One separate bedroom, open-plan living/kitchen, bathroom with bathtub and shower, private terrace, storage.</p>
+            <p><strong>Building:</strong> Renovated 2005. Energy label B. Quiet tree-lined street; very walkable neighborhood.</p>
+            <p><strong>Ideal for:</strong> One person or a couple.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HIGHLIGHTS SECTION -->
-    <section class="highlights-section">
+    <!-- KEY FEATURES -->
+    <section class="features-section">
       <div class="container">
-        <h2>Key Features</h2>
-        <div class="highlights-grid">
-          
-          <div class="highlight-card">
-            <div class="highlight-icon">📍</div>
-            <h3>Central Location</h3>
-            <p>Near the Jordaan, walking distance to canals, cafés, markets, and independent shops.</p>
+        <h2>The Essentials</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12h18M3 6h18M3 18h18"/>
+            </svg>
+            <h3>Layout</h3>
+            <p>Separate bedroom. Open-plan living and kitchen. Bathroom with bathtub and shower. Private terrace. Storage.</p>
           </div>
-
-          <div class="highlight-card">
-            <div class="highlight-icon">🛗</div>
-            <h3>Elevator Access</h3>
-            <p>Easy access to the apartment from street level with the building's elevator.</p>
+          <div class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="12 1 3 7 3 13 12 19 21 13 21 7 12 1"/>
+              <polyline points="3 7 12 13 21 7M3 13 l9 6 l9 -6"/>
+            </svg>
+            <h3>Transport</h3>
+            <p>Bus 13, 18, 21 directly outside. Tram 5, bus 22 nearby. Centraal Station 4 tram stops away.</p>
           </div>
-
-          <div class="highlight-card">
-            <div class="highlight-icon">☀️</div>
-            <h3>Bright & Airy</h3>
-            <p>Flooded with natural light through multiple windows, white beams, sloped ceilings.</p>
+          <div class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M12 7v5l3 2"/>
+            </svg>
+            <h3>Access</h3>
+            <p>Elevator to 4th floor. 20-minute walk to Dam Square. Dam Square is the heart of central Amsterdam.</p>
           </div>
-
-          <div class="highlight-card">
-            <div class="highlight-icon">🛏️</div>
-            <h3>Comfortable Bedroom</h3>
-            <p>Private, peaceful retreat from the open living areas.</p>
-          </div>
-
-          <div class="highlight-card">
-            <div class="highlight-icon">🌿</div>
-            <h3>Private Terrace</h3>
-            <p>Outdoor space with Amsterdam air, morning coffee, and evening drinks with views.</p>
-          </div>
-
-          <div class="highlight-card">
-            <div class="highlight-icon">👥</div>
-            <h3>Perfect for Two</h3>
-            <p>Ideal for a solo traveler or couple. Comfortable without being oversized.</p>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- CALL-TO-ACTION -->
+    <!-- YOUR HOSTS -->
+    <section class="hosts-section">
+      <div class="container">
+        <h2>Your Hosts</h2>
+        <div class="hosts-content">
+          <div class="host-photo">
+            <img src="https://via.placeholder.com/300x300?text=Host+Photo" alt="Host photo - TODO: replace with actual image" class="placeholder-img">
+          </div>
+          <div class="host-bio">
+            <!-- TODO: Replace with actual host bio -->
+            <p>We are long-term Amsterdam residents passionate about experiencing how others live. We love traveling thoughtfully and believe home exchange is the best way to truly know a place.</p>
+            <p><!-- VERIFY: Add actual host names, background, interests --></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE'RE LOOKING FOR -->
+    <section class="looking-section">
+      <div class="container">
+        <h2>What We're Looking For</h2>
+        <div class="looking-content">
+          <p>We're especially drawn to towns, smaller cities, and villages in Northern Europe — places with character, green surroundings, and walkable centers. For this exchange we're focusing on inland and northern destinations rather than coastal or beach locations.</p>
+          <p>We seek places where we can walk or bike for daily life, with good local restaurants, markets, and cultural venues nearby.</p>
+          <ul class="looking-list">
+            <li>Character and local identity</li>
+            <li>Walkable, bikeable neighborhoods</li>
+            <li>Green space and good air</li>
+            <li>Good public transport or compact scale</li>
+            <li>Nearby restaurants, shops, markets</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
     <section class="cta-section">
       <div class="container">
-        <h2>Ready to Explore?</h2>
-        <p>Check out our photo gallery to see every corner of this beautiful apartment.</p>
-        <a href="gallery.html" class="cta-button cta-button-secondary">View Full Gallery</a>
+        <h2>Explore the Apartment</h2>
+        <p>Browse the full photo gallery and learn about the neighborhood.</p>
+        <a href="gallery.html" class="cta-button">View Gallery</a>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <p>&copy; 2025 Amsterdam Home Exchange. A privacy-conscious home exchange platform.</p>
@@ -140,5 +165,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="carousel.js"></script>
 </body>
 </html>
