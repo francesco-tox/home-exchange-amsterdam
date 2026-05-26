@@ -17,88 +17,64 @@ document.addEventListener('DOMContentLoaded', function () {
   let allLoadedImages = [];
 
   /* ============================================
-     LOAD PHOTOS FROM /photos FOLDER
+     HARDCODED PHOTO LIST - Your Actual Photos
      ============================================ */
 
-  async function loadGalleryPhotos() {
-    try {
-      // Try to fetch the photos directory
-      const response = await fetch('photos/');
-      
-      if (response.ok) {
-        const text = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const links = doc.querySelectorAll('a');
-
-        const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
-        const photoFiles = [];
-
-        links.forEach(link => {
-          const href = link.getAttribute('href');
-          if (href && imageExtensions.some(ext => href.toLowerCase().endsWith(ext))) {
-            photoFiles.push(href);
-          }
-        });
-
-        if (photoFiles.length > 0) {
-          displayPhotos(photoFiles);
-          return;
-        }
-      }
-    } catch (error) {
-      console.log('Directory listing not available, using fallback method');
-    }
-
-    // Fallback: Load common photo names
-    loadCommonPhotoNames();
-  }
-
-  function loadCommonPhotoNames() {
-    // List of common photo filenames to try
-    const commonNames = [
-      'hero', 'living-01', 'living-02', 'living-03', 'kitchen-01', 'kitchen-02', 'kitchen-03',
-      'dining-01', 'dining-02', 'bedroom-01', 'bedroom-02', 'bathroom-01', 'bathroom-02',
-      'toilet-01', 'terrace-01', 'terrace-02', 'terrace-03', 'entrance-01', 'entrance-02',
-      'berging-01', 'panorama-01', 'panorama-02', 'panorama-03', 'detail-01', 'detail-02',
-      'hallway-01', 'staircase-01', 'view-01', 'view-02', 'decor-01', 'decor-02'
+  function loadGalleryPhotos() {
+    // Your actual photo files
+    const photoFiles = [
+      '20260505_103014.jpg',
+      '20260505_103948.jpg',
+      '20260505_105014.jpg',
+      '20260505_145043.jpg',
+      '20260507_170509.jpg',
+      '20260509_101453.jpg',
+      '20260509_101552.jpg',
+      '20260518_194457.jpg',
+      '22144.jpg',
+      '22216.jpg',
+      '22217.jpg',
+      '22245.jpg',
+      '22249.jpg',
+      '22251.jpg',
+      '22263.jpg',
+      '22264.jpg',
+      '22692.jpeg',
+      '22709.jpeg',
+      '24517.jpeg',
+      'IMG-20250715-WA0018.jpg',
+      'IMG-20260505-WA0001.jpg',
+      'IMG-20260505-WA0002(1).jpg',
+      'IMG-20260505-WA0003.jpg',
+      'IMG-20260505-WA0004.jpg'
     ];
-
-    const extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-    const photoFiles = [];
-
-    // Try each common name with each extension
-    commonNames.forEach(name => {
-      extensions.forEach(ext => {
-        photoFiles.push(`${name}.${ext}`);
-      });
-    });
 
     displayPhotos(photoFiles);
   }
 
   function displayPhotos(photoFiles) {
     gallery.innerHTML = '';
-    let totalAttempted = 0;
     let totalLoaded = 0;
+    let totalFailed = 0;
 
     photoFiles.forEach((photo, index) => {
-      totalAttempted++;
       const galleryItem = document.createElement('div');
       galleryItem.className = 'gallery-item';
       
       const img = document.createElement('img');
       img.src = `photos/${photo}`;
-      img.alt = `Apartment photo`;
+      img.alt = `Apartment photo - ${photo}`;
       img.loading = 'lazy';
       
       // Track successful loads
       img.addEventListener('load', function () {
         totalLoaded++;
-        console.log(`Photo loaded: ${photo}`);
+        console.log(`✓ Photo loaded: ${photo}`);
       });
 
       img.addEventListener('error', function () {
+        totalFailed++;
+        console.log(`✗ Photo failed: ${photo}`);
         galleryItem.remove();
       });
 
@@ -115,7 +91,12 @@ document.addEventListener('DOMContentLoaded', function () {
     allLoadedImages = Array.from(allImages);
     galleryItems = allLoadedImages;
 
-    console.log(`Gallery initialized with ${galleryItems.length} photos`);
+    console.log(`✓ Gallery initialized with ${galleryItems.length} photos`);
+
+    if (galleryItems.length === 0) {
+      gallery.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #8b8378;">No photos found. Please upload images to the /photos folder.</p>';
+      return;
+    }
 
     allImages.forEach((img, index) => {
       img.parentElement.addEventListener('click', function () {
