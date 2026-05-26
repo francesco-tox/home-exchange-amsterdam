@@ -175,75 +175,63 @@
 
   <script>
     /* ===== PHOTO FOLDERS — AUTO-LOADED FROM YOUR REPO =====
-       Each SUBFOLDER inside the folder below becomes its own titled
-       block (e.g. photos/living-room/ -> "Living room").
-       - Order the blocks by numbering the folders: 01-living-room, 02-bedroom...
-       - Order photos within a block by numbering the files: 01-..., 02-...
-       - Block title and photo captions come from folder/file names.
-       - Loose photos placed directly in the folder (not in a subfolder)
-         appear in an untitled block at the top.
-       - Works because your repo is public. Set branch + folder to match yours. */
-    const GH = {
-      owner:  "francesco-tox",
-      repo:   "home-exchange-amsterdam",
-      branch: "main",      // change to "master" if that's your default branch
-      folder: "photos"     // top-level photo folder (case-sensitive!)
-    };
-    /* ======================================================== */
+       Each SUBFOLDER inside the folder below becomes its own titled block
+       (e.g. photos/Panorama/ -> "Panorama"). Loose photos sitting directly
+       in the folder appear in an untitled block at the top.
+       - Order blocks by numbering folders: 01-living-room, 02-bedroom...
+       - Order photos by numbering files: 01-..., 02-...
+       - The folder name is tried in a few capitalizations automatically.
+       - If nothing shows, the page prints exactly what went wrong below. */
+    const OWNER = "francesco-tox", REPO = "home-exchange-amsterdam", FOLDER = "photos";
+    /* ====================================================== */
 
     const gallery = document.getElementById('gallery');
-    let loaded = [];   // flat list across all blocks, for the lightbox
-
+    let loaded = [];
+    const ghApi = p => `https://api.github.com/repos/${OWNER}/${REPO}/contents/${p}`;
     const isImg = n => /\.(jpe?g|png|webp|gif|avif)$/i.test(n);
+    const byName = (a,b) => a.name.localeCompare(b.name, undefined, {numeric:true});
     function pretty(name){
       return name.replace(/\.[^.]+$/,'').replace(/^\d+[-_\s]*/,'')
                  .replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim()
                  .replace(/^\w/, c => c.toUpperCase());
     }
-    async function listFolder(path){
-      const res = await fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${path}?ref=${GH.branch}`);
-      if(!res.ok) throw new Error(res.status);
-      return res.json();
+    async function findFolder(){
+      const tries = [...new Set([FOLDER, FOLDER.toLowerCase(), FOLDER.charAt(0).toUpperCase() + FOLDER.slice(1)])];
+      const tried = [];
+      for(const f of tries){ const u = ghApi(f); tried.push(u);
+        try{ const r = await fetch(u); if(r.ok) return { name:f, data: await r.json() }; if(r.status===403) return { error:'rate' }; }catch(e){} }
+      return { error:'notfound', tried };
     }
-    const byName = (a,b) => a.name.localeCompare(b.name, undefined, {numeric:true});
-    const emptyMsg = '<div class="gallery__empty">No photos found yet &mdash; add image files (or room subfolders) to the <strong>' +
-      GH.folder + '/</strong> folder in your repo and commit. They\'ll appear here automatically.</div>';
-
+    function showError(info){
+      let msg;
+      if(info.error === 'rate'){ msg = "GitHub's API is briefly rate-limited (too many requests from your network). Wait a minute and reload."; }
+      else { const u = (info.tried && info.tried[0]) || ghApi(FOLDER);
+        msg = "Couldn't read the photo folder — most likely the name/capitalization is wrong (it's case-sensitive) or the folder is empty.<br>It looked for: <a href=\"" + u + "\" target=\"_blank\" rel=\"noopener\">" + u + "</a> — open that to see what GitHub returns."; }
+      gallery.innerHTML = '<div class="gallery__empty">' + msg + '</div>';
+    }
     async function build(){
-      let entries;
-      try { entries = await listFolder(GH.folder); }
-      catch(e){ gallery.innerHTML = emptyMsg; return; }
-
-      const dirs  = entries.filter(e => e.type === 'dir').sort(byName);
-      const loose = entries.filter(e => e.type === 'file' && isImg(e.name)).sort(byName);
-
+      const root = await findFolder();
+      if(root.error){ showError(root); return; }
+      const dirs  = root.data.filter(e => e.type==='dir').sort(byName);
+      const loose = root.data.filter(e => e.type==='file' && isImg(e.name)).sort(byName);
       const blocks = [];
-      if(loose.length) blocks.push({ title:null, items: loose.map(f => ({src:`${GH.folder}/${f.name}`, alt:pretty(f.name)})) });
+      if(loose.length) blocks.push({ title:null, items: loose.map(f => ({ src:`${root.name}/${f.name}`, alt:pretty(f.name) })) });
       for(const d of dirs){
-        try {
-          const sub = (await listFolder(`${GH.folder}/${d.name}`)).filter(e => e.type==='file' && isImg(e.name)).sort(byName);
-          if(sub.length) blocks.push({ title: pretty(d.name), items: sub.map(f => ({src:`${GH.folder}/${d.name}/${f.name}`, alt:pretty(f.name)})) });
-        } catch(e){ /* skip unreadable folder */ }
+        try{ const sub = (await (await fetch(ghApi(`${root.name}/${d.name}`))).json()).filter(e => e.type==='file' && isImg(e.name)).sort(byName);
+          if(sub.length) blocks.push({ title: pretty(d.name), items: sub.map(f => ({ src:`${root.name}/${d.name}/${f.name}`, alt:pretty(f.name) })) }); }catch(e){}
       }
-
-      if(!blocks.length){ gallery.innerHTML = emptyMsg; return; }
-
-      loaded = [];
-      let html = '';
+      if(!blocks.length){ gallery.innerHTML = '<div class="gallery__empty">The <strong>' + root.name + '/</strong> folder is reachable but has no images yet. Add photos (loose, or inside room subfolders) and commit.</div>'; return; }
+      loaded = []; let html = '';
       for(const b of blocks){
         html += '<section class="room">';
         if(b.title) html += `<h2 class="room-title">${b.title}</h2>`;
         html += '<div class="masonry">';
-        for(const it of b.items){
-          const i = loaded.length; loaded.push(it);
-          html += `<button data-i="${i}" aria-label="Open ${it.alt}"><img loading="lazy" src="${it.src}" alt="${it.alt}"></button>`;
-        }
+        for(const it of b.items){ const i = loaded.length; loaded.push(it); html += `<button data-i="${i}" aria-label="Open ${it.alt}"><img loading="lazy" src="${it.src}" alt="${it.alt}"></button>`; }
         html += '</div></section>';
       }
       gallery.innerHTML = html;
       gallery.querySelectorAll('button').forEach(b => b.addEventListener('click', () => open(+b.dataset.i)));
     }
-
     build();
     const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
     let idx=0;
