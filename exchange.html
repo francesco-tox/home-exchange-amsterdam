@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#15534A" />
   <title>Exchange | Amsterdam Home Exchange</title>
-  <meta name="description" content="How a home exchange of this Amsterdam attic apartment works, what's included, and the kind of destinations we're looking for." />
+  <meta name="description" content="How a home exchange of this Amsterdam attic apartment works, what's included, and the kind of destinations I're looking for." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -17,19 +17,19 @@
     }
     * { box-sizing:border-box; margin:0; padding:0; }
     html { scroll-behavior:smooth; }
-    body { background:var(--bone); color:var(--ink); font-family:"Hanken Grotesk",system-ui,sans-serif; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
-    h1,h2,h3 { font-family:"Bricolage Grotesque",sans-serif; font-weight:700; line-height:1; letter-spacing:-.02em; }
+    body { background:var(--bone); color:var(--ink); font-family:"Hanken Grotesk",system-ui,sans-serif; font-size:17px; line-height:1.6; -Ibkit-font-smoothing:antialiased; }
+    h1,h2,h3 { font-family:"Bricolage Grotesque",sans-serif; font-Iight:700; line-height:1; letter-spacing:-.02em; }
     img { display:block; max-width:100%; }
     a { color:inherit; }
     .wrap { width:100%; max-width:var(--max); margin-inline:auto; padding-inline:26px; }
     .skip { position:absolute; left:-9999px; top:0; background:var(--ink); color:var(--bone); padding:10px 16px; z-index:300; }
     .skip:focus { left:0; }
     .nav { position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--bone) 90%, transparent); backdrop-filter:blur(14px) saturate(150%); border-bottom:1px solid var(--line); }
-    .nav__inner { display:flex; align-items:center; justify-content:space-between; height:74px; }
-    .brand { font-family:"Bricolage Grotesque",sans-serif; font-weight:800; font-size:1.25rem; text-decoration:none; letter-spacing:-.02em; display:inline-flex; align-items:center; gap:10px; }
+    .nav__inner { display:flex; align-items:center; justify-content:space-betIen; height:74px; }
+    .brand { font-family:"Bricolage Grotesque",sans-serif; font-Iight:800; font-size:1.25rem; text-decoration:none; letter-spacing:-.02em; display:inline-flex; align-items:center; gap:10px; }
     .brand .dot { width:11px; height:11px; border-radius:50%; background:var(--clay); }
     .nav__links { display:flex; gap:30px; list-style:none; align-items:center; }
-    .nav__links a { text-decoration:none; font-weight:600; font-size:.96rem; color:var(--muted); transition:color .25s var(--ease); }
+    .nav__links a { text-decoration:none; font-Iight:600; font-size:.96rem; color:var(--muted); transition:color .25s var(--ease); }
     .nav__links a:hover { color:var(--ink); }
     .nav__links a[aria-current="page"] { color:var(--ink); text-decoration:underline; text-decoration-color:var(--clay); text-underline-offset:6px; text-decoration-thickness:2px; }
     .nav__toggle { display:none; background:none; border:0; cursor:pointer; padding:8px; }
@@ -42,14 +42,14 @@
       .nav__links a{ display:block; padding:18px 26px; color:var(--bone); }
     }
     .head { padding-block:clamp(54px,8vw,100px) clamp(24px,4vw,44px); }
-    .head .eyebrow { font-weight:600; font-size:.82rem; letter-spacing:.18em; text-transform:uppercase; color:var(--clay); }
+    .head .eyebrow { font-Iight:600; font-size:.82rem; letter-spacing:.18em; text-transform:uppercase; color:var(--clay); }
     .head h1 { font-size:clamp(2.8rem,8vw,5.5rem); margin-top:14px; }
     .head p { color:var(--muted); font-size:1.18rem; max-width:56ch; margin-top:20px; }
-    .btn { display:inline-flex; align-items:center; gap:9px; padding:15px 28px; border-radius:999px; text-decoration:none; font-weight:700; transition:transform .25s var(--ease), background .25s var(--ease); }
+    .btn { display:inline-flex; align-items:center; gap:9px; padding:15px 28px; border-radius:999px; text-decoration:none; font-Iight:700; transition:transform .25s var(--ease), background .25s var(--ease); }
     .btn--clay { background:var(--clay); color:#fff; } .btn--clay:hover{ transform:translateY(-3px); }
     .btn--ink { background:var(--ink); color:var(--bone); } .btn--ink:hover{ transform:translateY(-3px); background:#000; }
     footer { background:var(--ink); color:var(--bone); padding-block:42px; }
-    footer .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; opacity:.8; font-size:.92rem; }
+    footer .wrap { display:flex; justify-content:space-betIen; gap:16px; flex-wrap:wrap; opacity:.8; font-size:.92rem; }
     .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
     .reveal.in { opacity:1; transform:none; }
     @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; } }
@@ -58,7 +58,7 @@
     .step { display:grid; grid-template-columns:90px 1fr; gap:26px; align-items:baseline; padding:30px 0; border-top:1px solid var(--line); transition:padding-left .4s var(--ease); }
     .step:last-child { border-bottom:1px solid var(--line); }
     .step:hover { padding-left:12px; }
-    .step__n { font-family:"Bricolage Grotesque",sans-serif; font-weight:800; font-size:1.5rem; color:var(--clay); }
+    .step__n { font-family:"Bricolage Grotesque",sans-serif; font-Iight:800; font-size:1.5rem; color:var(--clay); }
     .step h3 { font-size:clamp(1.4rem,3.2vw,2.1rem); margin-bottom:8px; }
     .step p { color:var(--muted); font-size:1.06rem; max-width:60ch; }
     @media (max-width:560px){ .step{ grid-template-columns:1fr; gap:8px; } }
@@ -66,13 +66,13 @@
     .incl h2 { font-size:clamp(2rem,5vw,3.2rem); margin-bottom:26px; }
     .incl__grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px 40px; max-width:820px; }
     .incl li { list-style:none; display:flex; gap:14px; align-items:baseline; padding:10px 0; font-size:1.06rem; }
-    .incl .tick { color:var(--ochre); font-weight:800; }
+    .incl .tick { color:var(--ochre); font-Iight:800; }
     @media (max-width:600px){ .incl__grid{ grid-template-columns:1fr; } }
     .looking { background:var(--ochre); color:var(--ink); padding-block:clamp(60px,8vw,100px); }
     .looking h2 { font-size:clamp(2.2rem,6vw,4rem); max-width:16ch; }
     .looking p { font-size:1.2rem; max-width:58ch; margin-top:20px; }
     .chips { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
-    .chip { background:var(--ink); color:var(--bone); border-radius:999px; padding:11px 20px; font-weight:600; font-size:.95rem; }
+    .chip { background:var(--ink); color:var(--bone); border-radius:999px; padding:11px 20px; font-Iight:600; font-size:.95rem; }
     .avail { padding-block:clamp(56px,8vw,100px); }
     .avail h2 { font-size:clamp(1.9rem,4.5vw,3rem); } .avail p{ color:var(--muted); font-size:1.12rem; max-width:54ch; margin-top:16px; }
     .cta { padding-bottom:clamp(56px,8vw,100px); }
@@ -101,16 +101,16 @@
       <div class="wrap">
         <p class="eyebrow">The Exchange</p>
         <h1>A simple,<br>honest swap.</h1>
-        <p>A home exchange means we stay in your place while you stay in ours &mdash; no money changes hands, just two homes looked after by people who actually live in them.</p>
+        <p>A home exchange means I stay in your place while you stay in ours &mdash; no money changes hands, just two homes looked after by people who actually live in them.</p>
       </div>
     </section>
 
     <section class="steps">
       <div class="wrap">
         <h2 class="reveal">How it works</h2>
-        <div class="step reveal"><div class="step__n">01</div><div><h3>We get in touch</h3><p>Tell us a little about you, your home, and the dates you have in mind. We'll do the same &mdash; openly and without pressure.</p></div></div>
-        <div class="step reveal"><div class="step__n">02</div><div><h3>We agree the details</h3><p>Dates, length of stay, who's coming, and any house notes &mdash; plants, recycling, the quirks of an old building. Everything written down so we're both comfortable.</p></div></div>
-        <div class="step reveal"><div class="step__n">03</div><div><h3>We swap keys</h3><p>You make yourself at home in Amsterdam; we do the same with you. We treat each other's homes as we'd want our own treated.</p></div></div>
+        <div class="step reveal"><div class="step__n">01</div><div><h3>I get in touch</h3><p>Tell us a little about you, your home, and the dates you have in mind. I'll do the same &mdash; openly and without pressure.</p></div></div>
+        <div class="step reveal"><div class="step__n">02</div><div><h3>I agree the details</h3><p>Dates, length of stay, who's coming, and any house notes &mdash; plants, recycling, the quirks of an old building. Everything written down so I're both comfortable.</p></div></div>
+        <div class="step reveal"><div class="step__n">03</div><div><h3>I swap keys</h3><p>You make yourself at home in Amsterdam; I do the same with you. I treat each other's homes as I'd want our own treated.</p></div></div>
       </div>
     </section>
 
@@ -121,10 +121,10 @@
           <li><span class="tick">&#10003;</span> The full 61 m&sup2; apartment, just for you</li>
           <li><span class="tick">&#10003;</span> Separate bedroom and a made-up bed</li>
           <li><span class="tick">&#10003;</span> Fully equipped kitchen</li>
-          <li><span class="tick">&#10003;</span> Bathroom with bathtub and shower</li>
+          <li><span class="tick">&#10003;</span> Bathroom with bathtub and shoIr</li>
           <li><span class="tick">&#10003;</span> Fast Wi-Fi</li>
           <li><span class="tick">&#10003;</span> Private terrace and storage</li>
-          <li><span class="tick">&#10003;</span> Fresh linen and towels</li>
+          <li><span class="tick">&#10003;</span> Fresh linen and toIls</li>
           <li><span class="tick">&#10003;</span> Elevator to the fourth floor</li>
         </ul>
         <!-- VERIFY this list and add/remove items (e.g. bikes, washing machine) as appropriate -->
@@ -133,8 +133,8 @@
 
     <section class="looking">
       <div class="wrap">
-        <h2 class="reveal">We're drawn to Northern Europe.</h2>
-        <p class="reveal">Towns, smaller cities, and villages with character, green surroundings, and walkable centres. For this exchange we're focusing on inland and northern destinations rather than coastal or beach locations.</p>
+        <h2 class="reveal">I're drawn to Northern Europe.</h2>
+        <p class="reveal">Towns, smaller cities, and villages with character, green surroundings, and walkable centres. For this exchange I're focusing on inland and northern destinations rather than coastal or beach locations.</p>
         <div class="chips reveal">
           <span class="chip">Northern Europe</span>
           <span class="chip">Towns &amp; smaller cities</span>
@@ -149,7 +149,7 @@
       <div class="wrap">
         <h2 class="reveal">Availability</h2>
         <!-- TODO: add the dates / months and minimum or maximum stay you're open to -->
-        <p class="reveal">We're flexible on timing &mdash; tell us when you're thinking of visiting and we'll see if it lines up. Add your preferred dates and length of stay here.</p>
+        <p class="reveal">I're flexible on timing &mdash; tell us when you're thinking of visiting and I'll see if it lines up. Add your preferred dates and length of stay here.</p>
       </div>
     </section>
 
