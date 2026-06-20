@@ -1267,6 +1267,7 @@ footer .wrap {
   overflow: hidden;
   background: #fffaf2;
   box-shadow: 0 18px 45px rgba(34, 31, 26, 0.08);
+  cursor: zoom-in;
 }
 
 .history-static__figure img {
@@ -1275,13 +1276,6 @@ footer .wrap {
   object-fit: cover;
   display: block;
   filter: sepia(0.08);
-}
-
-.history-static__figure figcaption {
-  padding: 14px 18px 17px;
-  font-size: 0.92rem;
-  line-height: 1.45;
-  color: rgba(45, 42, 38, 0.72);
 }
 
 .archive-carousel {
@@ -1316,6 +1310,7 @@ footer .wrap {
   overflow: hidden;
   box-shadow: 0 18px 45px rgba(34, 31, 26, 0.08);
   scroll-snap-align: start;
+  cursor: zoom-in;
 }
 
 .archive-slide img {
@@ -1326,17 +1321,75 @@ footer .wrap {
   filter: sepia(0.08);
 }
 
-.archive-slide figcaption {
-  padding: 14px 18px 17px;
-  font-size: 0.92rem;
-  line-height: 1.45;
-  color: rgba(45, 42, 38, 0.72);
-}
-
 .archive-carousel__hint {
   margin-top: 8px;
   font-size: 0.82rem;
   color: rgba(45, 42, 38, 0.55);
+}
+
+/* Archive popup */
+
+.archive-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(19, 24, 22, 0.86);
+}
+
+.archive-lightbox.open {
+  display: flex;
+}
+
+.archive-lightbox__image {
+  max-width: min(1100px, 92vw);
+  max-height: 86vh;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.archive-lightbox__close,
+.archive-lightbox__prev,
+.archive-lightbox__next {
+  position: absolute;
+  border: 0;
+  background: rgba(255, 250, 242, 0.92);
+  color: #1f2925;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.archive-lightbox__close {
+  top: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.archive-lightbox__prev,
+.archive-lightbox__next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.archive-lightbox__prev {
+  left: 22px;
+}
+
+.archive-lightbox__next {
+  right: 22px;
 }
 
 @media (max-width: 720px) {
@@ -1367,5 +1420,35 @@ footer .wrap {
 
   .archive-carousel__hint {
     display: none;
+  }
+
+  .archive-lightbox {
+    padding: 18px;
+  }
+
+  .archive-lightbox__image {
+    max-width: 94vw;
+    max-height: 82vh;
+    border-radius: 14px;
+  }
+
+  .archive-lightbox__prev,
+  .archive-lightbox__next {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+
+  .archive-lightbox__prev {
+    left: 12px;
+  }
+
+  .archive-lightbox__next {
+    right: 12px;
+  }
+
+  .archive-lightbox__close {
+    top: 12px;
+    right: 12px;
   }
 }
