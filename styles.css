@@ -1598,3 +1598,12 @@ footer .wrap {
   align-items: initial;
   justify-content: initial;
 }
+.contact-form small,
+.contact-form .form-note,
+.contact-form .privacy-note,
+.contact-form .contact-note,
+.form-note,
+.privacy-note {
+  color: #3f4f49;
+  opacity: 1;
+}
