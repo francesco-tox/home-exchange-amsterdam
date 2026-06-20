@@ -1546,5 +1546,329 @@ footer .wrap {
     top: 12px;
     right: 12px;
   }
+   /* =========================================================
+   MODERN GALLERY PALETTE — direct CSS override
+   Only colours, backgrounds, borders and shadows
+   ========================================================= */
+
+:root {
+  --cream: #f7f3ec;
+  --cream-2: #fffaf3;
+  --linen: #ebe3d8;
+  --parchment: #ded3c3;
+
+  --ink: #1f1d1a;
+  --muted: rgba(31, 29, 26, 0.66);
+  --soft: rgba(31, 29, 26, 0.48);
+  --line: rgba(31, 29, 26, 0.10);
+
+  --pine: #23352f;
+  --pine-2: #1b2b26;
+  --clay: #8a5a44;
+  --clay-2: #a06a50;
+
+  --white-card: #fffdf8;
+  --shadow-soft: 0 16px 42px rgba(31, 29, 26, 0.07);
+  --shadow-medium: 0 22px 58px rgba(31, 29, 26, 0.10);
+}
+
+/* Base */
+
+html,
+body {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+body {
+  color: var(--ink);
+}
+
+p,
+li {
+  color: var(--muted);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+}
+
+.eyebrow {
+  color: var(--clay);
+}
+
+a {
+  color: inherit;
+}
+
+/* Navigation */
+
+.nav {
+  background: rgba(247, 243, 236, 0.88);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  color: var(--ink);
+}
+
+.dot {
+  background: var(--pine);
+}
+
+.nav__links a {
+  color: var(--muted);
+}
+
+.nav__links a:hover,
+.nav__links a[aria-current="page"] {
+  color: var(--ink);
+}
+
+/* General sections */
+
+.head {
+  background: var(--cream);
+}
+
+.hero,
+.intro,
+.apartment-hero,
+.exchange-hero,
+.contact-hero {
+  background: var(--cream);
+}
+
+section {
+  border-color: var(--line);
+}
+
+/* Alternating section backgrounds */
+
+.gallery,
+.preview,
+.comfort,
+.walks,
+.neighbourhood-quick-notes {
+  background: var(--linen);
+}
+
+.character,
+.practical,
+.exchange-details,
+.contact-form-section {
+  background: var(--cream-2);
+}
+
+.history-feature,
+.archive-carousel {
+  background: var(--parchment);
+}
+
+.neighbourhood-image,
+.home-image,
+.apartment-gallery,
+.room-section {
+  background: var(--cream);
+}
+
+/* Cards / notes / walks */
+
+.note,
+.walk,
+.card,
+.comfort article,
+.practical article,
+.exchange-card,
+.contact-card {
+  background: var(--white-card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+.note h3,
+.walk h3,
+.card h3,
+.comfort h3,
+.practical h3 {
+  color: var(--ink);
+}
+
+.note p,
+.walk p,
+.card p {
+  color: var(--muted);
+}
+
+.walk__time {
+  color: var(--pine);
+}
+
+/* Images and framed elements */
+
+figure,
+.neighbourhood-hero-frame,
+.history-feature__figure,
+.character__image,
+.archive-slide,
+.room-photo,
+.gallery figure,
+.preview figure {
+  background: var(--white-card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+.neighbourhood-hero-frame {
+  background: var(--cream-2);
+}
+
+.history-feature__figure,
+.character__image {
+  background: var(--cream-2);
+}
+
+.archive-slide {
+  background: var(--cream-2);
+}
+
+img {
+  color: var(--muted);
+}
+
+/* Archive / historical images */
+
+.history-feature__figure img,
+.character__image img,
+.archive-slide img {
+  filter: sepia(0.04) contrast(0.98) saturate(0.96);
+}
+
+/* Buttons */
+
+.btn {
+  border-color: var(--line);
+}
+
+.btn--pine,
+.btn--dark {
+  background: var(--pine);
+  color: #fffaf3;
+  border-color: var(--pine);
+}
+
+.btn--pine:hover,
+.btn--dark:hover {
+  background: var(--pine-2);
+  border-color: var(--pine-2);
+}
+
+.btn--clay {
+  background: var(--clay);
+  color: #fffaf3;
+  border-color: var(--clay);
+}
+
+.btn--clay:hover {
+  background: var(--clay-2);
+  border-color: var(--clay-2);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn--ghost:hover {
+  background: var(--cream-2);
+}
+
+/* CTA bands */
+
+.cta {
+  background: var(--cream);
+}
+
+.cta__band {
+  background: var(--pine);
+  color: #fffaf3;
+  box-shadow: var(--shadow-medium);
+}
+
+.cta__band h2,
+.cta__band p {
+  color: #fffaf3;
+}
+
+.cta__band--pine {
+  background: var(--pine);
+}
+
+.cta__band--clay {
+  background: var(--clay);
+}
+
+/* Forms */
+
+input,
+textarea,
+select {
+  background: var(--white-card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--pine);
+  box-shadow: 0 0 0 3px rgba(35, 53, 47, 0.12);
+}
+
+label {
+  color: var(--ink);
+}
+
+/* Footer */
+
+footer {
+  background: var(--pine-2);
+  color: rgba(255, 250, 243, 0.78);
+}
+
+footer span {
+  color: rgba(255, 250, 243, 0.78);
+}
+
+/* Lightbox */
+
+.archive-lightbox {
+  background: rgba(19, 24, 22, 0.88);
+}
+
+.archive-lightbox__close,
+.archive-lightbox__prev,
+.archive-lightbox__next {
+  background: rgba(255, 250, 243, 0.94);
+  color: var(--ink);
+}
+
+/* Mobile nav */
+
+@media (max-width: 760px) {
+  .nav__links {
+    background: rgba(247, 243, 236, 0.96);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .nav__toggle span {
+    background: var(--ink);
+  }
+}
 }
 ```
