@@ -71,9 +71,9 @@ a { color: inherit; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--bone) 92%, transparent);
+  background: var(--clay);
   backdrop-filter: blur(14px) saturate(150%);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--clay-dark);
   transition: background .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
 }
 
@@ -93,7 +93,7 @@ a { color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--ink);
+  color: var(--ivory);
   transition: color .35s var(--ease);
 }
 
@@ -101,7 +101,7 @@ a { color: inherit; }
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: var(--clay);
+  background: var(--ivory);
 }
 
 .nav__links {
@@ -112,18 +112,18 @@ a { color: inherit; }
 }
 
 .nav__links a {
-  color: var(--muted);
+  color: color-mix(in srgb, var(--ivory) 86%, transparent);
   text-decoration: none;
   font-weight: 700;
   font-size: .96rem;
   transition: color .25s var(--ease), opacity .25s var(--ease);
 }
-.nav__links a:hover { color: var(--ink); }
+.nav__links a:hover { color: var(--ivory); }
 
 .nav__links a[aria-current="page"] {
-  color: var(--ink);
+  color: var(--ivory);
   text-decoration: underline;
-  text-decoration-color: var(--clay);
+  text-decoration-color: var(--ivory);
   text-underline-offset: 6px;
   text-decoration-thickness: 2px;
 }
@@ -141,7 +141,7 @@ a { color: inherit; }
   width: 24px;
   height: 2px;
   margin: 5px 0;
-  background: var(--ink);
+  background: var(--ivory);
   transition: background .35s var(--ease);
 }
 
@@ -150,35 +150,35 @@ a { color: inherit; }
 .nav--floating {
   position: fixed;
   inset: 0 0 auto 0;
-  background: transparent;
+  background: var(--clay);
   backdrop-filter: none;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid var(--clay-dark);
 }
 
 .nav--floating .brand,
 .nav--floating .nav__links a {
-  color: var(--bone);
-  opacity: .92;
+  color: var(--ivory);
+  opacity: .96;
 }
 
 .nav--floating .nav__toggle span {
-  background: var(--bone);
+  background: var(--ivory);
 }
 
 .nav--floating.scrolled {
-  background: color-mix(in srgb, var(--bone) 92%, transparent);
+  background: var(--clay);
   backdrop-filter: blur(14px) saturate(150%);
-  border-bottom-color: var(--line);
+  border-bottom-color: var(--clay-dark);
 }
 
 .nav--floating.scrolled .brand,
 .nav--floating.scrolled .nav__links a {
-  color: var(--ink);
+  color: var(--ivory);
   opacity: 1;
 }
 
 .nav--floating.scrolled .nav__toggle span {
-  background: var(--ink);
+  background: var(--ivory);
 }
 
 @media (max-width: 820px) {
@@ -192,7 +192,7 @@ a { color: inherit; }
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: var(--ink);
+    background: var(--clay-dark);
     max-height: 0;
     overflow: hidden;
     transition: max-height .35s var(--ease);
@@ -202,10 +202,10 @@ a { color: inherit; }
   .nav__links a {
     display: block;
     padding: 18px 26px;
-    color: var(--bone) !important;
+    color: var(--ivory) !important;
     opacity: 1;
   }
-  .nav__links a[aria-current="page"] { color: var(--bone) !important; }
+  .nav__links a[aria-current="page"] { color: var(--ivory) !important; }
 }
 
 /* ---------- page head (used by inner pages) ---------- */
@@ -856,6 +856,10 @@ footer .wrap {
   }
 }
 
+
+/* Apartment title color fix */
+.section-head .section-number { color: var(--clay); }
+
 /* ============================================================
    neighborhood.html
    ============================================================ */
@@ -886,6 +890,8 @@ footer .wrap {
 .walks__intro { max-width: 760px; margin-bottom: 34px; }
 .walks__intro h2 { font-size: clamp(2rem, 5vw, 3.6rem); margin-bottom: 14px; }
 .walks__intro p { color: var(--muted); max-width: 58ch; font-size: 1.12rem; }
+
+.walks__intro .eyebrow { color: var(--clay); }
 
 .walks__grid {
   display: grid;
@@ -935,6 +941,8 @@ footer .wrap {
   margin-top: 18px;
   max-width: 52ch;
 }
+
+.character .eyebrow { color: var(--clay); }
 
 .notes { display: grid; gap: 14px; }
 
