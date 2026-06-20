@@ -1248,6 +1248,7 @@ footer .wrap {
   .form input,
   .form textarea { transition: none; }
 }
+```css
 /* Neighbourhood archive and framed images */
 
 .neighbourhood-hero-frame {
@@ -1265,6 +1266,8 @@ footer .wrap {
   object-fit: cover;
 }
 
+/* Quick notes below hero */
+
 .neighbourhood-quick-notes {
   padding: 48px 0 28px;
   background: #f6f1e9;
@@ -1276,17 +1279,33 @@ footer .wrap {
   gap: 18px;
 }
 
+/* Historic layer section */
+
 .history-feature {
-  padding: 28px 0 76px;
-  background: #f6f1e9;
+  padding: 92px 0;
+  background: #fffaf2;
+}
+
+.history-feature__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.history-feature__text {
+  max-width: 520px;
+}
+
+.history-feature__text h2 {
+  margin-bottom: 14px;
 }
 
 .history-feature__figure {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 14px;
+  margin: 0;
+  padding: 12px;
   border-radius: 28px;
-  background: #fffaf2;
+  background: #f6f1e9;
   box-shadow: 0 18px 45px rgba(34, 31, 26, 0.08);
   cursor: zoom-in;
 }
@@ -1294,12 +1313,14 @@ footer .wrap {
 .history-feature__figure img {
   width: 100%;
   height: auto;
-  max-height: 560px;
+  max-height: 520px;
   object-fit: contain;
   display: block;
   border-radius: 18px;
   filter: sepia(0.08);
 }
+
+/* Image inside Local character */
 
 .character__image {
   margin: 0;
@@ -1318,6 +1339,8 @@ footer .wrap {
   aspect-ratio: 4 / 3;
   filter: sepia(0.08);
 }
+
+/* Archive carousel */
 
 .archive-carousel {
   padding: 84px 0;
@@ -1433,6 +1456,17 @@ footer .wrap {
   right: 22px;
 }
 
+@media (max-width: 820px) {
+  .history-feature {
+    padding: 68px 0;
+  }
+
+  .history-feature__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
 @media (max-width: 720px) {
   .neighbourhood-hero-frame {
     padding: 10px;
@@ -1449,10 +1483,6 @@ footer .wrap {
 
   .neighbourhood-quick-notes .notes {
     grid-template-columns: 1fr;
-  }
-
-  .history-feature {
-    padding: 18px 0 58px;
   }
 
   .history-feature__figure {
@@ -1517,3 +1547,4 @@ footer .wrap {
     right: 12px;
   }
 }
+```
