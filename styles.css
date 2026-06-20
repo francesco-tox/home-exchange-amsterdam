@@ -1549,3 +1549,27 @@ footer .wrap {
     right: 12px;
   }
 }
+/* ============================================================
+   White text fixes for dark / image backgrounds
+   ============================================================ */
+
+/* 1. Home hero subtitle */
+.hero__sub {
+  color: var(--bone) !important;
+  opacity: 0.96;
+}
+
+/* 2. Contact / exchange dark panel explanatory text */
+.panel--pine p,
+.panel--pine .panel__intro p,
+.info-card p,
+.info-card__note {
+  color: rgba(246, 241, 232, 0.92) !important;
+}
+
+/* 3. Privacy note text */
+.privacy-note,
+.form .note,
+.panel--pine .privacy-note {
+  color: rgba(246, 241, 232, 0.88) !important;
+}
