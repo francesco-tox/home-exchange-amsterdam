@@ -1607,3 +1607,15 @@ footer .wrap {
   color: #3f4f49;
   opacity: 1;
 }
+.contact-privacy-note {
+  display: block !important;
+  margin-top: 1rem !important;
+  color: #31463f !important;
+  background: transparent !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
