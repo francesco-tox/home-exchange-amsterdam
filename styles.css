@@ -1583,3 +1583,18 @@ footer .wrap {
 .panel--pine .privacy-note {
   color: color-mix(in srgb, var(--bone) 88%, transparent) !important;
 }
+/* ============================================================
+   Apartment gallery hero image fix
+   Prevent the homepage hero overlay from affecting large gallery images
+   ============================================================ */
+
+.gallery-item.hero::after {
+  content: none;
+  display: none;
+}
+
+.gallery-item.hero {
+  display: block;
+  align-items: initial;
+  justify-content: initial;
+}
