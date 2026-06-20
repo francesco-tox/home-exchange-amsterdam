@@ -382,6 +382,7 @@ footer .wrap {
 .hero h1 {
   max-width: 15ch;
   font-size: clamp(3rem, 9vw, 7rem);
+  color: var(--bone);
 }
 .hero h1 .line2 { color: var(--ochre); }
 
@@ -467,7 +468,7 @@ footer .wrap {
 
 .transport { background: var(--pine); color: var(--bone); padding-block: clamp(64px, 8vw, 110px); }
 .transport__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-.transport h2 { font-size: clamp(2rem, 5vw, 3.6rem); }
+.transport h2 { font-size: clamp(2rem, 5vw, 3.6rem); color: var(--bone); }
 .transport h2 .y { color: var(--ochre); }
 .transport .lede { max-width: 40ch; margin-top: 18px; opacity: .9; font-size: 1.12rem; }
 
@@ -521,7 +522,7 @@ footer .wrap {
   color: var(--bone);
   text-align: center;
 }
-.cta__band h2 { font-size: clamp(2.2rem, 5.5vw, 4rem); }
+.cta__band h2 { font-size: clamp(2.2rem, 5.5vw, 4rem); color: var(--bone); }
 .cta__band p { margin-top: 14px; opacity: .9; font-size: 1.15rem; }
 .cta__band .btn { margin-top: 30px; background: var(--clay); color: #fff; }
 .cta__band .btn:hover { background: var(--clay-dark); }
@@ -537,6 +538,7 @@ footer .wrap {
   overflow: hidden;
   box-shadow: var(--shadow);
   border: 1px solid rgba(37, 27, 22, 0.08);
+  margin-top: 24px;
 }
 
 .section { padding: 72px 0 0; }
@@ -673,6 +675,7 @@ footer .wrap {
   margin: 22px 0 10px;
   letter-spacing: -0.025em;
   line-height: 1.05;
+  color: var(--ivory);
 }
 
 .comfort-card p {
@@ -953,6 +956,7 @@ footer .wrap {
   color: var(--bone);
 }
 
+.cta__band--pine h2 { color: var(--bone); }
 .cta__band--pine .btn { background: var(--clay); color: #fff; }
 .cta__band--pine .btn:hover { background: var(--clay-dark); }
 
@@ -1009,6 +1013,7 @@ footer .wrap {
 .info-card h3 {
   font-size: clamp(1.55rem, 3vw, 2.05rem);
   margin-bottom: 16px;
+  color: var(--bone);
 }
 
 .info-card ul { list-style: none; display: grid; gap: 13px; }
@@ -1060,6 +1065,7 @@ footer .wrap {
   border-color: transparent;
 }
 
+.panel--pine .panel__intro h2 { color: var(--bone); }
 .panel--pine .panel__intro p { color: rgba(246, 241, 232, .78); }
 
 /* exchange steps */
