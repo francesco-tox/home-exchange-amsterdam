@@ -224,7 +224,7 @@ a { color: inherit; }
 }
 
 .head h1 {
-  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-size: clamp(2.5rem, 7vw, 4.8rem);
   max-width: 920px;
 }
 
@@ -382,7 +382,7 @@ footer .wrap {
 
 .hero h1 {
   max-width: 15ch;
-  font-size: clamp(3rem, 9vw, 7rem);
+  font-size: clamp(2.8rem, 8vw, 6.2rem);
   color: var(--bone);
 }
 .hero h1 .line2 { color: var(--ochre); }
@@ -523,7 +523,7 @@ footer .wrap {
   color: var(--bone);
   text-align: center;
 }
-.cta__band h2 { font-size: clamp(2.2rem, 5.5vw, 4rem); color: var(--bone); }
+.cta__band h2 { font-size: clamp(2rem, 5vw, 3.5rem); color: var(--bone); }
 .cta__band p { margin-top: 14px; opacity: .9; font-size: 1.15rem; }
 .cta__band .btn { margin-top: 30px; background: var(--clay); color: var(--ivory); }
 .cta__band .btn:hover { background: var(--clay-dark); }
@@ -563,7 +563,7 @@ footer .wrap {
 }
 
 .section h2 {
-  font-size: clamp(2.1rem, 4.5vw, 4.5rem);
+  font-size: clamp(1.9rem, 4vw, 3.7rem);
   margin-bottom: 12px;
 }
 
