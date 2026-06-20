@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#15534A" />
   <title>The Apartment | Amsterdam Home Exchange</title>
-  <meta name="description" content="A bright Amsterdam attic apartment with beams, sloped ceilings, a separate bedroom, private terrace and canal views." />
+  <meta name="description" content="A bright canal-side attic apartment in Amsterdam with a separate bedroom, full bathroom, private terrace and views over water, rooftops and green." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -25,9 +25,9 @@
   <meta name="twitter:image" content="https://aquietamsterdamhome.com/assets/og-image.jpg">
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Shared stylesheet -->
   <link rel="stylesheet" href="styles.css">
@@ -39,7 +39,9 @@
   <header class="nav">
     <div class="wrap nav__inner">
       <a class="brand" href="index.html"><span class="dot"></span> Amsterdam</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <ul class="nav__links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="apartment.html" aria-current="page">The Apartment</a></li>
@@ -56,30 +58,70 @@
         <p class="eyebrow">The Apartment</p>
         <h1>A charming attic with views and privacy.</h1>
         <p>A top-floor Amsterdam apartment with beams, sloped ceilings, a separate bedroom, a full bathroom, a small private terrace and views over water, rooftops and green.</p>
-        <div class="hero-image">
+
+        <figure class="hero-image reveal">
           <img src="photos/apartment/living-kitchen/living-kitchen-2.jpg" alt="Bright Amsterdam attic apartment with open living and kitchen area">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="views">
+      <div class="wrap">
+        <div class="section-head">
+          <div></div>
+          <div>
+            <h2>Canals, rooftops and green.</h2>
+            <p>The surrounding views are part of the atmosphere: water, rooflines, trees and the changing light around the Jordaan edge.</p>
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item wide reveal" type="button" data-full="photos/apartment/views/view-1.jpg" aria-label="Open image: Amsterdam view from the apartment">
+            <img src="photos/apartment/views/view-1.jpg" alt="Amsterdam view from the apartment">
+          </button>
+
+          <button class="gallery-item small reveal" type="button" data-full="photos/apartment/views/view-2.jpg" aria-label="Open image: Canal and rooftop view">
+            <img src="photos/apartment/views/view-2.jpg" alt="Canal and rooftop view">
+          </button>
+
+          <button class="gallery-item medium reveal" type="button" data-full="photos/apartment/views/view-3.jpg" aria-label="Open image: Green square view">
+            <img src="photos/apartment/views/view-3.jpg" alt="Green square view">
+          </button>
+
+          <button class="gallery-item large reveal" type="button" data-full="photos/apartment/views/view-5.jpg" aria-label="Open image: View from the apartment">
+            <img src="photos/apartment/views/view-5.jpg" alt="View from the apartment">
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="living-kitchen">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-number">01 Living & Kitchen</div>
+          <div class="section-number">01 Living &amp; Kitchen</div>
           <div>
             <h2>The main room.</h2>
             <p>The living and kitchen area is open, bright and practical, with roof windows, visible beams and enough space to cook, eat, read or spend a quiet evening at home.</p>
           </div>
         </div>
+
         <div class="gallery-grid">
-          <button class="gallery-item hero" data-lightbox="photos/apartment/living-kitchen/living-kitchen-1.jpg"><img loading="lazy" src="photos/apartment/living-kitchen/living-kitchen-1.jpg" alt="Living and kitchen overview"></button>
-          <button class="gallery-item mate" data-lightbox="photos/apartment/living-kitchen/living-kitchen-3.jpg"><img loading="lazy" src="photos/apartment/living-kitchen/living-kitchen-3.jpg" alt="Living area detail"></button>
-          <button class="gallery-item mate" data-lightbox="photos/apartment/living-kitchen/living-kitchen-4.jpg"><img loading="lazy" src="photos/apartment/living-kitchen/living-kitchen-4.jpg" alt="Dining and kitchen"></button>
+          <button class="gallery-item hero reveal" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-1.jpg" aria-label="Open image: Living and kitchen overview">
+            <img src="photos/apartment/living-kitchen/living-kitchen-1.jpg" alt="Living and kitchen overview">
+          </button>
+
+          <button class="gallery-item mate reveal" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-3.jpg" aria-label="Open image: Living area detail">
+            <img src="photos/apartment/living-kitchen/living-kitchen-3.jpg" alt="Living area detail">
+          </button>
+
+          <button class="gallery-item mate reveal" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-4.jpg" aria-label="Open image: Dining and kitchen">
+            <img src="photos/apartment/living-kitchen/living-kitchen-4.jpg" alt="Dining and kitchen">
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="bedroom">
       <div class="wrap">
         <div class="section-head">
           <div class="section-number">02 Bedroom</div>
@@ -88,32 +130,50 @@
             <p>A separate bedroom away from the main room: compact, calm and private, with the softer feeling of the attic architecture.</p>
           </div>
         </div>
+
         <div class="gallery-grid">
-          <button class="gallery-item hero" data-lightbox="photos/apartment/bedroom/bedroom-1.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-1.jpg" alt="Bedroom overview"></button>
-          <button class="gallery-item mate" data-lightbox="photos/apartment/bedroom/bedroom-2.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-2.jpg" alt="Bedroom bed and wall detail"></button>
-          <button class="gallery-item mate" data-lightbox="photos/apartment/bedroom/bedroom-3.jpg"><img loading="lazy" src="photos/apartment/bedroom/bedroom-3.jpg" alt="Bedroom window and light"></button>
+          <button class="gallery-item large reveal" type="button" data-full="photos/apartment/bedroom/bedroom-1.jpg" aria-label="Open image: Bedroom overview">
+            <img src="photos/apartment/bedroom/bedroom-1.jpg" alt="Bedroom overview">
+          </button>
+
+          <button class="gallery-item medium reveal" type="button" data-full="photos/apartment/bedroom/bedroom-2.jpg" aria-label="Open image: Bedroom bed and wall detail">
+            <img src="photos/apartment/bedroom/bedroom-2.jpg" alt="Bedroom bed and wall detail">
+          </button>
+
+          <button class="gallery-item wide reveal" type="button" data-full="photos/apartment/bedroom/bedroom-3.jpg" aria-label="Open image: Bedroom window and light">
+            <img src="photos/apartment/bedroom/bedroom-3.jpg" alt="Bedroom window and light">
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="bathroom">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-number">03 Bathroom & Separate WC</div>
+          <div class="section-number">03 Bathroom &amp; Separate WC</div>
           <div>
             <h2>Bath, shower and separate WC.</h2>
             <p>A practical full bathroom with both a bathtub and a shower, plus a separate WC that adds useful privacy when hosting.</p>
           </div>
         </div>
+
         <div class="gallery-grid">
-          <button class="gallery-item service" data-lightbox="photos/apartment/bathroom/bathroom-1.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview"></button>
-          <button class="gallery-item service" data-lightbox="photos/apartment/bathroom/bathroom-2.jpg"><img loading="lazy" src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bath"></button>
-          <button class="gallery-item service" data-lightbox="photos/apartment/separate-wc/separate-wc-1.jpg"><img loading="lazy" src="photos/apartment/separate-wc/separate-wc-1.jpg" alt="Separate wc"></button>
+          <button class="gallery-item bathroom-combined reveal" type="button" data-full="photos/apartment/bathroom/bathroom-1.jpg" aria-label="Open image: Bathroom overview">
+            <img src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview">
+          </button>
+
+          <button class="gallery-item bathroom-combined reveal" type="button" data-full="photos/apartment/bathroom/bathroom-2.jpg" aria-label="Open image: Bathroom bath">
+            <img src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bath">
+          </button>
+
+          <button class="gallery-item bathroom-combined reveal" type="button" data-full="photos/apartment/separate-wc/separate-wc-1.jpg" aria-label="Open image: Separate wc">
+            <img src="photos/apartment/separate-wc/separate-wc-1.jpg" alt="Separate wc">
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="terrace">
       <div class="wrap">
         <div class="section-head">
           <div class="section-number">04 Terrace</div>
@@ -122,15 +182,24 @@
             <p>A small terrace for coffee, plants and evening drinks: an extra breathing space above the city.</p>
           </div>
         </div>
+
         <div class="gallery-grid">
-          <button class="gallery-item hero" data-lightbox="photos/apartment/terrace/terrace-2.jpg"><img loading="lazy" src="photos/apartment/terrace/terrace-2.jpg" alt="Terrace plants and seating"></button>
-          <button class="gallery-item mate" data-lightbox="photos/apartment/terrace/terrace-1.jpg"><img loading="lazy" src="photos/apartment/terrace/terrace-1.jpg" alt="Private terrace"></button>
-          <button class="gallery-item mate" data-lightbox="photos/apartment/terrace/terrace-3.jpg"><img loading="lazy" src="photos/apartment/terrace/terrace-3.jpg" alt="Terrace detail"></button>
+          <button class="gallery-item terrace-balanced reveal" type="button" data-full="photos/apartment/terrace/terrace-1.jpg" aria-label="Open image: Terrace plants and seating">
+            <img src="photos/apartment/terrace/terrace-1.jpg" alt="Terrace plants and seating">
+          </button>
+
+          <button class="gallery-item terrace-balanced reveal" type="button" data-full="photos/apartment/terrace/terrace-2.jpg" aria-label="Open image: Private terrace">
+            <img src="photos/apartment/terrace/terrace-2.jpg" alt="Private terrace">
+          </button>
+
+          <button class="gallery-item terrace-balanced reveal" type="button" data-full="photos/apartment/terrace/terrace-3.jpg" aria-label="Open image: Terrace detail">
+            <img src="photos/apartment/terrace/terrace-3.jpg" alt="Terrace detail">
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="hallway">
       <div class="wrap">
         <div class="section-head">
           <div class="section-number">05 Hallway</div>
@@ -139,36 +208,26 @@
             <p>A small hallway connects the entrance, bathroom, bedroom, living area and terrace.</p>
           </div>
         </div>
-        <div class="gallery-grid">
-          <button class="gallery-item service" data-lightbox="photos/apartment/hallway/hallway-1.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-1.jpg" alt="Hallway and entrance"></button>
-          <button class="gallery-item service" data-lightbox="photos/apartment/hallway/hallway-2.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-2.jpg" alt="Hallway detail"></button>
-          <button class="gallery-item service" data-lightbox="photos/apartment/hallway/hallway-3.jpg"><img loading="lazy" src="photos/apartment/hallway/hallway-3.jpg" alt="Hallway towards terrace"></button>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="section-number">06 Views</div>
-          <div>
-            <h2>Canals, rooftops and green.</h2>
-            <p>The surrounding views are part of the atmosphere: water, rooflines, trees and the changing light around the Jordaan edge.</p>
-          </div>
-        </div>
         <div class="gallery-grid">
-          <button class="gallery-item large" data-lightbox="photos/apartment/views/view-1.jpg"><img loading="lazy" src="photos/apartment/views/view-1.jpg" alt="Amsterdam view from the apartment"></button>
-          <button class="gallery-item medium" data-lightbox="photos/apartment/views/view-2.jpg"><img loading="lazy" src="photos/apartment/views/view-2.jpg" alt="Canal and rooftop view"></button>
-          <button class="gallery-item small" data-lightbox="photos/apartment/views/view-3.jpg"><img loading="lazy" src="photos/apartment/views/view-3.jpg" alt="Green square view"></button>
-          <button class="gallery-item small" data-lightbox="photos/apartment/views/view-4.jpg"><img loading="lazy" src="photos/apartment/views/view-4.jpg" alt="Amsterdam roofline view"></button>
-          <button class="gallery-item small" data-lightbox="photos/apartment/views/view-5.jpg"><img loading="lazy" src="photos/apartment/views/view-5.jpg" alt="View from the apartment"></button>
+          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-1.jpg" aria-label="Open image: Hallway and entrance">
+            <img src="photos/apartment/hallway/hallway-1.jpg" alt="Hallway and entrance">
+          </button>
+
+          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-2.jpg" aria-label="Open image: Hallway detail">
+            <img src="photos/apartment/hallway/hallway-2.jpg" alt="Hallway detail">
+          </button>
+
+          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-3.jpg" aria-label="Open image: Hallway towards terrace">
+            <img src="photos/apartment/hallway/hallway-3.jpg" alt="Hallway towards terrace">
+          </button>
         </div>
       </div>
     </section>
 
     <section class="wrap">
-      <div class="comfort">
-        <div class="eyebrow">Comfort</div>
+      <div class="comfort reveal">
+        <p class="eyebrow">Comfort</p>
         <h2>What makes it comfortable</h2>
         <p class="comfort-intro">A top-floor home with distinct spaces</p>
 
@@ -178,31 +237,35 @@
             <h3>Central location</h3>
             <p>Edge of the Jordaan — canals, cafés and markets on foot.</p>
           </article>
+
           <article class="comfort-card">
             <span>02</span>
             <h3>Light-filled rooms</h3>
             <p>Multiple windows under beams and sloped ceilings.</p>
           </article>
+
           <article class="comfort-card">
             <span>03</span>
             <h3>Separate bedroom</h3>
             <p>A private retreat away from the open living space.</p>
           </article>
+
           <article class="comfort-card">
             <span>04</span>
             <h3>Private terrace</h3>
             <p>Coffee and evening drinks, looking over the green.</p>
           </article>
+
           <article class="comfort-card">
             <span>05</span>
-            <h3>Bath & shower</h3>
+            <h3>Bath &amp; shower</h3>
             <p>A full bathroom with both a bathtub and a shower.</p>
           </article>
         </div>
       </div>
 
-      <div class="practical">
-        <div class="eyebrow">Practical details</div>
+      <div class="practical reveal">
+        <p class="eyebrow">Practical details</p>
         <h2>Everything needed for a comfortable stay.</h2>
         <p class="practical-intro">A few useful details for daily living.</p>
 
@@ -234,7 +297,7 @@
         </div>
       </div>
 
-      <div class="apartment-cta">
+      <div class="apartment-cta reveal">
         <div>
           <h2>Thinking about an exchange?</h2>
           <p>The exchange page explains what kind of swap I am looking for, how I approach home exchanges, and what matters to me as both host and guest.</p>
@@ -244,19 +307,19 @@
     </section>
   </main>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="close" type="button" aria-label="Close image">×</button>
+    <button class="prev" type="button" aria-label="Previous image">‹</button>
+    <img src="" alt="">
+    <button class="next" type="button" aria-label="Next image">›</button>
+  </div>
+
   <footer>
     <div class="wrap">
       <span>© 2025 Amsterdam Home Exchange</span>
       <span>A privacy-conscious home exchange.</span>
     </div>
   </footer>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="close" type="button" aria-label="Close">×</button>
-    <button class="prev" type="button" aria-label="Previous image">‹</button>
-    <img src="" alt="">
-    <button class="next" type="button" aria-label="Next image">›</button>
-  </div>
 
   <script>
     const navToggle = document.getElementById("navToggle");
@@ -267,53 +330,82 @@
       navToggle.setAttribute("aria-expanded", open);
     });
 
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = lightbox.querySelector('img');
-    const closeButton = lightbox.querySelector('.close');
-    const prevButton = lightbox.querySelector('.prev');
-    const nextButton = lightbox.querySelector('.next');
-    const items = Array.from(document.querySelectorAll('[data-lightbox]'));
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = lightbox.querySelector("img");
+    const closeButton = lightbox.querySelector(".close");
+    const prevButton = lightbox.querySelector(".prev");
+    const nextButton = lightbox.querySelector(".next");
+
     let currentIndex = 0;
 
     function openLightbox(index) {
       currentIndex = index;
-      lightboxImage.src = items[currentIndex].dataset.lightbox;
-      lightboxImage.alt = items[currentIndex].querySelector('img').alt || '';
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
+      const item = galleryItems[currentIndex];
+      const image = item.querySelector("img");
+
+      lightboxImage.src = item.dataset.full || image.src;
+      lightboxImage.alt = image.alt;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
     }
 
     function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      lightboxImage.src = '';
-      document.body.style.overflow = '';
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      document.body.style.overflow = "";
     }
 
-    function move(step) {
-      currentIndex = (currentIndex + step + items.length) % items.length;
-      lightboxImage.src = items[currentIndex].dataset.lightbox;
-      lightboxImage.alt = items[currentIndex].querySelector('img').alt || '';
+    function showImage(direction) {
+      currentIndex = (currentIndex + direction + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[currentIndex];
+      const image = item.querySelector("img");
+
+      lightboxImage.src = item.dataset.full || image.src;
+      lightboxImage.alt = image.alt;
     }
 
-    items.forEach((item, index) => {
-      item.addEventListener('click', () => openLightbox(index));
+    galleryItems.forEach((item, index) => {
+      item.addEventListener("click", () => openLightbox(index));
     });
 
-    closeButton.addEventListener('click', closeLightbox);
-    prevButton.addEventListener('click', () => move(-1));
-    nextButton.addEventListener('click', () => move(1));
+    closeButton.addEventListener("click", closeLightbox);
+    prevButton.addEventListener("click", () => showImage(-1));
+    nextButton.addEventListener("click", () => showImage(1));
 
-    lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox) closeLightbox();
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
     });
 
-    document.addEventListener('keydown', (event) => {
-      if (!lightbox.classList.contains('open')) return;
-      if (event.key === 'Escape') closeLightbox();
-      if (event.key === 'ArrowLeft') move(-1);
-      if (event.key === 'ArrowRight') move(1);
+    document.addEventListener("keydown", event => {
+      if (!lightbox.classList.contains("open")) return;
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showImage(-1);
+      }
+
+      if (event.key === "ArrowRight") {
+        showImage(1);
+      }
     });
   </script>
 </body>
