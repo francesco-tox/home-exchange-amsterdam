@@ -1248,31 +1248,40 @@ footer .wrap {
   .form input,
   .form textarea { transition: none; }
 }
-/* Historic archive sections - Neighbourhood page */
+/* Neighbourhood archive and framed images */
 
-.history-static {
+.neighbourhood-hero-frame {
+  margin: 0;
+  padding: 14px;
+  border-radius: 32px;
+  background: #fffaf2;
+  box-shadow: 0 22px 60px rgba(34, 31, 26, 0.10);
+}
+
+.neighbourhood-hero-frame img {
+  width: 100%;
+  display: block;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+.history-feature {
   padding: 28px 0 76px;
   background: #f6f1e9;
 }
 
-.history-static__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-}
-
-.history-static__figure {
+.history-feature__figure {
   margin: 0;
-  border-radius: 26px;
+  border-radius: 28px;
   overflow: hidden;
   background: #fffaf2;
   box-shadow: 0 18px 45px rgba(34, 31, 26, 0.08);
   cursor: zoom-in;
 }
 
-.history-static__figure img {
+.history-feature__figure img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
   filter: sepia(0.08);
@@ -1393,19 +1402,24 @@ footer .wrap {
 }
 
 @media (max-width: 720px) {
-  .history-static {
+  .neighbourhood-hero-frame {
+    padding: 10px;
+    border-radius: 24px;
+  }
+
+  .neighbourhood-hero-frame img {
+    border-radius: 16px;
+  }
+
+  .history-feature {
     padding: 18px 0 58px;
   }
 
-  .history-static__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .history-static__figure {
+  .history-feature__figure {
     border-radius: 20px;
   }
 
-  .history-static__figure img {
+  .history-feature__figure img {
     aspect-ratio: 4 / 3;
   }
 
