@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,77 @@
 
   <!-- Shared stylesheet -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Page-specific refinements for apartment.html -->
+  <style>
+    .views-intro-section {
+      padding-top: 48px;
+    }
+
+    .views-intro-section .section-head {
+      display: block;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .views-intro-section .section-head h2 {
+      font-size: clamp(1.55rem, 3.2vw, 2.65rem);
+      margin-bottom: 12px;
+    }
+
+    .views-intro-section .section-head p {
+      font-size: 1.03rem;
+      max-width: 58ch;
+    }
+
+    .views-gallery {
+      grid-auto-rows: auto;
+      row-gap: 18px;
+    }
+
+    .views-gallery .gallery-item {
+      min-height: 0;
+      height: 260px;
+    }
+
+    .views-gallery .view-left {
+      grid-column: 1 / span 5;
+      grid-row: 1;
+    }
+
+    .views-gallery .view-right {
+      grid-column: 8 / span 5;
+      grid-row: 2;
+    }
+
+    .views-gallery .view-lower-left {
+      grid-column: 2 / span 5;
+      grid-row: 3;
+    }
+
+    .views-gallery .view-lower-right {
+      grid-column: 7 / span 5;
+      grid-row: 3;
+    }
+
+    @media (max-width: 900px) {
+      .views-gallery .gallery-item {
+        grid-column: span 12 !important;
+        grid-row: auto !important;
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .views-intro-section {
+        padding-top: 36px;
+      }
+
+      .views-gallery .gallery-item {
+        height: 230px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -65,30 +137,29 @@
       </div>
     </section>
 
-    <section class="section" id="views">
+    <section class="section views-intro-section" id="views">
       <div class="wrap">
         <div class="section-head">
-          <div></div>
           <div>
             <h2>Canals, rooftops and green.</h2>
             <p>The surrounding views are part of the atmosphere: water, rooflines, trees and the changing light around the Jordaan edge.</p>
           </div>
         </div>
 
-        <div class="gallery-grid">
-          <button class="gallery-item wide reveal" type="button" data-full="photos/apartment/views/view-1.jpg" aria-label="Open image: Amsterdam view from the apartment">
+        <div class="gallery-grid views-gallery">
+          <button class="gallery-item view-left reveal" type="button" data-full="photos/apartment/views/view-1.jpg" aria-label="Open image: Amsterdam view from the apartment">
             <img src="photos/apartment/views/view-1.jpg" alt="Amsterdam view from the apartment">
           </button>
 
-          <button class="gallery-item small reveal" type="button" data-full="photos/apartment/views/view-2.jpg" aria-label="Open image: Canal and rooftop view">
+          <button class="gallery-item view-right reveal" type="button" data-full="photos/apartment/views/view-2.jpg" aria-label="Open image: Canal and rooftop view">
             <img src="photos/apartment/views/view-2.jpg" alt="Canal and rooftop view">
           </button>
 
-          <button class="gallery-item medium reveal" type="button" data-full="photos/apartment/views/view-3.jpg" aria-label="Open image: Green square view">
+          <button class="gallery-item view-lower-left reveal" type="button" data-full="photos/apartment/views/view-3.jpg" aria-label="Open image: Green square view">
             <img src="photos/apartment/views/view-3.jpg" alt="Green square view">
           </button>
 
-          <button class="gallery-item large reveal" type="button" data-full="photos/apartment/views/view-5.jpg" aria-label="Open image: View from the apartment">
+          <button class="gallery-item view-lower-right reveal" type="button" data-full="photos/apartment/views/view-5.jpg" aria-label="Open image: View from the apartment">
             <img src="photos/apartment/views/view-5.jpg" alt="View from the apartment">
           </button>
         </div>
@@ -132,15 +203,15 @@
         </div>
 
         <div class="gallery-grid">
-          <button class="gallery-item large reveal" type="button" data-full="photos/apartment/bedroom/bedroom-1.jpg" aria-label="Open image: Bedroom overview">
+          <button class="gallery-item hero reveal" type="button" data-full="photos/apartment/bedroom/bedroom-1.jpg" aria-label="Open image: Bedroom overview">
             <img src="photos/apartment/bedroom/bedroom-1.jpg" alt="Bedroom overview">
           </button>
 
-          <button class="gallery-item medium reveal" type="button" data-full="photos/apartment/bedroom/bedroom-2.jpg" aria-label="Open image: Bedroom bed and wall detail">
+          <button class="gallery-item mate reveal" type="button" data-full="photos/apartment/bedroom/bedroom-2.jpg" aria-label="Open image: Bedroom bed and wall detail">
             <img src="photos/apartment/bedroom/bedroom-2.jpg" alt="Bedroom bed and wall detail">
           </button>
 
-          <button class="gallery-item wide reveal" type="button" data-full="photos/apartment/bedroom/bedroom-3.jpg" aria-label="Open image: Bedroom window and light">
+          <button class="gallery-item mate reveal" type="button" data-full="photos/apartment/bedroom/bedroom-3.jpg" aria-label="Open image: Bedroom window and light">
             <img src="photos/apartment/bedroom/bedroom-3.jpg" alt="Bedroom window and light">
           </button>
         </div>
@@ -158,15 +229,15 @@
         </div>
 
         <div class="gallery-grid">
-          <button class="gallery-item bathroom-combined reveal" type="button" data-full="photos/apartment/bathroom/bathroom-1.jpg" aria-label="Open image: Bathroom overview">
+          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/bathroom/bathroom-1.jpg" aria-label="Open image: Bathroom overview">
             <img src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview">
           </button>
 
-          <button class="gallery-item bathroom-combined reveal" type="button" data-full="photos/apartment/bathroom/bathroom-2.jpg" aria-label="Open image: Bathroom bath">
+          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/bathroom/bathroom-2.jpg" aria-label="Open image: Bathroom bath">
             <img src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bath">
           </button>
 
-          <button class="gallery-item bathroom-combined reveal" type="button" data-full="photos/apartment/separate-wc/separate-wc-1.jpg" aria-label="Open image: Separate wc">
+          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/separate-wc/separate-wc-1.jpg" aria-label="Open image: Separate wc">
             <img src="photos/apartment/separate-wc/separate-wc-1.jpg" alt="Separate wc">
           </button>
         </div>
@@ -410,3 +481,4 @@
   </script>
 </body>
 </html>
+```
