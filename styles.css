@@ -1904,3 +1904,157 @@ footer .wrap {
     min-width: 86vw !important;
   }
 }
+/* ============================================================
+   Mobile refinements: compact cards and clearer swipe galleries
+   ============================================================ */
+
+@media (max-width: 760px) {
+  /* Make swipe galleries obvious on mobile */
+  .home-preview__grid,
+  .gallery-grid,
+  .views-gallery,
+  .archive-carousel__track {
+    position: relative;
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 14px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 34px;
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+  }
+
+  .home-preview__grid::before,
+  .gallery-grid::before,
+  .views-gallery::before,
+  .archive-carousel__track::before {
+    content: "Swipe sideways to browse photos →";
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.78rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.72;
+    pointer-events: none;
+  }
+
+  .home-preview__grid figure,
+  .gallery-grid .gallery-item,
+  .views-gallery .gallery-item,
+  .archive-carousel__track .archive-slide {
+    flex: 0 0 78vw !important;
+    width: 78vw !important;
+    max-width: 78vw !important;
+    min-width: 78vw !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: start;
+    border-radius: 22px;
+  }
+
+  .home-preview__grid figure img,
+  .gallery-grid .gallery-item img,
+  .views-gallery .gallery-item img,
+  .archive-carousel__track .archive-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-grid .gallery-item.hero,
+  .gallery-grid .gallery-item.mate,
+  .gallery-grid .gallery-item.service,
+  .gallery-grid .gallery-item.terrace-balanced,
+  .views-gallery .view-small-left,
+  .views-gallery .view-large-right,
+  .views-gallery .view-large-left,
+  .views-gallery .view-small-right {
+    grid-column: auto !important;
+  }
+
+  /* Compact mobile cards / distance and activity blocks */
+  .walks__grid,
+  .notes,
+  .comfort-grid,
+  .preference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .practical-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .walk,
+  .note,
+  .comfort-card,
+  .preference,
+  .practical-card {
+    padding: 16px !important;
+    border-radius: 18px !important;
+  }
+
+  .walk__time {
+    font-size: 1rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .walk p,
+  .note p,
+  .comfort-card p,
+  .preference p,
+  .practical-card p {
+    font-size: 0.86rem !important;
+    line-height: 1.42 !important;
+  }
+
+  .note h3,
+  .comfort-card h3,
+  .preference h3 {
+    font-size: 1rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .comfort-card span {
+    font-size: 0.72rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .archive-carousel__hint {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-preview__grid figure,
+  .gallery-grid .gallery-item,
+  .views-gallery .gallery-item,
+  .archive-carousel__track .archive-slide {
+    flex-basis: 82vw !important;
+    width: 82vw !important;
+    max-width: 82vw !important;
+    min-width: 82vw !important;
+  }
+
+  .walks__grid,
+  .notes,
+  .comfort-grid,
+  .preference-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .walk,
+  .note,
+  .comfort-card,
+  .preference,
+  .practical-card {
+    padding: 14px !important;
+  }
+}
