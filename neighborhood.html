@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,7 +210,7 @@
     </section>
   </main>
 
-  <div class="archive-lightbox" id="archiveLightbox" aria-hidden="true">
+  <div class="archive-lightbox" id="archiveLightbox" aria-hidden="true" inert>
     <button class="archive-lightbox__close" type="button" aria-label="Close image">×</button>
     <button class="archive-lightbox__prev" type="button" aria-label="Previous image">‹</button>
     <img class="archive-lightbox__image" src="" alt="">
@@ -251,19 +252,45 @@
     const archiveNext = archiveLightbox.querySelector(".archive-lightbox__next");
 
     let currentArchiveIndex = 0;
+    let lastArchiveFocusedElement = null;
 
     function openArchiveLightbox(index) {
       currentArchiveIndex = index;
+      lastArchiveFocusedElement =
+        document.activeElement instanceof HTMLElement &&
+        document.activeElement !== document.body
+          ? document.activeElement
+          : null;
+
+      archiveLightbox.removeAttribute("inert");
       archiveLightboxImage.src = archiveImages[currentArchiveIndex].src;
       archiveLightboxImage.alt = archiveImages[currentArchiveIndex].alt;
       archiveLightbox.classList.add("open");
       archiveLightbox.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+
+      requestAnimationFrame(() => {
+        archiveClose.focus({ preventScroll: true });
+      });
     }
 
     function closeArchiveLightbox() {
+      const focusTarget =
+        lastArchiveFocusedElement &&
+        document.contains(lastArchiveFocusedElement) &&
+        !archiveLightbox.contains(lastArchiveFocusedElement)
+          ? lastArchiveFocusedElement
+          : null;
+
+      if (focusTarget) {
+        focusTarget.focus({ preventScroll: true });
+      } else if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+
       archiveLightbox.classList.remove("open");
       archiveLightbox.setAttribute("aria-hidden", "true");
+      archiveLightbox.setAttribute("inert", "");
       archiveLightboxImage.src = "";
       document.body.style.overflow = "";
     }
