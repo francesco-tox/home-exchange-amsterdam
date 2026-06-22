@@ -2466,3 +2466,711 @@ footer .wrap span:last-child {
     align-items: stretch !important;
   }
 }
+
+/* ============================================================
+   Final hierarchy + mobile carousel QA — June 2026
+   Safe override layer: keep this at the very end of the CSS.
+   ============================================================ */
+
+@media (min-width: 821px) {
+  body {
+    font-size: 16px;
+    line-height: 1.57;
+  }
+
+  .head {
+    padding-block: clamp(48px, 6vw, 82px) clamp(20px, 3vw, 36px);
+  }
+
+  .head h1 {
+    font-size: clamp(2.25rem, 5.4vw, 4.1rem);
+    line-height: .98;
+  }
+
+  .head p {
+    margin-top: 16px;
+    font-size: clamp(1rem, 1.2vw, 1.08rem);
+    line-height: 1.55;
+  }
+
+  .eyebrow,
+  .head .eyebrow,
+  .section-number,
+  .info-card__kicker {
+    font-size: .72rem;
+    letter-spacing: .13em;
+    margin-bottom: 10px;
+  }
+
+  .btn,
+  .button {
+    min-height: 44px;
+    padding: 12px 22px;
+    font-size: .93rem;
+  }
+
+  /* Home */
+
+  .hero {
+    min-height: 88vh;
+  }
+
+  .hero__content {
+    padding-block: 112px 58px;
+  }
+
+  .hero__eyebrow {
+    font-size: .72rem;
+    padding: 6px 12px;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.65rem, 6.8vw, 5.45rem);
+    line-height: .92;
+  }
+
+  .hero__sub {
+    max-width: 52ch;
+    margin-top: 18px;
+    font-size: clamp(1rem, 1.45vw, 1.18rem);
+    line-height: 1.5;
+  }
+
+  .hero__cta {
+    margin-top: 28px;
+    gap: 12px;
+  }
+
+  .intro {
+    padding-block: clamp(58px, 7.2vw, 96px) clamp(32px, 4vw, 54px);
+  }
+
+  .intro h2 {
+    font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+  }
+
+  .intro p {
+    margin-top: 20px;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .home-preview {
+    padding-bottom: clamp(54px, 7vw, 88px);
+  }
+
+  .home-preview__intro {
+    margin-bottom: 18px;
+  }
+
+  .home-preview__intro h2 {
+    font-size: clamp(1.45rem, 2.8vw, 2.2rem);
+    margin-bottom: 8px;
+  }
+
+  .home-preview__intro p {
+    font-size: .98rem;
+    line-height: 1.52;
+  }
+
+  .stats {
+    padding-block: clamp(38px, 4.4vw, 58px);
+  }
+
+  .stats__grid {
+    gap: 22px;
+  }
+
+  .stat .n {
+    font-size: clamp(2.05rem, 3.7vw, 3.3rem);
+  }
+
+  .stat .l {
+    margin-top: 8px;
+    font-size: .9rem;
+    line-height: 1.32;
+  }
+
+  .transport {
+    padding-block: clamp(42px, 5.2vw, 74px);
+  }
+
+  .transport__grid {
+    gap: clamp(34px, 4vw, 48px);
+  }
+
+  .transport h2 {
+    font-size: clamp(1.75rem, 3.6vw, 2.85rem);
+  }
+
+  .transport .lede {
+    margin-top: 14px;
+    font-size: 1rem;
+    line-height: 1.52;
+  }
+
+  .transit li {
+    gap: 16px;
+    padding: 14px 0;
+  }
+
+  .transit .num {
+    font-size: 1.55rem;
+  }
+
+  .hosts {
+    padding-block: clamp(56px, 7vw, 94px);
+  }
+
+  .hosts h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+  }
+
+  .hosts p {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  /* Shared CTA boxes — same compact hierarchy across pages */
+
+  .cta {
+    padding-block: clamp(50px, 6vw, 82px);
+  }
+
+  .cta__band {
+    max-width: 960px;
+    margin-inline: auto;
+    padding: clamp(30px, 3.8vw, 48px);
+    border-radius: 24px;
+  }
+
+  .cta__band h2 {
+    font-size: clamp(1.45rem, 3vw, 2.3rem);
+    line-height: 1.02;
+  }
+
+  .cta__band p {
+    margin-top: 10px;
+    font-size: .98rem;
+    line-height: 1.5;
+  }
+
+  .cta__band .btn {
+    margin-top: 22px;
+  }
+
+  /* Apartment */
+
+  .hero-image {
+    height: min(61vh, 610px);
+    min-height: 360px;
+  }
+
+  .section {
+    padding-top: 58px;
+  }
+
+  .section-head {
+    gap: 26px;
+    padding-top: 28px;
+    margin-bottom: 22px;
+  }
+
+  .section h2 {
+    font-size: clamp(1.45rem, 2.9vw, 2.55rem);
+    line-height: 1.02;
+    margin-bottom: 9px;
+  }
+
+  .section p {
+    font-size: .98rem;
+    line-height: 1.52;
+  }
+
+  .comfort {
+    margin-top: 64px;
+    padding: clamp(28px, 4vw, 46px);
+  }
+
+  .comfort h2 {
+    font-size: clamp(1.65rem, 3.6vw, 3rem);
+  }
+
+  .comfort-intro {
+    margin: 14px 0 24px;
+    font-size: .98rem;
+    line-height: 1.5;
+  }
+
+  .comfort-card {
+    min-height: 158px;
+    padding: 18px;
+  }
+
+  .comfort-card span {
+    font-size: .72rem;
+  }
+
+  .comfort-card h3 {
+    margin: 16px 0 8px;
+    font-size: 1.08rem;
+  }
+
+  .comfort-card p {
+    font-size: .9rem;
+  }
+
+  .practical {
+    padding: clamp(26px, 3.6vw, 44px);
+  }
+
+  .practical h2 {
+    font-size: clamp(1.55rem, 3.1vw, 2.65rem);
+  }
+
+  .practical-intro {
+    margin: 14px 0 24px;
+    font-size: .98rem;
+    line-height: 1.5;
+  }
+
+  .practical-card {
+    min-height: 145px;
+    padding: 18px;
+  }
+
+  .practical-card strong {
+    font-size: 1.02rem;
+  }
+
+  .practical-card p {
+    font-size: .9rem;
+  }
+
+  .apartment-cta {
+    margin-top: 34px;
+    gap: 24px;
+    padding: clamp(24px, 3.2vw, 38px);
+    border-radius: 24px;
+  }
+
+  .apartment-cta h2 {
+    font-size: clamp(1.35rem, 2.5vw, 2.1rem);
+    line-height: 1.04;
+  }
+
+  .apartment-cta p {
+    margin-top: 8px;
+    font-size: .96rem;
+    line-height: 1.5;
+  }
+
+  .apartment-cta .button {
+    min-height: 42px;
+    padding: 12px 20px;
+    font-size: .9rem;
+  }
+
+  /* Neighbourhood */
+
+  .neighborhood-image,
+  .neighbourhood-image {
+    padding-bottom: clamp(48px, 6vw, 78px);
+  }
+
+  .walks,
+  .character,
+  .history-feature,
+  .archive-carousel {
+    padding-block: clamp(54px, 6vw, 86px);
+  }
+
+  .walks__intro {
+    margin-bottom: 28px;
+  }
+
+  .walks__intro h2,
+  .character h2,
+  .history-feature__text h2,
+  .archive-carousel__intro h2 {
+    font-size: clamp(1.5rem, 3.25vw, 2.55rem);
+    line-height: 1.03;
+  }
+
+  .walks__intro p,
+  .character p,
+  .history-feature__text p,
+  .archive-carousel__intro p {
+    font-size: .98rem;
+    line-height: 1.52;
+  }
+
+  .walk {
+    grid-template-columns: 78px 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .walk__time {
+    font-size: 1.3rem;
+  }
+
+  .walk p {
+    font-size: .96rem;
+    line-height: 1.45;
+  }
+
+  .note {
+    padding: 20px;
+  }
+
+  .note h3 {
+    font-size: 1.14rem;
+  }
+
+  .note p {
+    font-size: .94rem;
+  }
+
+  /* Exchange + Contact */
+
+  .two-col {
+    padding-block: clamp(30px, 4vw, 48px) clamp(54px, 6vw, 86px);
+  }
+
+  .two-col__lead h2 {
+    font-size: clamp(1.45rem, 2.7vw, 2.2rem);
+    line-height: 1.04;
+  }
+
+  .two-col__lead p {
+    font-size: .98rem;
+    line-height: 1.52;
+  }
+
+  .info-card {
+    margin-top: 24px;
+    padding: clamp(22px, 3vw, 30px);
+    border-radius: 22px;
+  }
+
+  .info-card h3 {
+    font-size: clamp(1.22rem, 2.2vw, 1.68rem);
+    line-height: 1.04;
+  }
+
+  .info-card li,
+  .info-card p,
+  .info-card__note,
+  .privacy-note {
+    font-size: .9rem;
+    line-height: 1.48;
+  }
+
+  .content-stack {
+    gap: 20px;
+  }
+
+  .panel {
+    padding: clamp(22px, 3.2vw, 32px);
+    border-radius: 24px;
+  }
+
+  .panel__intro {
+    margin-bottom: 20px;
+  }
+
+  .panel__intro h2 {
+    font-size: clamp(1.28rem, 2.4vw, 1.9rem);
+    line-height: 1.04;
+  }
+
+  .panel__intro p {
+    font-size: .96rem;
+    line-height: 1.52;
+  }
+
+  .step {
+    grid-template-columns: 52px 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .step__number {
+    width: 42px;
+    height: 42px;
+  }
+
+  .step h3 {
+    font-size: 1.12rem;
+  }
+
+  .step p {
+    font-size: .94rem;
+    line-height: 1.48;
+  }
+
+  .preference {
+    padding: 18px;
+  }
+
+  .preference h3 {
+    font-size: 1.08rem;
+  }
+
+  .preference p,
+  .included-grid li {
+    font-size: .94rem;
+    line-height: 1.45;
+  }
+
+  footer {
+    padding-block: 26px;
+  }
+
+  footer .wrap {
+    font-size: .78rem;
+  }
+
+  footer .wrap span:last-child {
+    font-size: .66rem;
+    line-height: 1.3;
+    opacity: .5;
+    max-width: 42ch;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: .91rem;
+    line-height: 1.5;
+  }
+
+  .head {
+    padding-top: 84px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .head h1 {
+    font-size: clamp(1.82rem, 8.8vw, 2.8rem) !important;
+    max-width: 13ch !important;
+  }
+
+  .head p {
+    font-size: .88rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .section-head h2,
+  .intro h2,
+  .home-preview__intro h2,
+  .transport h2,
+  .walks__intro h2,
+  .history-feature__text h2,
+  .character h2,
+  .archive-carousel__intro h2,
+  .panel__intro h2,
+  .comfort h2,
+  .practical h2,
+  .two-col__lead h2,
+  .apartment-cta h2,
+  .cta__band h2 {
+    font-size: clamp(1.3rem, 6.1vw, 1.9rem) !important;
+    line-height: 1.04 !important;
+  }
+
+  .section,
+  .intro,
+  .home-preview,
+  .transport,
+  .walks,
+  .two-col,
+  .character,
+  .history-feature,
+  .archive-carousel {
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+  }
+
+  section.hero .hero__content {
+    padding-top: 98px !important;
+    padding-bottom: 42px !important;
+  }
+
+  section.hero h1 {
+    font-size: clamp(2.25rem, 12vw, 3.35rem) !important;
+  }
+
+  .hero__sub {
+    font-size: .86rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .btn,
+  .button,
+  button[type="submit"] {
+    min-height: 37px !important;
+    padding: .58rem .88rem !important;
+    font-size: .78rem !important;
+  }
+
+  .stats {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
+  .transport {
+    padding-top: 20px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .cta__band,
+  .apartment-cta,
+  .info-card,
+  .panel,
+  .comfort,
+  .practical {
+    border-radius: 17px !important;
+  }
+
+  .cta__band {
+    padding: 18px 14px !important;
+  }
+
+  .cta__band p,
+  .apartment-cta p,
+  .panel__intro p,
+  .two-col__lead p,
+  .section-head p,
+  .section p {
+    font-size: .8rem !important;
+    line-height: 1.36 !important;
+  }
+
+  .apartment-cta {
+    padding: 16px 13px !important;
+    margin-top: 20px !important;
+    margin-bottom: 30px !important;
+  }
+
+  .panel__intro {
+    margin-bottom: 12px !important;
+  }
+
+  /* Mobile horizontal galleries: preserve DOM order and make the first image snap first. */
+
+  .home-preview__grid,
+  .gallery-grid,
+  .views-gallery,
+  .archive-carousel__track {
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    scroll-padding-left: 0 !important;
+    scroll-snap-type: x mandatory !important;
+    overscroll-behavior-x: contain !important;
+  }
+
+  .home-preview__grid figure,
+  .gallery-grid .gallery-item,
+  .views-gallery .gallery-item,
+  .archive-carousel__track .archive-slide {
+    order: 0 !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+  }
+
+  .home-preview__grid figure:first-child,
+  .gallery-grid .gallery-item:first-child,
+  .views-gallery .gallery-item:first-child,
+  .archive-carousel__track .archive-slide:first-child {
+    order: -1 !important;
+  }
+
+  .views-gallery .gallery-item[data-full$="view-3.jpg"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    order: -2 !important;
+    flex: 0 0 78vw !important;
+    width: 78vw !important;
+    min-width: 78vw !important;
+    max-width: 78vw !important;
+    aspect-ratio: 4 / 3 !important;
+    scroll-snap-align: start !important;
+  }
+
+  .gallery-grid .gallery-item img,
+  .views-gallery .gallery-item img,
+  .home-preview__grid figure img,
+  .archive-carousel__track .archive-slide img {
+    object-position: center center !important;
+  }
+
+  .views-gallery .gallery-item[data-full$="view-3.jpg"] img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .comfort-grid,
+  .practical-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .comfort-card,
+  .practical-card,
+  .preference,
+  .walk,
+  .note {
+    border-radius: 13px !important;
+  }
+
+  .comfort-card p,
+  .practical-card p,
+  .note p,
+  .walk p {
+    line-height: 1.22 !important;
+  }
+
+  .step {
+    grid-template-columns: 28px 1fr !important;
+    gap: 8px !important;
+  }
+
+  .step__number {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+  }
+
+  footer .wrap span:last-child {
+    font-size: .6rem !important;
+    line-height: 1.24 !important;
+    opacity: .46 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .head h1 {
+    font-size: clamp(1.78rem, 8.6vw, 2.45rem) !important;
+  }
+
+  section.hero h1 {
+    font-size: clamp(2.12rem, 12vw, 3.1rem) !important;
+  }
+
+  .gallery-grid .gallery-item,
+  .views-gallery .gallery-item,
+  .home-preview__grid figure,
+  .archive-carousel__track .archive-slide,
+  .views-gallery .gallery-item[data-full$="view-3.jpg"] {
+    flex-basis: 82vw !important;
+    width: 82vw !important;
+    min-width: 82vw !important;
+    max-width: 82vw !important;
+  }
+}
+
