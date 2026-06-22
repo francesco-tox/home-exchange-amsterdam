@@ -366,7 +366,7 @@
     </section>
   </main>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox" id="lightbox" aria-hidden="true" inert>
     <button class="close" type="button" aria-label="Close image">×</button>
     <button class="prev" type="button" aria-label="Previous image">‹</button>
     <img src="" alt="">
@@ -408,22 +408,48 @@
     const nextButton = lightbox.querySelector(".next");
 
     let currentIndex = 0;
+    let lastFocusedElement = null;
 
     function openLightbox(index) {
       currentIndex = index;
+      lastFocusedElement =
+        document.activeElement instanceof HTMLElement &&
+        document.activeElement !== document.body
+          ? document.activeElement
+          : null;
+
       const item = galleryItems[currentIndex];
       const image = item.querySelector("img");
 
+      lightbox.removeAttribute("inert");
       lightboxImage.src = item.dataset.full || image.src;
       lightboxImage.alt = image.alt;
       lightbox.classList.add("open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+
+      requestAnimationFrame(() => {
+        closeButton.focus({ preventScroll: true });
+      });
     }
 
     function closeLightbox() {
+      const focusTarget =
+        lastFocusedElement &&
+        document.contains(lastFocusedElement) &&
+        !lightbox.contains(lastFocusedElement)
+          ? lastFocusedElement
+          : null;
+
+      if (focusTarget) {
+        focusTarget.focus({ preventScroll: true });
+      } else if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+
       lightbox.classList.remove("open");
       lightbox.setAttribute("aria-hidden", "true");
+      lightbox.setAttribute("inert", "");
       lightboxImage.src = "";
       document.body.style.overflow = "";
     }
