@@ -2058,3 +2058,34 @@ footer .wrap {
     padding: 14px !important;
   }
 }
+/* ============================================================
+   Home: reduce space between stats and transport section
+   ============================================================ */
+
+.stats {
+  padding-bottom: 48px;
+}
+
+.transport {
+  padding-top: 48px;
+}
+
+@media (max-width: 760px) {
+  .stats {
+    padding-bottom: 28px !important;
+  }
+
+  .transport {
+    padding-top: 34px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .stats {
+    padding-bottom: 22px !important;
+  }
+
+  .transport {
+    padding-top: 28px !important;
+  }
+}
