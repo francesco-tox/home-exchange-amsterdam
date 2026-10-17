@@ -128,7 +128,48 @@
       transform: none;
     }
 
+    /* Keep the wider living view and both hallway photos fully visible. */
+    #living-kitchen .living-detail img {
+      object-fit: contain !important;
+    }
+
+    #living-kitchen .living-detail:hover img {
+      transform: none;
+    }
+
+    #hallway .gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    #hallway .gallery-item {
+      grid-column: auto;
+      grid-row: auto;
+      height: auto !important;
+      min-height: 0 !important;
+      aspect-ratio: 9 / 16 !important;
+    }
+
+    #hallway .gallery-item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain !important;
+      object-position: center !important;
+    }
+
+    #hallway .gallery-item:hover img {
+      transform: none;
+    }
+
     @media (max-width: 760px) {
+      #hallway .gallery-grid {
+        max-width: none;
+      }
+
+      #hallway .gallery-grid .gallery-item,
       #bathroom .gallery-grid .gallery-item {
         flex: 0 0 min(82vw, 320px) !important;
         width: min(82vw, 320px) !important;
@@ -214,8 +255,8 @@
             <img src="photos/apartment/living-kitchen/living-kitchen-1.jpg" alt="Living and kitchen overview">
           </button>
 
-          <button class="gallery-item mate reveal" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-3.jpg" aria-label="Open image: Living area detail">
-            <img src="photos/apartment/living-kitchen/living-kitchen-3.jpg" alt="Living area detail">
+          <button class="gallery-item mate living-detail reveal" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-3.jpg?v=b7dc431c4a01" aria-label="Open image: Living area with sofa, artwork and marble dining table">
+            <img src="photos/apartment/living-kitchen/living-kitchen-3.jpg?v=b7dc431c4a01" alt="Living area with sofa, artwork and marble dining table">
           </button>
 
           <button class="gallery-item mate reveal" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-4.jpg" aria-label="Open image: Dining and kitchen">
@@ -314,16 +355,12 @@
         </div>
 
         <div class="gallery-grid">
-          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-1.jpg" aria-label="Open image: Hallway and entrance">
-            <img src="photos/apartment/hallway/hallway-1.jpg" alt="Hallway and entrance">
+          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-1.jpg?v=4534f082776a" aria-label="Open image: Hallway towards the bedroom">
+            <img src="photos/apartment/hallway/hallway-1.jpg?v=4534f082776a" alt="Hallway towards the bedroom">
           </button>
 
-          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-2.jpg" aria-label="Open image: Hallway detail">
-            <img src="photos/apartment/hallway/hallway-2.jpg" alt="Hallway detail">
-          </button>
-
-          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-3.jpg" aria-label="Open image: Hallway towards terrace">
-            <img src="photos/apartment/hallway/hallway-3.jpg" alt="Hallway towards terrace">
+          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-2.jpg?v=58c3651f20fd" aria-label="Open image: Hallway towards the living room and terrace window">
+            <img src="photos/apartment/hallway/hallway-2.jpg?v=58c3651f20fd" alt="Hallway towards the living room and terrace window">
           </button>
         </div>
       </div>
@@ -545,3 +582,4 @@
   </script>
 </body>
 </html>
+
