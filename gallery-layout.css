@@ -1,0 +1,111 @@
+/* Size each photo from its own aspect ratio instead of cropping fixed frames. */
+body main .natural-gallery {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center !important;
+  justify-content: center !important;
+  grid-template-columns: none !important;
+  grid-template-rows: none !important;
+  gap: 16px !important;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 0 !important;
+  overflow: visible !important;
+  scroll-snap-type: none !important;
+}
+
+body main .natural-gallery::before {
+  content: none !important;
+}
+
+body .natural-gallery > :is(.gallery-item.natural-photo, figure.natural-photo) {
+  position: relative !important;
+  display: block !important;
+  flex: var(--photo-ratio, 1.5) 1 calc(var(--photo-ratio, 1.5) * 210px) !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: min(100%, calc(var(--photo-ratio, 1.5) * min(72vh, 600px))) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  order: 0 !important;
+  margin: 0;
+  padding: 0;
+}
+
+body .natural-gallery > :is(.gallery-item.natural-photo, figure.natural-photo) > img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+
+body main .natural-gallery--scroll {
+  position: relative;
+  flex-wrap: nowrap;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  height: var(--gallery-active-height, auto) !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-padding-inline: 0 !important;
+  overscroll-behavior-x: contain;
+  padding: 4px 0 18px !important;
+  transition: height 160ms ease;
+}
+
+body .natural-gallery--scroll > :is(.gallery-item.natural-photo, figure.natural-photo) {
+  flex: 0 0 auto !important;
+  width: min(78vw, calc(var(--photo-ratio, 1.5) * 480px), 760px) !important;
+  max-width: min(78vw, 760px) !important;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (max-width: 760px) {
+  body main .natural-gallery {
+    position: relative !important;
+    flex-wrap: nowrap;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    height: var(--gallery-active-height, auto) !important;
+    gap: 10px !important;
+    padding: 24px 0 14px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding-inline: 0 !important;
+    overscroll-behavior-x: contain !important;
+    transition: height 160ms ease;
+  }
+
+  body main .natural-gallery::before {
+    content: "Swipe sideways →" !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  body .natural-gallery > :is(.gallery-item.natural-photo, figure.natural-photo) {
+    flex: 0 0 auto !important;
+    width: min(82vw, calc(var(--photo-ratio, 1.5) * min(68svh, 520px))) !important;
+    max-width: 82vw !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body main .natural-gallery {
+    transition: none;
+  }
+}

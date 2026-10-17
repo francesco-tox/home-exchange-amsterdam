@@ -64,120 +64,12 @@
       max-width: 58ch;
     }
 
-    .views-gallery {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-
-    .views-gallery .gallery-item {
-      min-height: 0;
-      height: 380px;
-    }
-
-    .views-gallery .gallery-item img {
-      object-fit: cover;
-      background: transparent;
-    }
-
-    .views-gallery .view-small-left  { grid-column: 1 / span 5; }
-    .views-gallery .view-large-right { grid-column: 6 / span 7; }
-    .views-gallery .view-large-left  { grid-column: 1 / span 7; }
-    .views-gallery .view-small-right { grid-column: 8 / span 5; }
-
-    @media (max-width: 900px) {
-      .views-gallery .gallery-item {
-        grid-column: span 12 !important;
-        height: 280px;
-      }
-    }
-
     @media (max-width: 620px) {
-      .views-intro-section {
-        padding-top: 36px;
-      }
-
-      .views-gallery .gallery-item {
-        height: 240px;
-      }
-    }
-
-    /* Keep bathroom and WC photos fully visible in portrait frames. */
-    #bathroom .gallery-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      align-items: start;
-    }
-
-    #bathroom .gallery-item {
-      grid-column: auto;
-      grid-row: auto;
-      height: auto !important;
-      min-height: 0 !important;
-      aspect-ratio: 9 / 16 !important;
-    }
-
-    #bathroom .gallery-item img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain !important;
-      object-position: center !important;
-    }
-
-    #bathroom .gallery-item:hover img {
-      transform: none;
-    }
-
-    /* Keep the wider living view and both hallway photos fully visible. */
-    #living-kitchen .living-detail img {
-      object-fit: contain !important;
-    }
-
-    #living-kitchen .living-detail:hover img {
-      transform: none;
-    }
-
-    #hallway .gallery-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      align-items: start;
-      max-width: 800px;
-      margin-inline: auto;
-    }
-
-    #hallway .gallery-item {
-      grid-column: auto;
-      grid-row: auto;
-      height: auto !important;
-      min-height: 0 !important;
-      aspect-ratio: 9 / 16 !important;
-    }
-
-    #hallway .gallery-item img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain !important;
-      object-position: center !important;
-    }
-
-    #hallway .gallery-item:hover img {
-      transform: none;
-    }
-
-    @media (max-width: 760px) {
-      #hallway .gallery-grid {
-        max-width: none;
-      }
-
-      #hallway .gallery-grid .gallery-item,
-      #bathroom .gallery-grid .gallery-item {
-        flex: 0 0 min(82vw, 320px) !important;
-        width: min(82vw, 320px) !important;
-        min-width: 0 !important;
-        max-width: 320px !important;
-      }
+      .views-intro-section { padding-top: 36px; }
     }
   </style>
+  <link rel="stylesheet" href="gallery-layout.css?v=962051dd8b85">
+  <script src="natural-galleries.js?v=2c278cee245f" defer></script>
 </head>
 
 <body>
@@ -220,21 +112,21 @@
           </div>
         </div>
 
-        <div class="gallery-grid views-gallery">
-          <button class="gallery-item view-small-left reveal" type="button" data-full="photos/apartment/views/view-3.jpg" aria-label="Open image: Green square view">
-            <img src="photos/apartment/views/view-3.jpg" alt="Green square view">
+        <div class="gallery-grid natural-gallery">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/views/view-3.jpg" aria-label="Open image: Green square view" style="--photo-ratio: 0.603598691;" data-orientation="portrait">
+            <img src="photos/apartment/views/view-3.jpg" alt="Green square view" width="1107" height="1834">
           </button>
 
-          <button class="gallery-item view-large-right reveal" type="button" data-full="photos/apartment/views/view-2.jpg" aria-label="Open image: Canal and rooftop view">
-            <img src="photos/apartment/views/view-2.jpg" alt="Canal and rooftop view">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/views/view-2.jpg" aria-label="Open image: Canal and rooftop view" style="--photo-ratio: 2.441001192;" data-orientation="landscape">
+            <img src="photos/apartment/views/view-2.jpg" alt="Canal and rooftop view" width="2048" height="839">
           </button>
 
-          <button class="gallery-item view-large-left reveal" type="button" data-full="photos/apartment/views/view-1.jpg" aria-label="Open image: Amsterdam view from the apartment">
-            <img src="photos/apartment/views/view-1.jpg" alt="Amsterdam view from the apartment">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/views/view-1.jpg" aria-label="Open image: Amsterdam view from the apartment" style="--photo-ratio: 2.257993385;" data-orientation="landscape">
+            <img src="photos/apartment/views/view-1.jpg" alt="Amsterdam view from the apartment" width="2048" height="907">
           </button>
 
-          <button class="gallery-item view-small-right reveal" type="button" data-full="photos/apartment/views/view-5.jpg" aria-label="Open image: View from the apartment">
-            <img src="photos/apartment/views/view-5.jpg" alt="View from the apartment">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/views/view-5.jpg" aria-label="Open image: View from the apartment" style="--photo-ratio: 1.776198934;" data-orientation="landscape">
+            <img src="photos/apartment/views/view-5.jpg" alt="View from the apartment" width="4000" height="2252">
           </button>
         </div>
       </div>
@@ -250,17 +142,17 @@
           </div>
         </div>
 
-        <div class="gallery-grid">
-          <button class="gallery-item hero reveal" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-1.jpg" aria-label="Open image: Living and kitchen overview">
-            <img src="photos/apartment/living-kitchen/living-kitchen-1.jpg" alt="Living and kitchen overview">
+        <div class="gallery-grid natural-gallery">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-1.jpg" aria-label="Open image: Living and kitchen overview" style="--photo-ratio: 1.776280323;" data-orientation="landscape">
+            <img src="photos/apartment/living-kitchen/living-kitchen-1.jpg" alt="Living and kitchen overview" width="1977" height="1113">
           </button>
 
-          <button class="gallery-item mate living-detail reveal" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-3.jpg?v=b7dc431c4a01" aria-label="Open image: Living area with sofa, artwork and marble dining table">
-            <img src="photos/apartment/living-kitchen/living-kitchen-3.jpg?v=b7dc431c4a01" alt="Living area with sofa, artwork and marble dining table">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-3.jpg?v=b7dc431c4a01" aria-label="Open image: Living area with sofa, artwork and marble dining table" style="--photo-ratio: 2.007843137;" data-orientation="landscape">
+            <img src="photos/apartment/living-kitchen/living-kitchen-3.jpg?v=b7dc431c4a01" alt="Living area with sofa, artwork and marble dining table" width="2048" height="1020">
           </button>
 
-          <button class="gallery-item mate reveal" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-4.jpg" aria-label="Open image: Dining and kitchen">
-            <img src="photos/apartment/living-kitchen/living-kitchen-4.jpg" alt="Dining and kitchen">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/living-kitchen/living-kitchen-4.jpg?v=acea9bde015a" aria-label="Open image: New kitchen with induction hob and combination oven" style="--photo-ratio: 0.822753906;" data-orientation="portrait">
+            <img src="photos/apartment/living-kitchen/living-kitchen-4.jpg?v=acea9bde015a" alt="New kitchen with induction hob and combination oven" width="1685" height="2048">
           </button>
         </div>
       </div>
@@ -276,17 +168,17 @@
           </div>
         </div>
 
-        <div class="gallery-grid">
-          <button class="gallery-item hero reveal" type="button" data-full="photos/apartment/bedroom/bedroom-1.jpg" aria-label="Open image: Bedroom overview">
-            <img src="photos/apartment/bedroom/bedroom-1.jpg" alt="Bedroom overview">
+        <div class="gallery-grid natural-gallery">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/bedroom/bedroom-1.jpg" aria-label="Open image: Bedroom overview" style="--photo-ratio: 1.556231003;" data-orientation="landscape">
+            <img src="photos/apartment/bedroom/bedroom-1.jpg" alt="Bedroom overview" width="2048" height="1316">
           </button>
 
-          <button class="gallery-item mate reveal" type="button" data-full="photos/apartment/bedroom/bedroom-2.jpeg" aria-label="Open image: Bedroom bed and wall detail">
-            <img src="photos/apartment/bedroom/bedroom-2.jpeg" alt="Bedroom bed and wall detail">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/bedroom/bedroom-2.jpeg" aria-label="Open image: Bedroom bed and wall detail" style="--photo-ratio: 1.776007498;" data-orientation="landscape">
+            <img src="photos/apartment/bedroom/bedroom-2.jpeg" alt="Bedroom bed and wall detail" width="3790" height="2134">
           </button>
 
-          <button class="gallery-item mate reveal" type="button" data-full="photos/apartment/bedroom/bedroom-3.jpg" aria-label="Open image: Bedroom window and light">
-            <img src="photos/apartment/bedroom/bedroom-3.jpg" alt="Bedroom window and light">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/bedroom/bedroom-3.jpg" aria-label="Open image: Bedroom window and light" style="--photo-ratio: 1.661190053;" data-orientation="landscape">
+            <img src="photos/apartment/bedroom/bedroom-3.jpg" alt="Bedroom window and light" width="3741" height="2252">
           </button>
         </div>
       </div>
@@ -302,17 +194,17 @@
           </div>
         </div>
 
-        <div class="gallery-grid">
-          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/bathroom/bathroom-1.jpg" aria-label="Open image: Bathroom overview">
-            <img src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview">
+        <div class="gallery-grid natural-gallery">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/bathroom/bathroom-1.jpg" aria-label="Open image: Bathroom overview" style="--photo-ratio: 0.502406739;" data-orientation="portrait">
+            <img src="photos/apartment/bathroom/bathroom-1.jpg" alt="Bathroom overview" width="835" height="1662">
           </button>
 
-          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/bathroom/bathroom-2.jpg" aria-label="Open image: Bathroom bath">
-            <img src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bath">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/bathroom/bathroom-2.jpg" aria-label="Open image: Bathroom bath" style="--photo-ratio: 0.489142237;" data-orientation="portrait">
+            <img src="photos/apartment/bathroom/bathroom-2.jpg" alt="Bathroom bath" width="901" height="1842">
           </button>
 
-          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/separate-wc/separate-wc-1.jpg?v=b40841485842" aria-label="Open image: Separate wc">
-            <img src="photos/apartment/separate-wc/separate-wc-1.jpg?v=b40841485842" alt="Separate wc">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/separate-wc/separate-wc-1.jpg?v=b40841485842" aria-label="Open image: Separate wc" style="--photo-ratio: 0.562500000;" data-orientation="portrait">
+            <img src="photos/apartment/separate-wc/separate-wc-1.jpg?v=b40841485842" alt="Separate wc" width="1152" height="2048">
           </button>
         </div>
       </div>
@@ -328,17 +220,17 @@
           </div>
         </div>
 
-        <div class="gallery-grid">
-          <button class="gallery-item terrace-balanced reveal" type="button" data-full="photos/apartment/terrace/terrace-1.jpg" aria-label="Open image: Terrace plants and seating">
-            <img src="photos/apartment/terrace/terrace-1.jpg" alt="Terrace plants and seating">
+        <div class="gallery-grid natural-gallery">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/terrace/terrace-1.jpg" aria-label="Open image: Terrace plants and seating" style="--photo-ratio: 1.776198934;" data-orientation="landscape">
+            <img src="photos/apartment/terrace/terrace-1.jpg" alt="Terrace plants and seating" width="4000" height="2252">
           </button>
 
-          <button class="gallery-item terrace-balanced reveal" type="button" data-full="photos/apartment/terrace/terrace-2.jpg" aria-label="Open image: Private terrace">
-            <img src="photos/apartment/terrace/terrace-2.jpg" alt="Private terrace">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/terrace/terrace-2.jpg" aria-label="Open image: Private terrace" style="--photo-ratio: 1.776198934;" data-orientation="landscape">
+            <img src="photos/apartment/terrace/terrace-2.jpg" alt="Private terrace" width="4000" height="2252">
           </button>
 
-          <button class="gallery-item terrace-balanced reveal" type="button" data-full="photos/apartment/terrace/terrace-3.jpg" aria-label="Open image: Terrace detail">
-            <img src="photos/apartment/terrace/terrace-3.jpg" alt="Terrace detail">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/terrace/terrace-3.jpg" aria-label="Open image: Terrace detail" style="--photo-ratio: 0.563000000;" data-orientation="portrait">
+            <img src="photos/apartment/terrace/terrace-3.jpg" alt="Terrace detail" width="2252" height="4000">
           </button>
         </div>
       </div>
@@ -354,13 +246,13 @@
           </div>
         </div>
 
-        <div class="gallery-grid">
-          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-1.jpg?v=dea4939a1450" aria-label="Open image: Hallway towards the bedroom">
-            <img src="photos/apartment/hallway/hallway-1.jpg?v=dea4939a1450" alt="Hallway towards the bedroom">
+        <div class="gallery-grid natural-gallery">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/hallway/hallway-1.jpg?v=dea4939a1450" aria-label="Open image: Hallway towards the bedroom" style="--photo-ratio: 0.562799043;" data-orientation="portrait">
+            <img src="photos/apartment/hallway/hallway-1.jpg?v=dea4939a1450" alt="Hallway towards the bedroom" width="941" height="1672">
           </button>
 
-          <button class="gallery-item service reveal" type="button" data-full="photos/apartment/hallway/hallway-2.jpg?v=ca27957d2ca0" aria-label="Open image: Hallway towards the living room and terrace window">
-            <img src="photos/apartment/hallway/hallway-2.jpg?v=ca27957d2ca0" alt="Hallway towards the living room and terrace window">
+          <button class="gallery-item reveal natural-photo" type="button" data-full="photos/apartment/hallway/hallway-2.jpg?v=ca27957d2ca0" aria-label="Open image: Hallway towards the living room and terrace window" style="--photo-ratio: 0.562799043;" data-orientation="portrait">
+            <img src="photos/apartment/hallway/hallway-2.jpg?v=ca27957d2ca0" alt="Hallway towards the living room and terrace window" width="941" height="1672">
           </button>
         </div>
       </div>
@@ -582,4 +474,5 @@
   </script>
 </body>
 </html>
+
 
