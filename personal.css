@@ -1,0 +1,88 @@
+/* A quieter personal presentation, with the existing proportional photo layout. */
+:root{--e-max:1220px}
+.e-header-inner{min-height:80px}
+.e-wordmark{font-family:"Bricolage Grotesque",Arial,sans-serif;font-size:18px;font-weight:600;line-height:1.05;letter-spacing:-.02em}
+.e-nav-links{gap:30px}
+.e-nav-links a{font-size:14px}
+.e-nav-links .e-contact-link{padding:0;background:transparent;color:var(--e-ink);display:block}
+.e-nav-links .e-contact-link:hover{text-decoration:underline;text-underline-offset:6px}
+.e-home-hero{padding-top:42px}
+.e-home-intro{grid-template-columns:1.1fr .9fr;gap:90px;align-items:end;padding-bottom:30px}
+.e-home-intro h1,.e-apartment-intro h1,.e-other .head h1{font-family:"Bricolage Grotesque",Arial,sans-serif;font-weight:500;letter-spacing:-.035em;line-height:1.06;font-size:clamp(39px,4.2vw,58px)}
+.e-hero-aside{max-width:420px;padding-bottom:0}
+.e-hero-aside p{font-size:16px;line-height:1.6;color:var(--e-ink)}
+.e-text-link{display:inline-block;padding:0;border-bottom:1px solid var(--e-muted);min-height:0;line-height:1.65;font-size:14px;font-weight:400}
+.e-hero-aside .e-text-link{width:auto;margin-top:15px}
+.e-text-link:hover{border-bottom-color:var(--e-ink)}
+.e-text-link span{display:none}
+.e-cover figcaption{font-size:11px;line-height:1.5;padding-top:11px;padding-bottom:0;color:var(--e-muted)}
+.p-neighbourhood{padding-top:68px;padding-bottom:0}
+.p-home-preview{padding-top:75px;padding-bottom:75px}
+.p-section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;margin-bottom:27px;align-items:start}
+.p-section-head h2,.e-album-toolbar h2,.e-stay h2{font-family:"Bricolage Grotesque",Arial,sans-serif;font-size:26px;line-height:1.2;font-weight:500;letter-spacing:-.025em}
+.p-section-head p{font-size:15px;line-height:1.6;color:var(--e-muted);max-width:55ch}
+.p-section-head .e-text-link{margin-top:12px}
+.e-shot figcaption{font-size:11px;line-height:1.4;margin-top:8px}
+.e-photo-plus{display:none}
+.e-apartment-intro{padding-top:52px;padding-bottom:35px;grid-template-columns:1fr 1fr;align-items:start;gap:90px}
+.e-apartment-note{max-width:500px;font-size:15px}
+.e-apartment-note p:first-child{font-size:18px;margin-bottom:13px;max-width:none;line-height:1.45}
+.e-album-section{padding-top:52px;padding-bottom:65px}
+.e-album-toolbar{padding-bottom:18px;margin-bottom:24px}
+.e-filters button{background:transparent;border:0;border-bottom:1px solid transparent;padding:7px 3px;margin-left:16px;font-size:13px}
+.e-filters button[aria-pressed=true]{background:transparent;color:var(--e-ink);border-color:var(--e-ink)}
+.e-filters span{font-size:10px;margin-left:4px}
+.e-album-count{font-size:11px}
+.e-stay{padding-top:42px;padding-bottom:65px;gap:80px}
+.e-stay h2{margin:0 0 20px}
+.e-amenities div{padding:17px 0}
+.e-footer-top{display:flex;justify-content:space-between;gap:40px;align-items:center;padding:30px 0}
+.e-footer-top h2{font-family:"Bricolage Grotesque",Arial,sans-serif;font-size:27px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
+.e-footer-top p{font-size:13px;color:#c4bfb2;margin-top:10px}
+.e-footer-contact{font-size:14px;white-space:nowrap;text-decoration:underline;text-underline-offset:5px}
+.e-footer-bottom{font-size:11px;padding:17px 0 20px}
+.e-kicker,.e-other .eyebrow{letter-spacing:.01em;text-transform:none;font-weight:400}
+.e-other .head{padding-top:50px}
+.e-other .head h1{max-width:23ch}
+.e-other .e-nav-links .e-contact-link{color:var(--e-ink)}
+@media(max-width:900px){
+ .e-home-intro{gap:45px;grid-template-columns:1fr 1fr}
+ .p-section-head{gap:45px}
+ .e-apartment-intro{gap:45px}
+}
+@media(max-width:700px){
+ .e-header-inner{min-height:72px}
+ .e-wordmark{font-size:17px}
+ .e-nav-links{gap:0}
+ .e-nav-links a{font-size:15px}
+ .e-nav-links .e-contact-link{padding:13px 0;margin-top:0;background:transparent;color:var(--e-ink)}
+ .e-home-hero{padding-top:28px}
+ .e-home-intro{display:block;padding-bottom:25px}
+ .e-home-intro h1,.e-apartment-intro h1,.e-other .head h1{font-size:clamp(36px,9vw,47px)!important;line-height:1.08!important;max-width:none!important}
+ .e-hero-aside{display:block;margin-top:22px}
+ .e-hero-aside p{font-size:15px;line-height:1.55}
+ .e-hero-aside .e-text-link{font-size:14px;margin-top:14px}
+ .e-cover figcaption{font-size:10px}
+ .p-neighbourhood{padding-top:43px}
+ .p-home-preview{padding-top:47px;padding-bottom:48px}
+ .p-section-head{display:block;margin-bottom:23px}
+ .p-section-head h2{font-size:25px;margin-bottom:15px}
+ .p-section-head p{font-size:14px;line-height:1.55}
+ .p-section-head .e-text-link{font-size:13px;margin-top:11px}
+ .e-shot figcaption{font-size:10px}
+ .e-apartment-intro{display:block;padding-top:32px;padding-bottom:25px}
+ .e-apartment-note{margin-top:23px;font-size:14px}
+ .e-apartment-note p:first-child{font-size:17px;line-height:1.4;margin-bottom:12px}
+ .e-album-section{padding-top:35px;padding-bottom:45px}
+ .e-album-toolbar h2{font-size:25px}
+ .e-filters{gap:18px}
+ .e-filters button{margin-left:0;flex:0 0 auto;min-height:42px;padding:7px 3px}
+ .e-stay{padding-top:32px;padding-bottom:45px;gap:25px}
+ .e-stay h2{font-size:25px}
+ .e-footer-top{display:block;padding:28px 0}
+ .e-footer-top h2{font-size:25px}
+ .e-footer-top p{font-size:13px;line-height:1.5;margin-top:12px}
+ .e-footer-contact{display:inline-block;margin-top:18px;font-size:14px;min-height:35px}
+ .e-footer-bottom{font-size:10px}
+ .e-other .e-nav-links .e-contact-link{color:var(--e-ink)!important}
+}
