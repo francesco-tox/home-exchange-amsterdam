@@ -1,0 +1,124 @@
+/* Black & ivory presentation layer. Remove this stylesheet to restore the original design. */
+:root {
+  --bone: #f5f1e9;
+  --ivory: #faf8f3;
+  --surface: #ede8df;
+  --surface-warm: #f0ece4;
+  --ink: #191917;
+  --muted: #646159;
+  --line: #d9d3c7;
+  --line-soft: #e1dbd0;
+  --clay: #191917;
+  --clay-dark: #35352f;
+  --pine: #191917;
+  --ochre: #e9e3d6;
+  --radius: 6px;
+  --radius-lg: 8px;
+  --shadow: 0 12px 34px rgba(25,25,23,.06);
+  --shadow-soft: 0 8px 26px rgba(25,25,23,.035);
+}
+body { background: var(--bone); }
+h1,h2,h3 { font-weight: 600; letter-spacing: -.045em; line-height: 1.06; }
+.nav, .nav--floating, .nav--floating.scrolled {
+  background: #191917;
+  border-bottom: 1px solid #3b3b34;
+  backdrop-filter: none;
+}
+.nav__inner { height: 78px; }
+.brand { font-weight: 600; font-size: 1.18rem; letter-spacing: -.025em; }
+.brand .dot { width: 7px; height: 7px; background: var(--bone); }
+.nav__links a { color: #e9e3d6; font-weight: 500; }
+.nav__links a[aria-current="page"] { color: #faf8f3; text-decoration-thickness: 1px; }
+.nav__links a:hover { color: #fff; }
+.head .eyebrow, .eyebrow, .section-number {
+  color: #646159;
+  font-weight: 600;
+  letter-spacing: .14em;
+}
+.hero h1 .line2 { color: var(--bone); }
+.hero h1 { font-weight: 600; letter-spacing: -.055em; line-height: .98; }
+.hero__sub { max-width: 51ch; }
+.btn, .button, .form button {
+  border-radius: 3px;
+  font-weight: 600;
+  box-shadow: none;
+}
+.hero .btn--clay { background: var(--bone); color: var(--ink); }
+.hero .btn--clay:hover { background: #fff; }
+.hero .btn--outline { border: 1px solid rgba(245,241,233,.8); }
+.hero .btn--outline:hover { background: var(--bone); color: var(--ink); }
+.btn:hover, .button:hover, .form button:hover { transform: none; }
+.hero-image, .gallery-item, .home-preview figure,
+.neighbourhood-hero-frame, .history-feature__figure, .character__image,
+.archive-slide { border-radius: 6px; box-shadow: none; }
+.gallery-item { border: 0; background: transparent; }
+.neighbourhood-hero-frame { padding: 0; }
+.hero-image { border: 0; }
+.hero-image, .gallery-item, .home-preview figure,
+.neighbourhood-hero-frame, .history-feature__figure, .character__image,
+.archive-slide { border-radius: 6px !important; }
+.transport { background: var(--ink); }
+.transport h2 .y, .transit .num { color: var(--bone); }
+.cta__band, .cta__band--pine, .comfort,
+.info-card, .panel--pine { background: #191917; }
+.cta__band, .apartment-cta, .info-card, .panel, .comfort, .practical {
+  border-radius: 6px;
+  box-shadow: none;
+}
+.cta__band .btn, .cta__band--pine .btn {
+  background: var(--bone);
+  color: var(--ink);
+  border: 1px solid var(--bone);
+}
+.cta__band .btn:hover, .cta__band--pine .btn:hover { background: #fff; color: var(--ink); }
+.comfort-card, .practical-card, .preference, .walk, .note,
+.step, .included-grid li { border-radius: 4px; box-shadow: none; }
+.comfort-card { background: transparent; }
+.comfort-card span, .comfort .eyebrow, .info-card li::before { color: var(--bone); }
+.info-card li::before { background: var(--bone); }
+.step__number { background: var(--ink); color: var(--bone); border-radius: 2px; }
+.form input, .form textarea { background: var(--ivory); border-radius: 4px; }
+.form input:focus, .form textarea:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(25,25,23,.12);
+}
+.form button, .button--primary { background: var(--ink); color: var(--bone); box-shadow: none; }
+.form button:hover, .button--primary:hover { background: var(--clay-dark); box-shadow: none; }
+.form .note { border: none; background: transparent; padding: 0; }
+footer { background: var(--ink); color: var(--bone); }
+.lightbox img, .archive-lightbox__image { border-radius: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+/* Content remains visible during browsing, with no dependency on reveal animations. */
+.reveal { opacity: 1; transform: none; transition: none; }
+@media (max-width: 820px) {
+  .nav__links { top: 78px; background: #24241f; }
+}
+@media (min-width: 821px) {
+  .head h1 { font-size: clamp(2.5rem,5.3vw,4.5rem); max-width: 24ch; }
+  .cta__band, .apartment-cta, .info-card, .panel { border-radius: 6px; }
+}
+@media (max-width: 760px) {
+  body { font-size: 1rem; line-height: 1.55; }
+  .head p, .hero__sub, .section p, .section-head p,
+  .cta__band p, .apartment-cta p, .panel__intro p,
+  .two-col__lead p { font-size: 1rem !important; line-height: 1.55 !important; }
+  .btn, .button, button[type="submit"] {
+    min-height: 46px !important;
+    padding: 12px 18px !important;
+    font-size: .94rem !important;
+    border-radius: 3px !important;
+  }
+  .stats__grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 22px 14px !important; }
+  .stat .n { font-size: 1.7rem !important; }
+  .stat .l { font-size: .84rem !important; line-height: 1.35 !important; }
+  .notes, .neighbourhood-quick-notes .notes { grid-template-columns: 1fr !important; }
+  .comfort-grid, .practical-grid, .walks__grid, .preference-grid { grid-template-columns: 1fr !important; }
+  .comfort-card p, .practical-card p, .note p, .walk p,
+  .preference p, .step p, .info-card p, .info-card li {
+    font-size: .96rem !important;
+    line-height: 1.5 !important;
+  }
+  .cta__band, .apartment-cta, .info-card, .panel, .comfort, .practical,
+  .comfort-card, .practical-card, .preference, .walk, .note { border-radius: 5px !important; }
+  .lightbox button, .archive-lightbox button { min-width: 46px; min-height: 46px; }
+}
