@@ -1,5 +1,6 @@
 /* A quieter personal presentation, with the existing proportional photo layout. */
-:root{--e-max:1220px}
+:root{--e-max:1220px;--e-ink:#000000}
+html{scroll-padding-top:96px}
 .e-header-inner{min-height:80px}
 .e-wordmark{font-family:"Bricolage Grotesque",Arial,sans-serif;font-size:18px;font-weight:600;line-height:1.05;letter-spacing:-.02em}
 .e-nav-links{gap:30px}
@@ -27,6 +28,7 @@
 .e-apartment-intro{padding-top:52px;padding-bottom:35px;grid-template-columns:1fr 1fr;align-items:start;gap:90px}
 .e-apartment-note{max-width:500px;font-size:15px}
 .e-apartment-note p:first-child{font-size:18px;margin-bottom:13px;max-width:none;line-height:1.45}
+.p-apartment-facts{display:flex;flex-wrap:wrap;gap:9px 22px;margin:20px 0 0;padding:15px 0 0;list-style:none;border-top:1px solid var(--e-line);font-size:15px;line-height:1.5;color:var(--e-ink)}
 .e-album-section{padding-top:52px;padding-bottom:65px}
 .e-album-toolbar{padding-bottom:18px;margin-bottom:24px}
 .e-filters button{background:transparent;border:0;border-bottom:1px solid transparent;padding:7px 3px;margin-left:16px;font-size:13px}
@@ -51,6 +53,7 @@
  .e-apartment-intro{gap:45px}
 }
 @media(max-width:700px){
+ html{scroll-padding-top:88px}
  .e-header-inner{min-height:72px}
  .e-wordmark{font-size:17px}
  .e-nav-links{gap:0}
@@ -92,9 +95,9 @@
 .e-header .e-wordmark{color:var(--e-bg)}
 .e-header .e-nav-links{gap:10px}
 .e-header .e-nav-links a{display:flex;align-items:center;min-height:44px;padding:10px 14px;margin-top:0;color:var(--e-bg);font-size:16px;font-weight:500;line-height:1.4;text-decoration:none}
-.e-header .e-nav-links a:hover{background:#35352f;text-decoration:underline;text-underline-offset:5px}
+.e-header .e-nav-links a:hover{background:#1a1a1a;text-decoration:underline;text-underline-offset:5px}
 .e-header .e-nav-links a[aria-current=page]{background:var(--e-bg);color:var(--e-ink);text-decoration:none}
-.e-header .e-menu-toggle{min-height:44px;padding:8px 13px;border:1px solid #89867b;background:#292925;color:var(--e-bg);font-size:15px;font-weight:600;gap:13px}
+.e-header .e-menu-toggle{min-height:44px;padding:8px 13px;border:1px solid #89867b;background:transparent;color:var(--e-bg);font-size:15px;font-weight:600;gap:13px}
 .e-header .e-menu-toggle[aria-expanded=true]{background:var(--e-bg);color:var(--e-ink);border-color:var(--e-bg)}
 .e-header .e-menu-toggle[aria-expanded=true] span{transform:rotate(45deg)}
 .e-header a:focus-visible,.e-header button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
@@ -108,3 +111,9 @@
  .e-header .e-nav-links a{min-height:54px;padding:13px 14px;font-size:18px;border-bottom:1px solid #49473f}
  .e-header .e-nav-links a[aria-current=page]{border-bottom-color:var(--e-bg)}
 }
+
+/* Every page ends on the same black surface and copyright strip. */
+.e-footer.p-unified-footer{background:var(--e-ink);color:var(--e-bg)}
+.e-footer.p-unified-footer .e-footer-top p{color:var(--e-bg)}
+.e-footer.p-unified-footer .e-footer-bottom{min-height:66px;padding:22px 0 24px;border-top:1px solid #3d3d3d;color:var(--e-bg);font-size:12px;line-height:18px}
+

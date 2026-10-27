@@ -25,8 +25,8 @@
 .i-agreements dt{font-size:16px;font-weight:600;line-height:1.5}
 .i-agreements dd{margin:0;max-width:38ch}
 .i-destinations p{margin-top:23px;max-width:36ch}
-.i-contact-action{display:inline-flex;min-height:46px;align-items:center;margin-top:30px;padding:12px 21px;color:var(--e-bg);background:var(--e-ink);text-decoration:none;font-size:15px}
-.i-contact-action:hover{background:#35352f}
+.i-contact-action{display:inline-flex;min-height:48px;align-items:center;margin-top:30px;padding:12px 21px;color:var(--e-bg);background:var(--e-ink);text-decoration:none;font-size:16px}
+.i-contact-action:hover{background:#1a1a1a}
 .i-contact-layout{display:block;max-width:840px;padding-top:44px;padding-bottom:64px}
 .i-contact-intro p{margin-top:22px;max-width:26ch}
 .i-form{width:100%;max-width:none;display:flex;flex-direction:column;gap:24px;margin-top:32px}
@@ -42,10 +42,18 @@
 .i-field input:focus,.i-field textarea:focus{outline:2px solid var(--e-ink);outline-offset:2px;border-color:var(--e-ink)}
 .i-form-actions{display:flex;align-items:center;gap:25px}
 .i-form-actions button{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:0;min-height:48px;min-width:155px;padding:12px 20px;background:var(--e-ink);color:var(--e-bg);font-size:16px;cursor:pointer}
-.i-form-actions button:hover{background:#35352f}
+.i-form-actions button:hover{background:#1a1a1a}
 .i-form-actions p{font-size:13px;line-height:1.5;max-width:34ch}
 .i-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .i-footer .e-footer-bottom{border-top:0;padding:22px 0}
+.i-transit{padding-top:36px;padding-bottom:52px;border-top:1px solid var(--e-line)}
+.i-transit .i-transit-intro{font-size:17px;margin-top:16px;max-width:70ch}
+.i-transit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px;margin:26px 0 0}
+.i-transit-grid>div{padding-top:18px;border-top:1px solid var(--e-line)}
+.i-transit-grid dt{font-size:16px;line-height:1.4;font-weight:600;margin-bottom:12px}
+.i-transit-grid dd{margin:0;font-size:16px;line-height:1.65}
+.i-transit .i-transit-links{font-size:14px;margin-top:26px;max-width:75ch;color:var(--e-muted)}
+.i-transit a{text-underline-offset:4px}
 @media(max-width:1000px){
  .i-local-layout{gap:40px;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
  .i-section-title{display:block}
@@ -76,6 +84,11 @@
  .i-history{padding-top:30px;padding-bottom:45px}
  .i-history-intro{display:block;margin-bottom:25px}
  .i-history-intro p{margin-top:18px}
+ .i-transit{padding-top:30px;padding-bottom:38px}
+ .i-transit-grid{grid-template-columns:1fr;gap:24px;margin-top:23px}
+ .i-transit-grid dt{margin-bottom:9px}
+ .i-transit-grid dd{font-size:16px}
+ .i-transit .i-transit-links{font-size:14px;margin-top:25px}
  .i-exchange-layout{display:block;padding-bottom:48px}
  .i-agreements{margin-top:21px}
  .i-agreements>div{grid-template-columns:1fr;gap:10px;padding:20px 0}
@@ -95,3 +108,4 @@
  .i-form-actions p{font-size:13px;line-height:1.5}
  .i-footer .e-footer-bottom{padding:20px 0}
 }
+
