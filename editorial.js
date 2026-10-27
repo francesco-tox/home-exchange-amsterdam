@@ -1,4 +1,37 @@
 (() => {
+ // Progressive enhancement: content remains visible if animation is unavailable.
+ try{if(document.body.classList.contains('e-home')){
+  const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(!preference.matches&&typeof Element.prototype.animate==='function'){
+   const running=new Set();let observer;
+   const reveal=(element,delay=0,cover=false)=>{
+    if(!element||preference.matches)return;
+    const from={opacity:0,transform:'translate3d(0,24px,0)'},to={opacity:1,transform:'translate3d(0,0,0)'};
+    if(cover){from.clipPath='inset(0 0 12% 0)';to.clipPath='inset(0 0 0 0)';}
+    const animation=element.animate([from,to],{duration:cover?1100:800,delay,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'});
+    running.add(animation);
+    animation.finished.then(()=>running.delete(animation),()=>running.delete(animation));
+   };
+   reveal(document.querySelector('.e-home-intro h1'));
+   reveal(document.querySelector('.e-hero-aside'),110);
+   reveal(document.querySelector('.e-cover'),190,true);
+   if('IntersectionObserver'in window){
+    observer=new IntersectionObserver(entries=>{
+     entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      const element=entry.target;
+      const delay=element.classList.contains('e-shot')?Math.min([...element.parentElement.children].indexOf(element)*90,180):0;
+      reveal(element,delay);observer.unobserve(element);
+     });
+    },{threshold:.05,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.p-section-head,.e-home .e-shot,.e-home .e-footer-top').forEach(element=>observer.observe(element));
+   }
+   preference.addEventListener?.('change',()=>{
+    if(!preference.matches)return;
+    observer?.disconnect();running.forEach(animation=>animation.cancel());running.clear();
+   });
+  }
+ }}catch{ /* Animation must never block navigation, photographs or content. */ }
  const toggle=document.getElementById('navToggle'),nav=document.getElementById('navLinks');
  if(toggle&&nav){
   if(!document.body.classList.contains('e-other'))toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
