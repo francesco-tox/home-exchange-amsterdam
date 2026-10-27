@@ -44,25 +44,10 @@
   <link rel="stylesheet" href="gallery-layout.css?v=962051dd8b85">
   <script src="natural-galleries.js?v=2c278cee245f" defer></script>
   <link rel="stylesheet" href="black-ivory.css?v=20261027">
-</head>
+<link rel="stylesheet" href="editorial.css"><script src="editorial.js" defer></script></head>
 
-<body>
-  <a class="skip" href="#main">Skip to main content</a>
-
-  <header class="nav">
-    <div class="wrap nav__inner">
-      <a class="brand" href="index.html"><span class="dot"></span> Home</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav__links" id="navLinks">
-        <li><a href="apartment.html">The Apartment</a></li>
-        <li><a href="neighborhood.html" aria-current="page">Neighbourhood</a></li>
-        <li><a href="exchange.html">Exchange</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </header>
+<body class="e-other">
+  <a class="e-skip" href="#main">Skip to content</a><header class="e-header"><div class="e-header-inner"><a class="e-wordmark" href="index.html" aria-label="A Quiet Amsterdam Home — Home">A QUIET<br>AMSTERDAM HOME<span class="e-brand-period">.</span></a><button class="e-menu-toggle" id="navToggle" type="button" aria-controls="navLinks" aria-label="Menu" aria-expanded="false">Menu <span>+</span></button><nav class="e-nav-links" id="navLinks" aria-label="Main navigation"><a href="apartment.html">The apartment</a><a href="neighborhood.html" aria-current="page">Neighbourhood</a><a href="exchange.html">Exchange</a><a class="e-contact-link" href="contact.html">Get in touch <span aria-hidden="true">↗</span></a></nav></div></header>
 
   <main id="main">
     <section class="head">
@@ -229,12 +214,7 @@
     <button class="archive-lightbox__next" type="button" aria-label="Next image">›</button>
   </div>
 
-  <footer>
-    <div class="wrap">
-      <span>© 2026 Amsterdam Home Exchange</span>
-      <span>A central Amsterdam apartment on the edge of the Jordaan, open to direct exchange.</span>
-    </div>
-  </footer>
+  <footer class="e-footer"><div class="e-wrap"><div class="e-footer-top"><p class="e-kicker">A direct home exchange</p><a class="e-footer-title" href="contact.html">A change<br>of scenery.<span aria-hidden="true">↗</span></a><p>A real home, shared with care.<br>Tell me about yours.</p></div><div class="e-footer-bottom"><span>© 2026 · A Quiet Amsterdam Home</span><a href="exchange.html">How the exchange works</a><a href="contact.html">Let's talk</a></div></div></footer>
 
   <script>
     const navToggle = document.getElementById("navToggle");
