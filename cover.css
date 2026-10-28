@@ -45,3 +45,9 @@
  .c-portal>img,.c-portal-label>span{transition:none}
  .c-portal:hover>img{transform:none}
 }
+
+/* Ivory curtains and a horizontal text reveal for the home opening. */
+.c-curtain{position:absolute;inset:-1px;z-index:3;pointer-events:none;background:var(--e-bg);will-change:transform}
+.c-home[data-opening] .c-portal>img{transition:none}
+.c-home[data-opening] .c-portal:hover>img{transform:none}
+@media(prefers-reduced-motion:reduce){.c-curtain{display:none}}
