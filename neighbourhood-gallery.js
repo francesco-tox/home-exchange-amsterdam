@@ -9,6 +9,16 @@
   current=(index+figures.length)%figures.length;
   figures.forEach((figure,i)=>{figure.hidden=i!==current;});
   thumbs.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===current)));
+  const selected=figures[current].querySelector('img');
+  selected.loading='eager';
+  const selectedIndex=current;
+  const warmNext=()=>{
+   if(current!==selectedIndex)return;
+   const next=figures[(current+1)%figures.length].querySelector('img');
+   next.setAttribute('fetchpriority','low');next.loading='eager';
+  };
+  if(selected.complete&&selected.naturalWidth)warmNext();
+  else selected.addEventListener('load',warmNext,{once:true});
   counter.textContent=String(current+1).padStart(2,'0')+' / '+String(figures.length).padStart(2,'0');
   if(follow){
    const button=thumbs[current],left=button.offsetLeft-rail.offsetLeft;

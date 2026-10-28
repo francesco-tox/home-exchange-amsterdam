@@ -84,16 +84,28 @@
  });
  const dialog=document.getElementById('eLightbox');if(!dialog)return;
  const image=dialog.querySelector('img'),caption=document.getElementById('eImageCaption'),counter=document.getElementById('eImageCount');
- let photos=[],index=0,sourceButton=null,touchX=null,touchY=null;
- const show=()=>{const button=photos[index],original=button.querySelector('img');image.src=button.dataset.full||original.src;image.alt=original.alt;caption.textContent=button.closest('figure').querySelector('figcaption')?.textContent||original.alt;counter.textContent=String(index+1).padStart(2,'0')+' / '+String(photos.length).padStart(2,'0');};
+ let photos=[],index=0,sourceButton=null,touchX=null,touchY=null,imageVersion=0;
+ const show=()=>{
+  const button=photos[index],original=button.querySelector('img'),version=++imageVersion;
+  const preview=original.currentSrc||original.src,full=button.dataset.full||original.src;
+  image.src=preview;image.alt=original.alt;image.setAttribute('fetchpriority','high');
+  caption.textContent=button.closest('figure').querySelector('figcaption')?.textContent||original.alt;
+  counter.textContent=String(index+1).padStart(2,'0')+' / '+String(photos.length).padStart(2,'0');
+  if(full!==preview){
+   const fullImage=new Image();fullImage.decoding='async';fullImage.setAttribute('fetchpriority','low');
+   fullImage.onload=()=>{if(version===imageVersion&&dialog.open)image.src=full;};
+   fullImage.src=full;
+  }
+ };
  document.addEventListener('click',e=>{
   const button=e.target.closest('.e-photo-link');if(!button)return;sourceButton=button;
   const gallery=button.closest('[data-e-gallery]');photos=[...gallery.querySelectorAll('.e-photo-link')];index=photos.indexOf(button);show();dialog.showModal();document.documentElement.style.overflow='hidden';
  });
  const next=direction=>{index=(index+direction+photos.length)%photos.length;show();};
  dialog.addEventListener('click',e=>{const action=e.target.closest('[data-viewer]')?.dataset.viewer;if(action==='close'||e.target===dialog)dialog.close();else if(action==='prev')next(-1);else if(action==='next')next(1);});
- dialog.addEventListener('close',()=>{document.documentElement.style.overflow='';image.removeAttribute('src');sourceButton?.focus({preventScroll:true});});
+ dialog.addEventListener('close',()=>{imageVersion++;document.documentElement.style.overflow='';image.removeAttribute('src');sourceButton?.focus({preventScroll:true});});
  dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();next(-1);}if(e.key==='ArrowRight'){e.preventDefault();next(1);}});
  image.addEventListener('pointerdown',e=>{touchX=e.clientX;touchY=e.clientY;});
  image.addEventListener('pointerup',e=>{if(touchX!==null&&Math.abs(e.clientX-touchX)>50&&Math.abs(e.clientY-touchY)<50)next(e.clientX<touchX?1:-1);touchX=null;touchY=null;});
 })();
+
