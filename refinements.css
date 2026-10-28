@@ -27,14 +27,8 @@
 .x-agreements .i-agreements{margin-top:24px}
 .x-agreements .i-agreements>div{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:28px;padding:20px 0}
 .x-agreements .i-agreements dd{font-size:16px;line-height:1.65}
-.e-lightbox[open]{animation:viewer-enter .24s ease-out}
-@keyframes viewer-enter{from{opacity:0}to{opacity:1}}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){
- .x-propose span{transition:transform .25s ease}
- .x-propose:hover span,.x-propose:focus-visible span{transform:translate(3px,-3px)}
- .x-discover span{transition:transform .25s ease}
- .x-discover:hover span,.x-discover:focus-visible span{transform:translateY(3px)}
-}
+.p-page-panel{position:fixed;left:0;right:0;bottom:0;top:var(--p-panel-top,80px);z-index:90;pointer-events:none;background:var(--e-bg);will-change:transform}
+@media(prefers-reduced-motion:reduce){.p-page-panel{display:none}}
 @media(max-width:1000px){
  .n-local-details{gap:40px;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
  .x-hero{gap:36px}
@@ -64,4 +58,4 @@
  .x-agreements .i-agreements>div{padding:18px 0}
  .x-agreements .i-agreements dd{font-size:16px;line-height:1.6}
 }
-@media(prefers-reduced-motion:reduce){.e-lightbox[open]{animation:none}}
+
