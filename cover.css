@@ -52,5 +52,10 @@
 .c-home[data-opening] .c-portal:hover>img{transform:none}
 @media(prefers-reduced-motion:reduce){.c-curtain{display:none}}
 
-/* Give desktop photo tracks an explicit minimum before images finish loading. */
-@media(min-width:701px){.c-portals{grid-template-rows:minmax(380px,1fr)}.c-portal{min-height:380px}}
+/* Both destinations sit on separate full-width levels on desktop as well. */
+@media(min-width:701px){
+ .c-portals{grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(2,minmax(380px,1fr));min-height:762px}
+ .c-portal{min-height:380px}
+ .c-neighbourhood>img{object-position:43% 32%}
+ .c-apartment>img{object-position:50% 60%}
+}
