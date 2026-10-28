@@ -1,0 +1,67 @@
+/* Original canal photographs, with their proportions kept intact. */
+.n-canals{padding-bottom:56px}
+.n-gallery-heading{margin-bottom:24px}
+.n-local-details{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.8fr);gap:76px;padding-bottom:64px;align-items:start}
+.n-transit{padding:0;border:0}
+.n-transit .i-transit-intro{margin-top:22px}
+.n-transit .i-transit-grid{grid-template-columns:1fr;gap:24px}
+.n-transit .i-transit-links{max-width:none}
+.n-canals .e-shot figcaption{font-size:12px}
+
+/* Exchange: one clear invitation, a real photograph and two readable columns. */
+.x-hero{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:center;padding-top:48px;padding-bottom:48px}
+.x-hero-copy{min-width:0}
+.e-information .x-eyebrow{color:var(--e-muted);font-size:14px;line-height:1.4;margin-bottom:20px}
+.e-information .x-hero h1{font-size:clamp(42px,4.8vw,64px);line-height:1.04;letter-spacing:-.045em;max-width:10ch;text-wrap:balance}
+.e-information .x-intro{font-size:19px;line-height:1.6;max-width:29ch;margin-top:24px;color:var(--e-ink)}
+.x-discover{display:inline-flex;align-items:center;gap:26px;min-height:44px;margin-top:23px;font-size:15px;text-decoration:none;border-bottom:1px solid var(--e-ink)}
+.x-discover span{display:inline-block;font-size:20px}
+.x-hero-photo{min-width:0;overflow:hidden}
+.x-hero-photo img{width:100%;height:auto;display:block}
+.x-details{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:80px;padding-top:44px;padding-bottom:76px;border-top:1px solid var(--e-line);scroll-margin-top:102px}
+.x-destinations{max-width:37ch}
+.x-destinations p{margin-top:20px}
+.x-destinations p+p{margin-top:15px}
+.x-propose{justify-content:space-between;gap:35px;margin-top:28px}
+.x-propose span{display:inline-block;font-size:22px;line-height:1}
+.x-agreements .i-agreements{margin-top:24px}
+.x-agreements .i-agreements>div{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:28px;padding:20px 0}
+.x-agreements .i-agreements dd{font-size:16px;line-height:1.65}
+.e-lightbox[open]{animation:viewer-enter .24s ease-out}
+@keyframes viewer-enter{from{opacity:0}to{opacity:1}}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .x-propose span{transition:transform .25s ease}
+ .x-propose:hover span,.x-propose:focus-visible span{transform:translate(3px,-3px)}
+ .x-discover span{transition:transform .25s ease}
+ .x-discover:hover span,.x-discover:focus-visible span{transform:translateY(3px)}
+}
+@media(max-width:1000px){
+ .n-local-details{gap:40px;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+ .x-hero{gap:36px}
+ .x-details{gap:44px}
+ .x-agreements .i-agreements>div{grid-template-columns:1fr;gap:8px}
+}
+@media(max-width:700px){
+ .n-canals{padding-bottom:38px}
+ .n-gallery-heading{margin-bottom:22px}
+ .n-canals .e-shot figcaption{font-size:11px}
+ .n-local-details{display:block;padding-bottom:40px}
+ .n-local-details .i-section-title{display:flex;align-items:baseline}
+ .n-local-details .i-section-title>span{font-size:11px;text-align:right;max-width:13ch;margin:0}
+ .n-transit{margin-top:38px;padding-top:28px;border-top:1px solid var(--e-line)}
+ .n-transit .i-transit-intro{margin-top:18px}
+ .x-hero{display:flex;flex-direction:column;align-items:stretch;gap:30px;padding-top:32px;padding-bottom:34px}
+ .e-information .x-eyebrow{margin-bottom:16px;font-size:13px}
+ .e-information .x-hero h1{font-size:clamp(40px,10.8vw,52px);max-width:11ch}
+ .e-information .x-intro{font-size:17px;line-height:1.6;margin-top:20px;max-width:31ch}
+ .x-discover{margin-top:15px}
+ .x-details{display:block;padding-top:30px;padding-bottom:46px;scroll-margin-top:92px}
+ .x-destinations{max-width:none}
+ .x-destinations p{margin-top:18px;max-width:42ch}
+ .x-propose{min-height:50px;width:100%;margin-top:24px}
+ .x-agreements{margin-top:38px}
+ .x-agreements .i-agreements{margin-top:20px}
+ .x-agreements .i-agreements>div{padding:18px 0}
+ .x-agreements .i-agreements dd{font-size:16px;line-height:1.6}
+}
+@media(prefers-reduced-motion:reduce){.e-lightbox[open]{animation:none}}
