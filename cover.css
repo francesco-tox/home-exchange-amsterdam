@@ -51,3 +51,6 @@
 .c-home[data-opening] .c-portal>img{transition:none}
 .c-home[data-opening] .c-portal:hover>img{transform:none}
 @media(prefers-reduced-motion:reduce){.c-curtain{display:none}}
+
+/* Give desktop photo tracks an explicit minimum before images finish loading. */
+@media(min-width:701px){.c-portals{grid-template-rows:minmax(380px,1fr)}.c-portal{min-height:380px}}

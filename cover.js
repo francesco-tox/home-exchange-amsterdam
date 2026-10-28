@@ -15,7 +15,7 @@
  }
  if(!preference.matches&&typeof Element.prototype.animate==='function'){
   finished=false;document.body.setAttribute('data-opening','true');
-  safetyTimer=setTimeout(finishOpening,3600);
+  safetyTimer=setTimeout(finishOpening,2200);
   try{
    add(document.querySelector('.c-title h1'),[
     {opacity:0,transform:'translate3d(-14px,0,0)',clipPath:'inset(-12% 100% -12% 0%)'},
@@ -33,7 +33,7 @@
    });
    const images=links.map(link=>{const image=link.querySelector('img');return image?.decode?image.decode().catch(()=>{}):Promise.resolve();});
    const ready=Promise.allSettled([...images,document.fonts?.ready??Promise.resolve()]);
-   Promise.race([ready,new Promise(resolve=>{waitTimer=setTimeout(resolve,1600);})]).then(()=>{
+   Promise.race([ready,new Promise(resolve=>{waitTimer=setTimeout(resolve,300);})]).then(()=>{
     if(finished)return;clearTimeout(waitTimer);
     const start=document.timeline.currentTime;
     opening.forEach(animation=>{animation.play();animation.startTime=start;});

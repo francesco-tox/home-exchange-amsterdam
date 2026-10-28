@@ -117,3 +117,11 @@ html{scroll-padding-top:96px}
 .e-footer.p-unified-footer .e-footer-top p{color:var(--e-bg)}
 .e-footer.p-unified-footer .e-footer-bottom{min-height:66px;padding:22px 0 24px;border-top:1px solid #3d3d3d;color:var(--e-bg);font-size:12px;line-height:18px}
 
+
+/* Shared footer geometry, including pages shorter than the viewport. */
+body{min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+body>main{flex:1 0 auto;width:100%}
+body>.e-header,body>.e-footer{flex:0 0 auto}
+.e-footer.p-unified-footer .e-footer-bottom{min-height:66px;padding:22px 0 24px;border-top:1px solid #3d3d3d;color:var(--e-bg);font-size:12px;line-height:18px}
+
+.p-apartment-contact{margin-top:18px}
