@@ -3,8 +3,6 @@
  const dialog = document.getElementById('socialStory');
  if (!bar || !dialog || typeof dialog.showModal !== 'function') return;
  const url = document.querySelector('link[rel="canonical"]')?.href || 'https://aquietamsterdamhome.com/';
- const title = document.querySelector('meta[property="og:title"]')?.content || document.title;
- const description = document.querySelector('meta[property="og:description"]')?.content || '';
  const feedback = bar.querySelector('[data-share-status]');
  const storyFeedback = dialog.querySelector('[data-story-status]');
  const storyLink = dialog.querySelector('[data-story-link]');
@@ -13,9 +11,12 @@
  const save = dialog.querySelector('[data-story-save]');
  const shareImage = dialog.querySelector('[data-story-share]');
  const preview = dialog.querySelector('[data-story-preview]');
+ const shareUrl = new URL(url);
+ shareUrl.searchParams.set('share', '20261029-v2');
+ const freshLink = shareUrl.href;
  let imageFile = null, loading = false;
- bar.querySelector('[data-share-facebook]').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
- bar.querySelector('[data-share-whatsapp]').href = 'https://wa.me/?text=' + encodeURIComponent(title + '\n' + description + '\n' + url);
+ bar.querySelector('[data-share-facebook]').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(freshLink);
+ bar.querySelector('[data-share-whatsapp]').href = 'https://wa.me/?text=' + encodeURIComponent(freshLink);
  storyLink.value = url;
  fallbackInput.value = url;
  bar.querySelectorAll('button[hidden]').forEach(button => { button.hidden = false; });
@@ -40,7 +41,7 @@
   try {
    const response = await fetch(save.href);
    if (!response.ok) throw new Error('Image unavailable');
-   imageFile = new File([await response.blob()], 'a-quiet-amsterdam-home-story.jpg', {type:'image/jpeg'});
+   imageFile = new File([await response.blob()], 'a-quiet-amsterdam-home-story-v2.jpg', {type:'image/jpeg'});
    if (navigator.canShare({files:[imageFile]})) shareImage.hidden = false;
   } catch {
    // Saving the image and copying the link remain available.
