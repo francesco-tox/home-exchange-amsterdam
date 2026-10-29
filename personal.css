@@ -61,7 +61,7 @@ html{scroll-padding-top:96px}
  .e-nav-links .e-contact-link{padding:13px 0;margin-top:0;background:transparent;color:var(--e-ink)}
  .e-home-hero{padding-top:28px}
  .e-home-intro{display:block;padding-bottom:25px}
- .e-home-intro h1,.e-apartment-intro h1,.e-other .head h1{font-size:clamp(36px,9vw,47px)!important;line-height:1.08!important;max-width:none!important}
+ .e-home-intro h1,.e-other .head h1{font-size:clamp(36px,9vw,47px)!important;line-height:1.08!important;max-width:none!important}
  .e-hero-aside{display:block;margin-top:22px}
  .e-hero-aside p{font-size:15px;line-height:1.55}
  .e-hero-aside .e-text-link{font-size:14px;margin-top:14px}
@@ -125,3 +125,4 @@ body>.e-header,body>.e-footer{flex:0 0 auto}
 .e-footer.p-unified-footer .e-footer-bottom{min-height:66px;padding:22px 0 24px;border-top:1px solid #3d3d3d;color:var(--e-bg);font-size:12px;line-height:18px}
 
 .p-apartment-contact{margin-top:18px}
+

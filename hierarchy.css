@@ -1,0 +1,36 @@
+/* One heading scale for the information pages; the Home keeps its cover title. */
+:root{--p-page-title:clamp(40px,4.2vw,58px);--p-section-title:28px;--p-detail-title:18px}
+.p-inner .e-apartment-intro h1,.p-inner.e-information h1,.p-inner.e-information .x-hero h1{font-family:"Bricolage Grotesque",Arial,sans-serif;font-size:var(--p-page-title);font-weight:500;line-height:1.08;letter-spacing:-.035em}
+.p-inner .e-album-toolbar h2,.p-inner .e-stay h2,.p-inner.e-information h2{font-size:var(--p-section-title);font-weight:500;line-height:1.2;letter-spacing:-.025em}
+.p-inner .i-places h3{font-family:"Hanken Grotesk",Arial,sans-serif;font-size:var(--p-detail-title);font-weight:600;line-height:1.4;letter-spacing:0}
+.p-inner .e-amenities dt,.p-inner .i-agreements dt,.p-inner .n-arrival-routes dt{font-size:16px;font-weight:600;line-height:1.45}
+.p-inner .e-amenities dd{font-size:16px;line-height:1.65;color:#504e47}
+.p-inner .e-stay-heading>p{font-size:17px;line-height:1.65;color:#504e47;max-width:35ch}
+
+/* Pages in the black header; sections on the quieter ivory rail below. */
+html.p-sectioned{--p-header-height:81px;--p-anchor-offset:151px;scroll-padding-top:var(--p-anchor-offset)}
+.p-section-nav{position:sticky;top:var(--p-header-height);z-index:80;background:var(--e-bg);border-bottom:1px solid var(--e-line)}
+.p-section-nav-inner{display:flex;align-items:center;gap:30px;min-height:54px}
+.i-neighbourhood .p-section-nav-inner{max-width:1146px}
+.p-section-label{font-size:12px;color:#57544d;white-space:nowrap}
+.p-section-links{display:flex;flex-wrap:wrap;gap:0 28px;min-width:0}
+.p-section-links a{display:flex;align-items:center;position:relative;min-height:54px;padding:6px 0;color:#504e47;font-size:14px;line-height:1.4;text-decoration:none}
+.p-section-links a[aria-current=location]{color:var(--e-ink);font-weight:600}
+.p-section-links a[aria-current=location]::after{content:"";position:absolute;height:1px;bottom:0;left:0;right:0;background:currentColor}
+.p-section-links a:hover{text-decoration:underline;text-underline-offset:4px;color:var(--e-ink)}
+.p-section-nav a:focus-visible{outline-offset:-3px}
+.p-inner .p-nearby-fitness{font-size:16px;line-height:1.65;margin-top:24px;max-width:65ch}
+.p-nearby-fitness a{text-underline-offset:4px}
+.p-inner [tabindex="-1"]:focus{outline:none}
+@media(max-width:700px){
+ :root{--p-page-title:40px;--p-section-title:26px;--p-detail-title:17px}
+ html.p-sectioned{--p-header-height:73px;--p-anchor-offset:137px}
+ .p-section-nav-inner{min-height:48px;gap:0}
+ .p-section-label{display:none}
+ .p-section-links{gap:0 22px}
+ .p-section-links a{font-size:14px;min-height:48px}
+ .p-inner .e-stay-heading>p{font-size:16px;line-height:1.6}
+ .p-inner .e-amenities div{grid-template-columns:1fr;gap:7px}
+ .p-inner .e-amenities dd{line-height:1.6}
+}
+@media(max-width:370px){.p-section-links{gap:0 18px}.p-section-links a{font-size:13px}}
